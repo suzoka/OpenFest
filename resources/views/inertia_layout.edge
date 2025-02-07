@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  @viteReactRefresh()
+  @inertiaHead()
+  @vite(['frontend/app/app.jsx', `frontend/pages/${page.component}.jsx`])
+</head>
+
+<body class="min-h-screen w-screen font-sans">
+  @inertia()
+</body>
+
+</html>
