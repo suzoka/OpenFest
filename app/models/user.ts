@@ -1,8 +1,17 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasManyThrough } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
+import type { HasManyThrough } from '@adonisjs/lucid/types/relations'
+import Advice from '#models/advice'
+import SelectedAdvice from '#models/selectedAdvice'
+
+
+enum UserRole {
+  ADMIN = 'admin',
+  FESTIVAL = 'festival',
+}
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -11,10 +20,10 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
 
 export default class User extends compose(BaseModel, AuthFinder) {
   @column({ isPrimary: true })
-  declare id: number
+  declare id: string
 
   @column()
-  declare fullName: string | null
+  declare name: string | null
 
   @column()
   declare email: string
@@ -22,9 +31,27 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column({ serializeAs: null })
   declare password: string
 
-  @column.dateTime({ autoCreate: true })
+  @column()
+  declare role: UserRole
+
+  @column.dateTime({ columnName: 'start_date' })
+  declare startDate: DateTime | null
+
+  @column.dateTime({ columnName: 'end_date' })
+  declare endDate: DateTime | null
+
+  @column({ columnName: 'is_verified' })
+  declare isVerified: boolean
+
+  @column()
+  declare description: string | null
+
+  @column.dateTime({ autoCreate: true, columnName: 'created_at' })
   declare createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, columnName: 'updated_at' })
   declare updatedAt: DateTime | null
+
+  @hasManyThrough([() => Advice, () => SelectedAdvice])
+  declare advices: HasManyThrough<typeof Advice>
 }
