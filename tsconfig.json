@@ -5,7 +5,8 @@
     "outDir": "./build",
     "baseUrl": ".",
     "paths": {
-      "#models/*": ["app/models/*"]
+      "#models/*": ["app/models/*"],
+      "#controllers/*": ["app/Controllers/*"],
     }
   },
   "exclude": ["frontend/**/*", "node_modules", "build"]

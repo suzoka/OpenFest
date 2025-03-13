@@ -4,13 +4,13 @@ import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 
 
-enum AdviceDisabilityType {
+export enum AdviceDisabilityType {
   PMR = 'pmr',
   CIMP = 'cimp',
   SENSORIAL = 'sensorial',
 }
 
-enum AdviceCategory {
+export enum AdviceCategory {
   BOOKING = 'booking',
   TRANSPORT = 'transport',
   RECEPTION = 'reception',
@@ -24,7 +24,7 @@ enum AdviceCategory {
 }
 
 export default class Advice extends BaseModel {
-  public static table = 'advices' // Assurez-vous que le nom de la table est correct
+  public static table = 'advices'
 
   @column({ isPrimary: true })
   declare id: string
@@ -63,12 +63,4 @@ export default class Advice extends BaseModel {
     pivotRelatedForeignKey: 'tag_id',
   })
   declare tags: ManyToMany<typeof Tag>
-
-  setPMR = (): void => {
-    this.disabilityType = AdviceDisabilityType.PMR
-  }
-
-  setBooking = (): void => {
-    this.category = AdviceCategory.BOOKING
-  }
 }

@@ -5,6 +5,7 @@ import User from '#models/user'
 import Advice from '#models/advice'
 
 export default class SelectedAdvice extends BaseModel {
+  public static table = 'selected_advices'
 
   @column({ isPrimary: true })
   declare id: string

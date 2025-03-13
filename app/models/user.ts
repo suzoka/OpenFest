@@ -1,14 +1,15 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column, hasManyThrough } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasManyThrough, hasOne } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import type { HasManyThrough } from '@adonisjs/lucid/types/relations'
+import type { HasManyThrough, HasOne } from '@adonisjs/lucid/types/relations'
 import Advice from '#models/advice'
 import SelectedAdvice from '#models/selectedAdvice'
+import FestivalType from '#models/festivalType'
 
 
-enum UserRole {
+export enum UserRole {
   ADMIN = 'admin',
   FESTIVAL = 'festival',
 }
@@ -19,6 +20,8 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
 })
 
 export default class User extends compose(BaseModel, AuthFinder) {
+  public static table = 'users'
+
   @column({ isPrimary: true })
   declare id: string
 
@@ -46,6 +49,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare description: string | null
 
+  @column()
+  declare festival_type_id: string | null
+
   @column.dateTime({ autoCreate: true, columnName: 'created_at' })
   declare createdAt: DateTime
 
@@ -54,4 +60,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasManyThrough([() => Advice, () => SelectedAdvice])
   declare advices: HasManyThrough<typeof Advice>
+
+  @hasOne(() => FestivalType)
+  declare festivalType: HasOne<typeof FestivalType>
 }

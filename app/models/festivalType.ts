@@ -1,14 +1,17 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
+import User from '#models/user.js'
+import { hasMany } from '@adonisjs/lucid/orm'
+import type { HasMany } from '@adonisjs/lucid/types/relations'
 
-export default class Tag extends BaseModel {
-  public static table = 'tags'
+export default class FestivalType extends BaseModel {
+  public static table = 'festival_types'
 
   @column({ isPrimary: true })
   declare id: string
 
   @column()
-  declare title: string
+  declare name: string
 
   @column()
   declare color: string
@@ -18,4 +21,7 @@ export default class Tag extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true, columnName: 'updated_at' })
   declare updatedAt: DateTime | null
+
+  @hasMany(() => User)
+  declare users: HasMany<typeof User>
 }

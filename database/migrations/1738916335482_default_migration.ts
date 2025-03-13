@@ -56,13 +56,10 @@ export default class extends BaseSchema {
     })
 
     this.schema.createTable('advice_tag', (table) => {
-      table.uuid('id').primary().defaultTo(this.raw('uuid_generate_v4()')).notNullable()
       table.uuid('advice_id').notNullable().references('id').inTable('advices').onDelete('CASCADE')
       table.uuid('tag_id').notNullable().references('id').inTable('tags').onDelete('CASCADE')
 
       table.primary(['advice_id', 'tag_id'])
-      table.timestamp('created_at').notNullable()
-      table.timestamp('updated_at').nullable()
     })
 
     this.schema.createTable('selected_advices', (table) => {
@@ -78,14 +75,17 @@ export default class extends BaseSchema {
   }
 
   async down() {
-    this.schema.raw('DROP EXTENSION IF EXISTS "uuid-ossp"')
-
     this.schema.dropTable('users')
     this.schema.dropTable('advices')
     this.schema.dropTable('tags')
     this.schema.dropTable('advice_tag')
     this.schema.dropTable('selected_advices')
 
+
+
+    this.schema.raw('DROP EXTENSION IF EXISTS "uuid-ossp"')
     this.schema.raw('DROP TYPE IF EXISTS user_role')
+    this.schema.raw('DROP TYPE IF EXISTS advice_disability_type')
+    this.schema.raw('DROP TYPE IF EXISTS advice_category')
   }
 }
