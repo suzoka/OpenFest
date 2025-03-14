@@ -7,6 +7,8 @@ import type { HasManyThrough, HasOne } from '@adonisjs/lucid/types/relations'
 import Advice from '#models/advice'
 import SelectedAdvice from '#models/selectedAdvice'
 import FestivalType from '#models/festivalType'
+import { attachment, Attachmentable } from '@jrmc/adonis-attachment'
+import type { Attachment } from '@jrmc/adonis-attachment/types/attachment'
 
 
 export enum UserRole {
@@ -19,8 +21,11 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   passwordColumnName: 'password',
 })
 
-export default class User extends compose(BaseModel, AuthFinder) {
+export default class User extends compose(BaseModel, AuthFinder, Attachmentable) {
   public static table = 'users'
+
+  @attachment({ folder: 'uploads/avatars' })
+  declare avatar: Attachment
 
   @column({ isPrimary: true })
   declare id: string

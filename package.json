@@ -65,13 +65,15 @@
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^4.0.0",
     "@inertiajs/react": "^2.0.3",
+    "@jrmc/adonis-attachment": "^3.2.2",
     "@vinejs/vine": "^3.0.0",
     "edge.js": "^6.2.0",
     "luxon": "^3.5.0",
     "pg": "^8.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "reflect-metadata": "^0.2.2"
+    "reflect-metadata": "^0.2.2",
+    "sharp": "^0.33.5"
   },
   "hotHook": {
     "boundaries": [
