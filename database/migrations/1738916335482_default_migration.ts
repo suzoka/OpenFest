@@ -29,7 +29,7 @@ export default class extends BaseSchema {
       table.string('title').notNullable()
       table.text('description').nullable()
       table.text('content').nullable()
-      table.enu('disability_type', ['pmr', 'cimp', 'sensorial'], {
+      table.enu('disability_type', ['pmr', 'cimp', 'ds'], {
         useNative: true,
         enumName: 'advice_disability_type',
         existingType: false,

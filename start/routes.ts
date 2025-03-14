@@ -9,5 +9,6 @@
 
 import router from '@adonisjs/core/services/router'
 
-router.get('/', '#controllers/homeController.home')
+router.get('/', '#controllers/homeController.home').as('home')
+router.post('/advice', '#controllers/adviceController.create')
 

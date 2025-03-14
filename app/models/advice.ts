@@ -4,11 +4,22 @@ import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 
 
-export enum AdviceDisabilityType {
+export enum AdviceDisability {
   PMR = 'pmr',
   CIMP = 'cimp',
-  SENSORIAL = 'sensorial',
+  DS = 'ds',
 }
+
+export const adviceDisabilityLabels: Record<AdviceDisability, string> = {
+  [AdviceDisability.PMR]: 'Personne à mobilité réduite',
+  [AdviceDisability.CIMP]: 'Handicape cognitif, intellectuel, psychique',
+  [AdviceDisability.DS]: 'Déficience sensoriel, visuelle ou auditif',
+}
+
+export const adviceDisabilityOptions: Array<{value: string, label: string}> = Object.values(AdviceDisability).map((value) => ({
+  value: value,
+  label: adviceDisabilityLabels[value],
+}))
 
 export enum AdviceCategory {
   BOOKING = 'booking',
@@ -22,6 +33,24 @@ export enum AdviceCategory {
   ACCOMODATION = 'accomodation',
   BACKHOME = 'backhome',
 }
+
+export const adviceCategoryLabels: Record<AdviceCategory, string> = {
+  [AdviceCategory.BOOKING]: `Prise d'informations, Réservation`,
+  [AdviceCategory.TRANSPORT]: `Transport jusqu'à l'événement`,
+  [AdviceCategory.RECEPTION]: `Arrivée sur site`,
+  [AdviceCategory.DISCOVERY]: `Découverte de l'événement`,
+  [AdviceCategory.HEALTH]: `Sanitaires`,
+  [AdviceCategory.RESTAURATION]: `Bar et restauration`,
+  [AdviceCategory.PLACE]: `Autres lieux sur site`,
+  [AdviceCategory.EVENT]: `L'événement`,
+  [AdviceCategory.ACCOMODATION]: `Hébergement sur place ou alentour`,
+  [AdviceCategory.BACKHOME]: `Retour chez soi`,
+}
+
+export const adviceCategoryOptions: Array<{value: string, label: string}> = Object.values(AdviceCategory).map((value) => ({
+  value: value,
+  label: adviceCategoryLabels[value],
+}))
 
 export default class Advice extends BaseModel {
   public static table = 'advices'
@@ -39,7 +68,7 @@ export default class Advice extends BaseModel {
   declare content: string | null
 
   @column({ columnName: 'disability_type' })
-  declare disabilityType: AdviceDisabilityType
+  declare disabilityType: AdviceDisability
 
   @column()
   declare category: AdviceCategory
