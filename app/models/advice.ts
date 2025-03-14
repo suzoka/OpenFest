@@ -50,6 +50,9 @@ export default class Advice extends BaseModel {
   @column.dateTime({ columnName: 'published_at' })
   declare publishedAt: DateTime | null
 
+  @column()
+  declare slug: string
+
   @column.dateTime({ autoCreate: true, columnName: 'created_at' })
   declare createdAt: DateTime
 

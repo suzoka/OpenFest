@@ -11,6 +11,7 @@ export default class ProjectsController {
     advice.category = AdviceCategory.BOOKING
     advice.disabilityType = AdviceDisabilityType.PMR
     advice.isPublished = true
+    advice.slug = `test-advice${Math.random()}`
 
     await advice.save()
 
