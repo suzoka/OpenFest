@@ -1,4 +1,4 @@
-export default function ServerError(props: { error: any }) {
+export default function ServerError(props) {
   return (
     <>
       <div className="container">
