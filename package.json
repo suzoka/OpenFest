@@ -58,6 +58,7 @@
     "@adonisjs/bouncer": "^3.1.5",
     "@adonisjs/core": "^6.17.0",
     "@adonisjs/cors": "^2.2.1",
+    "@adonisjs/drive": "^3.2.0",
     "@adonisjs/inertia": "^2.1.0",
     "@adonisjs/lucid": "^21.5.1",
     "@adonisjs/session": "^7.5.0",
