@@ -6,6 +6,7 @@ export default class ProjectsController {
   async home({ inertia }: HttpContext) {
     const myAdvice = await Advice.query()
       .preload('tags')
+      .orderBy('created_at', 'desc')
       .first()
 
     return inertia.render('home', {

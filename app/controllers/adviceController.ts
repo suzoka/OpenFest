@@ -4,10 +4,13 @@ import { AdviceCategory, AdviceDisability } from '#models/advice'
 import Tag from '#models/tag'
 
 export default class ProjectsController {
-  async create({ response }: HttpContext) {
+  async create({ request, response }: HttpContext) {
     const advice = new Advice()
 
-    advice.title = 'Test advice'
+    console.log(request.body())
+    const adviceForm = request.body()
+
+    advice.title = adviceForm.title
     advice.category = AdviceCategory.BOOKING
     advice.disabilityType = AdviceDisability.PMR
     advice.isPublished = true
