@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany } from '@adonisjs/lucid/orm'
+import { BaseModel, column, manyToMany, beforeSave } from '@adonisjs/lucid/orm'
 import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 
@@ -95,4 +95,16 @@ export default class Advice extends BaseModel {
     pivotRelatedForeignKey: 'tag_id',
   })
   declare tags: ManyToMany<typeof Tag>
+
+  @beforeSave()
+  public static async onPublication (advice: Advice) {
+    if (advice.$dirty.isPublished) {
+      if  (advice.isPublished) {
+        advice.publishedAt = DateTime.now()
+      } else {
+        advice.publishedAt = null
+      }
+
+    }
+  }
 }

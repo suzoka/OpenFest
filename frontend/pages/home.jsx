@@ -1,32 +1,47 @@
-import { Head } from '@inertiajs/react'
-import { useForm } from '@inertiajs/react'
+import { Head, useForm, Link } from '@inertiajs/react'
 
-export default function Home({advice, adviceDisabilities}) {
+export default function Home({ advice, adviceDisabilities, adviceCategories, errors }) {
   const form = useForm({
-    title: '',
+    isPublished: false,
   })
+
+  console.log(errors)
 
   const submitForm = (e) => {
     e.preventDefault()
-    form.post('advice')
+    form.put('advices')
   }
 
   return (
     <>
       <Head title="Homepage" />
-      <p>coucou</p>
-      <p>{advice.title}</p>
+      <p>{advice?.title || 'Undefined'}</p>
       <form onSubmit={submitForm}>
         <input type="text" name="title" onChange={e => form.setData('title', e.target.value)} />
         <br />
         <br />
+        <textarea name="description" id="description" onChange={e => form.setData('description', e.target.value)} />
+        <br /><br />
         <select name="disabilityType" onChange={e => form.setData('disabilityType', e.target.value)}>
-        {adviceDisabilities.map((disability, index) => (
-          <option key={index} value={disability.value}>{disability.label}</option>
-        ))}
+          <option value=""></option>
+          {adviceDisabilities.map((disability, index) => (
+            <option key={index} value={disability.value}>{disability.label}</option>
+          ))}
         </select>
+        <br /><br />
+        <select name="category" onChange={e => form.setData('category', e.target.value)}>
+          <option value=""></option>
+          {adviceCategories.map((category, index) => (
+            <option key={index} value={category.value}>{category.label}</option>
+          ))}
+        </select>
+        <br /><br />
+        <input type="text" name="slug" onChange={e => form.setData('slug', e.target.value)} />
+        <br /><br />
         <button type="submit" disabled={form.processing}>Submit</button>
       </form>
+
+      <Link href="/advices">Tous les conseils</Link>
     </>
   )
 }

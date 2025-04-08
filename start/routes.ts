@@ -10,5 +10,7 @@
 import router from '@adonisjs/core/services/router'
 
 router.get('/', '#controllers/homeController.home').as('home')
-router.post('/advice', '#controllers/adviceController.create')
+
+router.get('/advices', '#controllers/adviceController.index').as('advices.index')
+router.put('/advices', '#controllers/adviceController.create')
 

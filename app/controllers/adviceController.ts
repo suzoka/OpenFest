@@ -1,20 +1,15 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
-import { AdviceCategory, AdviceDisability } from '#models/advice'
+import { createAdviceValidator } from '#validators/advice'
 import Tag from '#models/tag'
 
 export default class ProjectsController {
   async create({ request, response }: HttpContext) {
+    const payload = await createAdviceValidator.validate(request.body())
+
     const advice = new Advice()
 
-    console.log(request.body())
-    const adviceForm = request.body()
-
-    advice.title = adviceForm.title
-    advice.category = AdviceCategory.BOOKING
-    advice.disabilityType = AdviceDisability.PMR
-    advice.isPublished = true
-    advice.slug = `test-advice${Math.random()}`
+    advice.fill(payload)
 
     await advice.save()
 

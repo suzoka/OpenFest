@@ -16,6 +16,8 @@ export default defineConfig({
       '~/': `${getDirname(import.meta.url)}/frontend/`,
       '@/': `${getDirname(import.meta.url)}/frontend/components/`,
       '#models/': `${getDirname(import.meta.url)}/app/models/`,
+      "#controllers/": `${getDirname(import.meta.url)}/app/controllers/`,
+      "#validators/": `${getDirname(import.meta.url)}/app/validators/`
     },
   },
 })
