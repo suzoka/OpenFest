@@ -7,6 +7,26 @@ import { adviceDisabilityOptions, adviceCategoryOptions } from '#models/advice'
 
 export default class AdvicesController {
 
+  async index({ inertia }: HttpContext) {
+    const advices = await Advice.query()
+      .preload('tags')
+      .orderBy('created_at', 'desc')
+
+    return inertia.render('advices/index', {
+      advices: advices
+    })
+  }
+
+  async show({ inertia, params }: HttpContext) {
+    const advice = await Advice.query()
+      .preload('tags')
+      .where('slug', params.slug)
+      .firstOrFail()
+    return inertia.render('advices/show', {
+      advice: advice,
+    })
+  }
+
   async new({ inertia }: HttpContext) {
     return inertia.render('advices/new', {
       adviceDisabilities: adviceDisabilityOptions,

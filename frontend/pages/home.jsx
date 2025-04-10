@@ -8,7 +8,7 @@ export default function Home({ advice }) {
       <p>
         Dernier conseil :
         {advice ? (
-          <Link href={`/advices/${advice.id}`}>{advice.title}</Link>
+          <Link href={`/advices/${advice.slug}`}>{advice.title}</Link>
         ) : (
           <span>Aucun conseil disponible</span>
         )}

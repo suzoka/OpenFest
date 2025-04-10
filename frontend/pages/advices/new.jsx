@@ -5,6 +5,8 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
     isPublished: false,
   })
 
+  console.log('errors', errors)
+
   const submitForm = (e) => {
     e.preventDefault()
     form.put('/advices')
