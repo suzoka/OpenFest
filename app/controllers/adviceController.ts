@@ -2,8 +2,18 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
 import { createAdviceValidator } from '#validators/advice'
 import Tag from '#models/tag'
+import { adviceDisabilityOptions, adviceCategoryOptions } from '#models/advice'
 
-export default class ProjectsController {
+
+export default class AdvicesController {
+
+  async new({ inertia }: HttpContext) {
+    return inertia.render('advices/new', {
+      adviceDisabilities: adviceDisabilityOptions,
+      adviceCategories: adviceCategoryOptions,
+    })
+  }
+
   async create({ request, response }: HttpContext) {
     const payload = await createAdviceValidator.validate(request.body())
 
