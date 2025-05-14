@@ -1,4 +1,5 @@
 import { Head, Link } from '@inertiajs/react'
+import { Horse, Heart, Cube } from "@phosphor-icons/react";
 
 export default function Home({ advice, user }) {
 
@@ -20,6 +21,10 @@ export default function Home({ advice, user }) {
       <Link href="/advices">Tous les conseils</Link>
       <br />
       <Link href="/logout" method='POST'>Déconnexion</Link>
+
+      <Horse />
+      <Heart color="#AE2983" weight="fill" size={32} />
+      <Cube color="teal" weight="duotone" />
     </>
   )
 }
