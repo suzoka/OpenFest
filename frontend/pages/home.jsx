@@ -18,6 +18,8 @@ export default function Home({ advice, user }) {
       <Link href="/advices/new">Créer un conseil</Link>
       <br />
       <Link href="/advices">Tous les conseils</Link>
+      <br />
+      <Link href="/logout" method='POST'>Déconnexion</Link>
     </>
   )
 }
