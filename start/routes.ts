@@ -8,6 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import { middleware } from '#start/kernel'
 
 router.get('/', '#controllers/homeController.home').as('home')
 
@@ -18,9 +19,9 @@ router.get('/register', '#controllers/authController.showRegisterForm').as('auth
 router.post('/register', '#controllers/authController.register')
 
 router.get('/advices', '#controllers/adviceController.index').as('advices.index')
-router.get('/advices/new', '#controllers/adviceController.new').middleware('auth').as('advices.new')
-router.put('/advices', '#controllers/adviceController.create').middleware('auth')
+router.get('/advices/new', '#controllers/adviceController.new').use(middleware.auth()).use(middleware.admin()).as('advices.new')
+router.put('/advices', '#controllers/adviceController.create').use(middleware.auth()).use(middleware.admin())
 router.get('/advices/:slug', '#controllers/adviceController.show').as('advices.show')
-router.get('/advices/:slug/edit', '#controllers/adviceController.edit').middleware('auth').as('advices.edit')
-router.put('/advices/:id', '#controllers/adviceController.update').middleware('auth').as('advices.update')
-router.delete('/advices/:id', '#controllers/adviceController.destroy').middleware('auth').as('advices.destroy')
+router.get('/advices/:slug/edit', '#controllers/adviceController.edit').use(middleware.auth()).use(middleware.admin()).as('advices.edit')
+router.put('/advices/:id', '#controllers/adviceController.update').use(middleware.auth()).use(middleware.admin()).as('advices.update')
+router.delete('/advices/:id', '#controllers/adviceController.destroy').use(middleware.auth()).use(middleware.admin()).as('advices.destroy')
