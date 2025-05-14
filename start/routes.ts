@@ -12,11 +12,11 @@ import { middleware } from '#start/kernel'
 
 router.get('/', '#controllers/homeController.home').as('home')
 
-router.get('/login', '#controllers/authController.showLoginForm').as('auth.login')
-router.post('/login', '#controllers/authController.login')
+router.get('/login', '#controllers/authController.showLoginForm').as('auth.login').use(middleware.guest())
+router.post('/login', '#controllers/authController.login').use(middleware.guest())
 router.post('/logout', '#controllers/authController.logout').as('auth.logout')
-router.get('/register', '#controllers/authController.showRegisterForm').as('auth.register')
-router.post('/register', '#controllers/authController.register')
+router.get('/register', '#controllers/authController.showRegisterForm').as('auth.register').use(middleware.guest())
+router.post('/register', '#controllers/authController.register').use(middleware.guest())
 
 router.get('/advices', '#controllers/adviceController.index').as('advices.index')
 router.get('/advices/new', '#controllers/adviceController.new').use(middleware.auth()).use(middleware.admin()).as('advices.new')
