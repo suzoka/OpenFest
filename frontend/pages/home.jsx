@@ -1,10 +1,11 @@
 import { Head, Link } from '@inertiajs/react'
 
-export default function Home({ advice }) {
+export default function Home({ advice, user }) {
 
   return (
     <>
       <Head title="Homepage" />
+      { user?.name || "guest" }
       <p>
         Dernier conseil :
         {advice ? (

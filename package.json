@@ -54,7 +54,7 @@
     "vite": "^6.0.3"
   },
   "dependencies": {
-    "@adonisjs/auth": "^9.2.4",
+    "@adonisjs/auth": "^9.4.0",
     "@adonisjs/bouncer": "^3.1.5",
     "@adonisjs/core": "^6.17.0",
     "@adonisjs/cors": "^2.2.1",
