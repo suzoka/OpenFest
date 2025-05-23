@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Titles.module.scss";
 
-export const Text = ({ as: Tag = "p", className, children, ...props }) => {
+export const Heading = ({ as: Tag = "p", className, children, ...props }) => {
 const componentClass = {
   h1: styles.heading_h1,
   h2: styles.heading_h2,
@@ -21,4 +21,4 @@ const componentClass = {
 // Example usage:
 // <Text as="h1" className="text-red-500">Hello World</Text>
 
-export default Text;
+export default Heading;

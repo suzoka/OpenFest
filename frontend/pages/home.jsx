@@ -1,6 +1,8 @@
 import { Head, Link } from '@inertiajs/react'
 import { Horse, Heart, Cube } from "@phosphor-icons/react";
-import Text from '../components/Titles/Titles.jsx'
+import Heading from '../components/Titles/Titles.jsx'
+import Button from '../components/Button/Button.jsx';
+import { Alien } from '@phosphor-icons/react';
 
 export default function Home({ advice, user }) {
 
@@ -8,8 +10,7 @@ export default function Home({ advice, user }) {
     <>
       <Head title="Homepage" />
       { user?.name || "guest" }
-
-      <Text as="h1">  OpenFest </Text>
+      
       <p>
         Dernier conseil :
         {advice ? (
@@ -25,6 +26,7 @@ export default function Home({ advice, user }) {
       <br />
       <Link href="/logout" method='POST'>Déconnexion</Link>
 
+      <Button as="link" href='/logout' method='POST' color="violet" type="primary" variant="text"> Déconnexion </Button>
       <Horse />
       <Heart color="#AE2983" weight="fill" size={32} />
       <Cube color="teal" weight="duotone" />
