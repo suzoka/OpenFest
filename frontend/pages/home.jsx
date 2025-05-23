@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react'
 import { Horse, Heart, Cube } from "@phosphor-icons/react";
+import Text from '../components/Titles/Titles.jsx'
 
 export default function Home({ advice, user }) {
 
@@ -7,6 +8,8 @@ export default function Home({ advice, user }) {
     <>
       <Head title="Homepage" />
       { user?.name || "guest" }
+
+      <Text as="h1">  OpenFest </Text>
       <p>
         Dernier conseil :
         {advice ? (
