@@ -18,7 +18,7 @@ export default function Home({ user }) {
             <Button color="violet" type="primary" variant="left"> <Alien size={24}></Alien> Texte </Button>
             <Button color="violet" type="primary" variant="right"> Texte <Alien size={24}></Alien> </Button>
             <Button color="violet" type="primary" variant="only"> <Alien size={24}></Alien> </Button>
-          </div>fc
+          </div>
           <div style={{ display: "flex", gap: "5px" }}>
             <Button color="violet" type="secondary" variant="text"> Texte </Button>
             <Button color="violet" type="secondary" variant="left"> <Alien size={24}></Alien> Texte </Button>
