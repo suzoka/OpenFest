@@ -1,0 +1,46 @@
+.partners    {
+    width: 400px;
+    height: 400px;
+    padding : 10px;
+}
+
+.partners_image {
+    background-color: var(--colors--neutral-100);
+    width: 100%;
+    height: 75%;
+    border-radius: var(--sizing-md);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.partners_labels {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    gap: var(--sizing-2xs);
+    flex-wrap: wrap;
+    z-index: 2;
+}
+
+.partners_img {
+    width: 60%;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.partners_name {
+    font-size: 1.438rem;
+    font-family: Poppins_Bold;
+    margin : var(--sizing-xs) 0;
+}
+
+.partners_description {
+    font-size: 1rem;
+    font-family : ABeeZee_Regular
+}
