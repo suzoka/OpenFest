@@ -1,0 +1,59 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero {
+    background-image: url('./images/openfest.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero2 {
+    background-image: url('./images/openfest2.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 30px;
+}
+
+.hero_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+        font-family: ABeeZee_Regular;
+        font-size: 1.188rem;
+        text-align: center;
+        color : var(--colors--neutral-950);
+    }
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 80px 64px;
+    gap: 48px;
+}
+
+.intro_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 0;
+
+    p {
+            font-family: ABeeZee_Regular;
+            font-size: 1rem;
+            margin-top: 24px;
+    }
+}

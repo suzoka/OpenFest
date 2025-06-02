@@ -4,32 +4,39 @@ import Heading from '../components/Titles/Titles.jsx'
 import Button from '../components/Button/Button.jsx';
 import { Alien } from '@phosphor-icons/react';
 
-export default function Home({ advice, user }) {
+import styles from '../css/pages/_homepage.module.scss';
+
+export default function Home({}) {
 
   return (
     <>
       <Head title="Homepage" />
-      { user?.name || "guest" }
-      
-      <p>
-        Dernier conseil :
-        {advice ? (
-          <Link href={`/advices/${advice.slug}`}>{advice.title}</Link>
-        ) : (
-          <span>Aucun conseil disponible</span>
-        )}
-      </p>
-
-      <Link href="/advices/new">Créer un conseil</Link>
-      <br />
-      <Link href="/advices">Tous les conseils</Link>
-      <br />
-      <Link href="/logout" method='POST'>Déconnexion</Link>
-
-      <Button as="link" href='/logout' method='POST' color="violet" type="primary" variant="text"> Déconnexion </Button>
-      <Horse />
-      <Heart color="#AE2983" weight="fill" size={32} />
-      <Cube color="teal" weight="duotone" />
+      <div className={styles.hero + ' ' + styles.container}>
+        <div className={styles.hero_logo}> 
+            <img src="./images/logo.svg" alt="Logo d'Openfest" />
+            <p> Les festivals à portée de toutes et tous !</p>
+        </div>
+      </div>
+      <div className={styles.hero2}></div>
+      <div className={styles.container}>
+        <div className={styles.intro}>
+          <div className={styles.intro_text}>
+            <div>
+              <Heading as="h2" className={styles.intro_title}>Vous avez dit OpenFest ?</Heading>
+              <p>
+                Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus.
+                <br></br><br></br>
+                Nunc sollicitudin nunc sit amet quam suscipit condimentum. Maecenas sodales malesuada dui eu commodo. Aliquam posuere sed nulla nec maximus. Etiam dignissim nunc urna, a tempor arcu euismod eu. Praesent hendrerit est est.
+                Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                <br></br><br></br>
+                Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
+              </p>
+            </div>
+            <Button as="link" href="/logout" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+          </div>
+          <img src="./images/placeholder.png" alt="Image d'illustration" className={styles.intro_image} />
+        </div>
+      </div>
     </>
   )
 }
