@@ -6,6 +6,7 @@ import Button from '../components/Button/Button.jsx';
 import Label from "../components/Label/Label.jsx";
 import Team from "../components/Team/Team.jsx";
 import Partners from "../components/Partners/Partners.jsx";
+import Stats from "../components/Stats/Stats.jsx";
 
 
 export default function Home({ user }) {
@@ -13,6 +14,9 @@ export default function Home({ user }) {
     return (
         <>
         <Heading as="h1">  OpenFest </Heading>
+        
+        <Stats title="Festivals en France chaque année" color="yellow" number={"100+"} />
+
   
       <div style={{ display: "flex", gap: "20px", marginBottom: "50px" }}>
         <div>
@@ -141,6 +145,7 @@ export default function Home({ user }) {
             description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </div>
+
         </>
     )
 }
