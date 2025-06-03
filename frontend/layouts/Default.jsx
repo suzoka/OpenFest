@@ -1,9 +1,9 @@
+import Header from "../components/Header/Header";
+
 export default function Layout({ children }) {
   return (
     <>
-      <header>
-        coucou layout
-      </header>
+      <Header />
       <div>{children}</div>
     </>
   )
