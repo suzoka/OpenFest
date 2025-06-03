@@ -17,7 +17,7 @@ export default class AuthController {
     } catch (error) {
       return inertia.render('auth/login', {
         errors: {
-          email: 'Invalid credentials',
+          email: 'Invalid credentials or email is not verified',
         },
       })
     }

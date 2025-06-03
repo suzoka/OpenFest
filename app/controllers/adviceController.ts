@@ -7,10 +7,18 @@ import { adviceDisabilityOptions, adviceCategoryOptions } from '#models/advice'
 
 export default class AdvicesController {
 
-  async index({ inertia }: HttpContext) {
-    const advices = await Advice.query()
-      .preload('tags')
-      .orderBy('created_at', 'desc')
+  async index({ inertia, request }: HttpContext) {
+    let advices
+
+    const params = request.qs()
+
+    if (params.search) {
+      advices = await Advice.search(params.search)
+    } else {
+      advices = await Advice.query()
+        .preload('tags')
+        .orderBy('created_at', 'desc')
+    }
 
     return inertia.render('advices/index', {
       advices: advices
