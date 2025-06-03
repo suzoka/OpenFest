@@ -33,6 +33,7 @@ const Button = ({
     href,
     color = "violet",
     type = "primary",
+    className = "",
     children,
     ...rest
 }) => {
@@ -52,11 +53,11 @@ const Button = ({
         red : styles.btn__red,
         yellow : styles.btn__yellow,
     }
-    const className = `${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${styles.btn}`;
+    const classStyle = `${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${styles.btn} ${className}`;
 
     if (as === "a" && href) {
         return (
-            <a href={href} className={className} {...rest}>
+            <a href={href} className={classStyle} {...rest}>
                 {children}
             </a>
         );
@@ -64,7 +65,7 @@ const Button = ({
 
     if (as === "link" && href) {
         return (
-            <Link href={href} className={className} {...rest}>
+            <Link href={href} className={classStyle} {...rest}>
                 {children}
             </Link>
         );
@@ -73,7 +74,7 @@ const Button = ({
     // Default to button
     const Tag = as;
     return (
-        <Tag className={className} {...rest}>
+        <Tag className={classStyle} {...rest}>
             {children}
         </Tag>
     );
