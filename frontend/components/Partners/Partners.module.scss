@@ -2,6 +2,10 @@
     width: 400px;
     height: 400px;
     padding : 10px;
+
+    @media (max-width: 768px) {
+        padding : 20px;
+    }
 }
 
 .partners_image {
