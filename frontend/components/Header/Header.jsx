@@ -13,28 +13,33 @@ const Header = () => {
     }, [user]);
 
     return (
-        <header>
+        <header className={`${styles.header} ${styles.onscroll}`}>
             <nav>
                 <ul className={styles.navList}>
                     <li>
-                        <Link href="/">Accueil</Link>
+                        <Link href="/" title="OpenFest Accueil" className={styles.logo}>
+                            <img src="/images/openfest_logo_color.svg" alt="OpenFest Logo" />
+                        </Link>
                     </li>
                     <li>
-                        <Link href="/advices" className={url.startsWith('/advices') ? styles.active : ''}>Conseils</Link>
+                        <Link href="/advices" className={`${styles.navLink} ${url.startsWith('/advices') ? styles.active : ''}`}>Conseils</Link>
                     </li>
                     <li>
-                        <Link href="/info" className={url.startsWith('/info') ? styles.active : ''}>Démarche</Link>
+                        <Link href="/info" className={`${styles.navLink} ${url.startsWith('/info') ? styles.active : ''}`}>Démarche</Link>
                     </li>
                     <li>
-                        <Link href="/festival" className={url.startsWith('/festival') ? styles.active : ''}>Les festivals accessibles</Link>
+                        <Link href="/festival" className={`${styles.navLink} ${url.startsWith('/festival') ? styles.active : ''}`}>Les festivals accessibles</Link>
+                    </li>
+                    <li>
+                        <Link href="/tests" className={`${styles.navLink} ${url.startsWith('/tests') ? styles.active : ''}`}>[dev] Styles Guides</Link>
                     </li>
                 </ul>
             </nav>
 
             { user ? 
-                <Button as="link" href='#' method='POST' type="secondary">{user?.name}</Button>
+                <Button method='POST' type="secondary" className={styles.headerBtn}>{user?.name}</Button>
                 :
-                <Button as="link" href='/login' method='POST' type="secondary">Se connecter</Button>
+                <Button as="link" href='/login' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
             }
         </header>
     );

@@ -8,15 +8,15 @@
 *::after {
   box-sizing: border-box;
   font-family: 'ABeeZee_Regular', sans-serif;
-  font-size: var(--size-desktop-paragraph-p-regular);
-  line-height: 130%;
+  // font-size: var(--size-desktop-paragraph-p-regular);
+  // line-height: 130%;
 }
 
 body {
   background-color: var(--colors--white);
   font-family: 'ABeeZee_Regular', sans-serif;
   font-size: var(--size-desktop-paragraph-p-regular);
-  line-height: 130%;
+  // line-height: 130%;
   color: var(--colors--black);
 }
 
@@ -29,4 +29,10 @@ a {
     color: var(--colors--primary-950);
     text-decoration: underline;
   }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
