@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany, beforeSave } from '@adonisjs/lucid/orm'
+import { BaseModel, column, manyToMany, beforeSave, beforeCreate } from '@adonisjs/lucid/orm'
 import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 
@@ -95,6 +95,16 @@ export default class Advice extends BaseModel {
     pivotRelatedForeignKey: 'tag_id',
   })
   declare tags: ManyToMany<typeof Tag>
+
+  @beforeCreate()
+  public static async onCreate (advice: Advice) {
+    advice.slug = advice.title
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9\-]/g, '')
+      .toLowerCase()
+  }
 
   @beforeSave()
   public static async onPublication (advice: Advice) {
