@@ -105,7 +105,6 @@ export default class Advice extends BaseModel {
       .replace(/[^a-zA-Z0-9\-]/g, '')
       .toLowerCase()
   }
-
   @beforeSave()
   public static async onPublication (advice: Advice) {
     if (advice.$dirty.isPublished) {
