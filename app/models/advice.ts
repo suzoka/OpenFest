@@ -69,8 +69,14 @@ export default class Advice extends BaseModel {
   @column()
   declare content: string | null
 
-  @column({ columnName: 'disability_type' })
-  declare disabilityType: AdviceDisability
+  @column({ columnName: 'for_pmr' })
+  declare forPmr: boolean
+
+  @column({ columnName: 'for_cimp' })
+  declare forCimp: boolean
+
+  @column({ columnName: 'for_ds' })
+  declare forDs: boolean
 
   @column()
   declare category: AdviceCategory
