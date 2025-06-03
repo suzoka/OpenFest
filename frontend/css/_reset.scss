@@ -7,10 +7,26 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'ABeeZee_Regular', sans-serif;
+  font-size: var(--size-desktop-paragraph-p-regular);
+  line-height: 130%;
 }
 
 body {
   background-color: var(--colors--white);
+  font-family: 'ABeeZee_Regular', sans-serif;
+  font-size: var(--size-desktop-paragraph-p-regular);
+  line-height: 130%;
+  color: var(--colors--black);
 }
 
+a {
+  text-decoration: none;
+  color: var(--colors--black);
+  transition: 0.2s ease-in-out;
 
+  &:hover {
+    color: var(--colors--primary-950);
+    text-decoration: underline;
+  }
+}
