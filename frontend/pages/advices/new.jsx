@@ -10,8 +10,6 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
     form.put('/advices')
   }
 
-  console.log('errors', errors)
-
   return (
     <>
       <Head title="Create advice" />

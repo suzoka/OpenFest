@@ -16,6 +16,11 @@ export enum UserRole {
   FESTIVAL = 'festival',
 }
 
+export enum AreaType {
+  INDOOR = 'indoor',
+  OUTDOOR = 'outdoor',
+}
+
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
   passwordColumnName: 'password',
@@ -56,6 +61,15 @@ export default class User extends compose(BaseModel, AuthFinder, Attachmentable)
 
   @column()
   declare festival_type_id: string | null
+
+  @column()
+  declare website: string | null
+
+  @column()
+  declare address: string | null
+
+  @column({ columnName: 'area_type' })
+  declare areaType: AreaType | null
 
   @column.dateTime({ autoCreate: true, columnName: 'created_at' })
   declare createdAt: DateTime
