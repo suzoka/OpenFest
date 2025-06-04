@@ -20,7 +20,7 @@
     font-family: Poppins_Bold, sans-serif;
     margin: 8px 0;
     z-index: 2;
-    padding : 0 var(--sizing-2xs);
+    padding : var(--sizing) var(--sizing-2xs);
 
     @media (max-width: 768px) {
         font-size: 0.938rem;

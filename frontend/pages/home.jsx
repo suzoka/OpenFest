@@ -6,6 +6,8 @@ import { RocketLaunch, Headphones } from '@phosphor-icons/react';
 import Stats from '../components/Stats/Stats.jsx';
 import Partners from '../components/Partners/Partners.jsx';
 
+
+
 import styles from '../css/pages/_homepage.module.scss';
 
 export default function Home({}) {
@@ -15,6 +17,7 @@ export default function Home({}) {
       <Head title="Homepage" />
         <div className={styles.hero + ' ' + styles.container}>
           <div className={styles.hero_logo}>
+              <img src="./images/confetti.svg" alt="Confettis" className={styles.confetti} />
               <img src="./images/logo.svg" alt="Logo d'Openfest" />
               <p> Les festivals à portée de toutes et tous !</p>
           </div>
@@ -39,10 +42,10 @@ export default function Home({}) {
               </div>
               <img src="./images/placeholder.png" alt="Image d'illustration" className={styles.intro_image} />
             </div>
-            <div className={styles.stats}>
-              <Stats title="Festivals en France chaque année" color="violet" number={"100+"}/>
-              <Stats title="Festivaliers PMR par festival" color="red" number={"2500"}/>
-              <Stats title="Statistique 3" color="yellow" number={"50%"}/>
+            <div className={styles.stats}> 
+              <Stats title="Festivals en France chaque année" color="violet" number={100} suffix="plus"/>
+              <Stats title="Festivaliers PMR par festival" color="red" number={2500}/>
+              <Stats title="Statistique 3" color="yellow" number={50} suffix="percent"/>
             </div>
           </div>
         </div>
