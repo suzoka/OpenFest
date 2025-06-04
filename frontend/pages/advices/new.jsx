@@ -19,12 +19,14 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
         <br />
         <textarea name="description" id="description" onChange={e => form.setData('description', e.target.value)} />
         <br /><br />
-        <select name="disabilityType" onChange={e => form.setData('disabilityType', e.target.value)}>
-          <option value=""></option>
-          {adviceDisabilities.map((disability, index) => (
-            <option key={index} value={disability.value}>{disability.label}</option>
-          ))}
-        </select>
+        <input type="checkbox" name="forPmr" onChange={e => form.setData('forPmr', e.target.checked)} />
+        <label htmlFor="forPmr">Personne à mobilité réduite</label>
+        <br /><br />
+        <input type="checkbox" name="forCimp" onChange={e => form.setData('forCimp', e.target.checked)} />
+        <label htmlFor="forCimp">Handicape cognitif, intellectuel, psychique</label>
+        <br /><br />
+        <input type="checkbox" name="forDs" onChange={e => form.setData('forDs', e.target.checked)} />
+        <label htmlFor="forDs">Déficience sensoriel, visuelle ou auditif</label>
         <br /><br />
         <select name="category" onChange={e => form.setData('category', e.target.value)}>
           <option value=""></option>

@@ -2,6 +2,8 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, manyToMany, beforeSave } from '@adonisjs/lucid/orm'
 import type { ManyToMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
+import meiliClient from '../../config/meilisearch.js'
+import { afterCreate, afterUpdate, afterDelete } from '@adonisjs/lucid/orm'
 
 
 export enum AdviceDisability {
@@ -67,8 +69,14 @@ export default class Advice extends BaseModel {
   @column()
   declare content: string | null
 
-  @column({ columnName: 'disability_type' })
-  declare disabilityType: AdviceDisability
+  @column({ columnName: 'for_pmr' })
+  declare forPmr: boolean
+
+  @column({ columnName: 'for_cimp' })
+  declare forCimp: boolean
+
+  @column({ columnName: 'for_ds' })
+  declare forDs: boolean
 
   @column()
   declare category: AdviceCategory
@@ -106,5 +114,37 @@ export default class Advice extends BaseModel {
       }
 
     }
+  }
+
+  @afterCreate()
+  public static async indexAfterCreate(advice: Advice) {
+    await meiliClient.index('advices').addDocuments([advice])
+  }
+
+  @afterUpdate()
+  public static async indexAfterUpdate(advice: Advice) {
+    await advice.load('tags')
+    await meiliClient.index('advices').addDocuments([advice])
+  }
+
+  @afterDelete()
+  public static async removeFromIndex(advice: Advice) {
+    await advice.load('tags')
+    await meiliClient.index('advices').deleteDocument(advice.id)
+  }
+
+  public static async reindexAll() {
+    const advices = await this.query().preload('tags')
+    const documents = advices.map(advice => advice.serialize())
+    await meiliClient.index('advices').addDocuments(documents)
+  }
+
+  public static async search(query: string) {
+    const searchResults = await meiliClient.index('advices').search(query, {
+      limit: 20,
+      attributesToRetrieve: ['id', 'title', 'slug', 'description', 'content', 'disabilityType', 'category'],
+    })
+
+    return searchResults.hits as Advice[]
   }
 }
