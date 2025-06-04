@@ -10,6 +10,8 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
     form.put('/advices')
   }
 
+  console.log(errors)
+
   return (
     <>
       <Head title="Create advice" />
@@ -34,8 +36,6 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
             <option key={index} value={category.value}>{category.label}</option>
           ))}
         </select>
-        <br /><br />
-        <input type="text" name="slug" onChange={e => form.setData('slug', e.target.value)} />
         <br /><br />
         <button type="submit" disabled={form.processing}>Submit</button>
       </form>
