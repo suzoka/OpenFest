@@ -1,4 +1,7 @@
 .label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sizing-3xs);
     padding : var(--sizing-3xs) var(--sizing-2xs);
     font-family: ABeeZee_Regular, sans-serif;
     font-size : 0.75rem;
