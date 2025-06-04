@@ -40,3 +40,6 @@ router.group(() => {
 router.get('/advices', '#controllers/adviceController.index').as('advices.index')
 router.get('/advices/:slug', '#controllers/adviceController.show').as('advices.show')
 
+router.get('/tests', ({ inertia })=>{
+  return inertia.render('tests')
+})

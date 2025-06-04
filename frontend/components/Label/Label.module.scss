@@ -1,0 +1,21 @@
+.label {
+    padding : var(--sizing-3xs) var(--sizing-2xs);
+    font-family: ABeeZee_Regular, sans-serif;
+    font-size : 0.75rem;
+    border-radius : var(--sizing-xs)
+}
+
+.label_violet {
+    background-color: var(--colors--primary-200);
+    color: var(--colors--primary-950);
+}
+
+.label_red {
+    background-color: var(--colors--red-200);
+    color: var(--colors--red-950);
+}
+
+.label_yellow {
+    background-color: var(--colors--yellow-100);
+    color: var(--colors--yellow-950);
+}

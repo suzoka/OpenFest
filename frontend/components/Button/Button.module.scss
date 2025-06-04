@@ -1,0 +1,89 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border : none;
+    border-radius : var(--sizing-2xs);
+    gap : var(--sizing-2xs);
+    font-family: Poppins_SemiBold;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+// Button Variants
+
+.btn__text {
+    padding : var(--sizing-2xs) var(--sizing-xs);
+}
+
+.btn__image {
+    padding : var(--sizing-2xs)
+}
+
+.btn__textImage {
+    padding : var(--sizing-2xs) var(--sizing-2xs) var(--sizing-2xs) var(--sizing-xs);
+}
+
+.btn__imageText {
+    padding : var(--sizing-2xs) var(--sizing-xs) var(--sizing-2xs) var(--sizing-2xs);
+}
+
+// Button Color || Violet
+
+.btn__violet.btn__primary {
+    background-color: var(--colors--primary);
+    color: var(--colors--white);
+}
+
+.btn__violet.btn__secondary {
+    background-color: var(--colors--primary-200);
+    color: var(--colors--primary-950);
+}
+
+.btn__violet.btn__outlined {
+    background-color: var(--colors--white);
+    color: var(--colors--primary);
+    box-shadow:inset 0px 0px 0px 1px var(--colors--primary);
+}
+
+// Button Color || Red 
+
+.btn__red.btn__primary {
+    background-color: var(--colors--red);
+    color: var(--colors--red-950);
+}
+
+.btn__red.btn__secondary {
+    background-color: var(--colors--red-200);
+    color: var(--colors--red-950);
+}
+
+.btn__red.btn__outlined {
+    background-color: var(--colors--white);
+    color: var(--colors--red);
+    box-shadow:inset 0px 0px 0px 1px var(--colors--red);
+}
+
+// Button Color || Yellow
+
+.btn__yellow.btn__primary {
+    background-color: var(--colors--yellow);
+    color: var(--colors--yellow-950);
+}
+
+.btn__yellow.btn__secondary {
+    background-color: var(--colors--yellow-200);
+    color: var(--colors--yellow-950);
+}
+
+.btn__yellow.btn__outlined {
+    background-color: var(--colors--white);
+    color: var(--colors--yellow-950);
+    box-shadow:inset 0px 0px 0px 1px var(--colors--yellow);
+}

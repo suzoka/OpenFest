@@ -45,11 +45,12 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "clsx": "^2.1.1",
     "eslint": "^9.17.0",
     "hot-hook": "^0.4.0",
     "pino-pretty": "^13.0.0",
     "prettier": "^3.4.2",
-    "sass": "^1.88.0",
+    "sass": "^1.89.0",
     "ts-node-maintained": "^10.9.4",
     "typescript": "~5.7.2",
     "vite": "^6.0.3"

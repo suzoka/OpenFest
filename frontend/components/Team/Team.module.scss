@@ -1,0 +1,34 @@
+.team    {
+    width: 310px;
+    height: 400px;
+    padding : 10px;
+}
+
+.team_image {
+    width: 100%;
+    height: 290px;
+    background-color: var(--color-gray-200);
+    padding: 10px;  
+    border-radius: var(--sizing-md);
+    margin-bottom: var(--sizing-xs);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.team_labels {
+    display: flex;
+    gap : var(--sizing-2xs);
+    flex-wrap: wrap;
+    word-wrap:normal
+}
+
+.team_name {
+    font-size: 1.438rem;
+    font-family: Poppins_Bold;
+}
+
+.team_description {
+    font-size: 1rem;
+    font-family : ABeeZee_Regular
+}
