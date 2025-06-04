@@ -40,10 +40,7 @@ const Footer = () => {
               >
                 <InstagramLogo size={32} />
               </Link>
-              <Link
-                href="https://www.facebook.com/apffrancehandicap"
-                className={styles.footer__social}
-              >
+              <Link href="https://www.youtube.com/@team_openfest" className={styles.footer__social}>
                 <YoutubeLogo size={32} />
               </Link>
               <Link
