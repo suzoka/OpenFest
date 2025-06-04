@@ -1,13 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Header.module.scss";
 import { Link, usePage } from '@inertiajs/react'
 import Button from "../Button/Button";
+import { FlagBannerFold, SignOut } from "@phosphor-icons/react";
+import Label from "../Label/Label";
 
 const Header = () => {
 
     const { url, props } = usePage()
     const { user } = props;
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
+    const userMenuRef = useRef(null);
 
+    useEffect(() => {
+        if (!userMenuOpen) return;
+
+        function handleClickOutside(event) {
+            if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+                setUserMenuOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [userMenuOpen]);
     useEffect(() => {
         console.log("user", user);
     }, [user]);
@@ -36,12 +54,54 @@ const Header = () => {
                 </ul>
             </nav>
 
-            { user ? 
-                <Button method='POST' type="secondary" className={styles.headerBtn}>{user?.name}</Button>
-                :
-                <Button as="link" href='/login' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
-            }
-        </header>
+            <div className={styles.headerBtnWrapper}>
+                {user ? (
+                    <div
+                        className={`${styles.userMenu} ${userMenuOpen ? styles.open : ''}`}
+                        ref={userMenuRef}
+                        tabIndex={0}
+                        onFocus={() => setUserMenuOpen(true)}
+                        onBlur={(e) => {
+                            // On ferme seulement si le focus sort complètement du menu
+                            if (!e.currentTarget.contains(e.relatedTarget)) {
+                                setUserMenuOpen(false);
+                            }
+                        }}
+                    >
+                        {userMenuOpen ? (
+                            <div className={styles.userMenuName}>
+                                <p className={styles.userName}>{user?.name}</p>
+                                <p className="small">Festival de {user?.festivalType?.name || "musique"}</p>
+                                <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                            </div>
+                        ) :
+                            (
+                                <Button method='POST' type="secondary" className={`${styles.headerBtn} ${styles.userBtn}`} onClick={() => setUserMenuOpen(true)}>
+                                    {user?.name}
+                                    <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                                </Button>
+                            )
+                        }
+                        <div className={styles.dropdownWrapper}>
+                            <div className={styles.userInfoProgress}>
+                                <Label color="red">
+                                    <FlagBannerFold size={16} color="currentColor" />
+                                    50%
+                                </Label>
+                                <p className="small">13/26 conseils</p>
+                            </div>
+                            <Button as="link" href='/user' method='POST'>Espace Festival</Button>
+                            <Button as="link" href='/logout' method='POST' type="secondary" color="red" >
+                                Déconnexion
+                                <SignOut size={24} color="currentColor" />
+                            </Button>
+                        </div>
+                    </div>
+                ) :
+                    <Button as="link" href='/login' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
+                }
+            </div>
+        </header >
     );
 };
 
