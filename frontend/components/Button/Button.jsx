@@ -24,59 +24,60 @@
 * C'est mon premier composant la team :D Soyez gentils :D 
 */
 
-import { Link } from '@inertiajs/react'   
-import styles from "./Button.module.scss";
+import { Link } from '@inertiajs/react'
+import styles from './Button.module.scss'
 
 const Button = ({
-    variant = "text",
-    as = "button",
-    href,
-    color = "violet",
-    type = "primary",
-    children,
-    ...rest
+  variant = 'text',
+  as = 'button',
+  href,
+  color = 'violet',
+  type = 'primary',
+  children,
+  extraClass,
+  ...rest
 }) => {
-    const typeClass =  {
-        primary: styles.btn__primary,
-        secondary: styles.btn__secondary,
-        outlined : styles.btn__outlined,
-    }
-    const variantClass = {
-        text: styles.btn__text,
-        only: styles.btn__image,
-        right: styles.btn__textImage,
-        left: styles.btn__imageText,
-    }
-    const colorClass = {
-        violet : styles.btn__violet,
-        red : styles.btn__red,
-        yellow : styles.btn__yellow,
-    }
-    const className = `${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${styles.btn}`;
+  const typeClass = {
+    primary: styles.btn__primary,
+    secondary: styles.btn__secondary,
+    outlined: styles.btn__outlined,
+  }
+  const variantClass = {
+    text: styles.btn__text,
+    only: styles.btn__image,
+    right: styles.btn__textImage,
+    left: styles.btn__imageText,
+  }
+  const colorClass = {
+    violet: styles.btn__violet,
+    red: styles.btn__red,
+    yellow: styles.btn__yellow,
+  }
+  const className = `${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${styles.btn} ${extraClass || ''}`
 
-    if (as === "a" && href) {
-        return (
-            <a href={href} className={className} {...rest}>
-                {children}
-            </a>
-        );
-    }
-
-    if (as === "link" && href) {
-        return (
-            <Link href={href} className={className} {...rest}>
-                {children}
-            </Link>
-        );
-    }
-
-    // Default to button
-    const Tag = as;
+  if (as === 'a' && href) {
     return (
-        <Tag className={className} {...rest}>
-            {children}
-        </Tag>
-    );
-};
+      <a href={href} className={className} {...rest}>
+        {children}
+      </a>
+    )
+  }
 
-export default Button;
+  if (as === 'link' && href) {
+    return (
+      <Link href={href} className={className} {...rest}>
+        {children}
+      </Link>
+    )
+  }
+
+  // Default to button
+  const Tag = as
+  return (
+    <Tag className={className} {...rest}>
+      {children}
+    </Tag>
+  )
+}
+
+export default Button

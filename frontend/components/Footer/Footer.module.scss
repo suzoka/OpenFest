@@ -66,7 +66,16 @@
         text-decoration: none;
         margin-bottom: 8px;
         font-family: 'ABeeZee_Regular', 'sans-serif';
+        border-bottom: 2px solid transparent;
+        transition: color .3s ease-in-out, border-color .3s ease-in-out;
     }
+    
+    &__link:hover {
+        color: var(--colors--primary-950);
+        border-bottom-color: var(--colors--primary-950);
+    }
+
+    
 
     &__logo {
         height: 60px;
@@ -86,5 +95,9 @@
             margin-right: 12px;
             color: var(--colors--primary-950);
         }
+    }
+
+    &__button {
+        transition: all .3s ease-in-out;
     }
 }

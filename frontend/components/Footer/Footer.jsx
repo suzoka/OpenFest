@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from '@inertiajs/react'
 import { InstagramLogo, YoutubeLogo, LinkedinLogo, TiktokLogo } from '@phosphor-icons/react'
 
@@ -8,6 +8,8 @@ import Button from '../Button/Button.jsx'
 import styles from './Footer.module.scss'
 
 const Footer = () => {
+  const [hovered, setHovered] = useState(false)
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>
@@ -21,8 +23,11 @@ const Footer = () => {
                 as="a"
                 href="mailto:openfest.apffrancehandicap@gmail.com"
                 color="violet"
-                type="secondary"
+                type={hovered ? 'primary' : 'secondary'}
                 variant="text"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                extraClass={styles.footer__button}
               >
                 openfest.apffrancehandicap@gmail.com
               </Button>
@@ -30,7 +35,7 @@ const Footer = () => {
 
             <div className={styles.footer__socials}>
               <Link
-                href="https://www.instagram.com/openfest.apf/"
+                href="https://www.instagram.com/team_openfest/"
                 className={styles.footer__social}
               >
                 <InstagramLogo size={32} />
@@ -41,10 +46,13 @@ const Footer = () => {
               >
                 <YoutubeLogo size={32} />
               </Link>
-              <Link href="https://twitter.com/apffrancehandi1" className={styles.footer__social}>
+              <Link
+                href="https://www.linkedin.com/in/team-openfest-637786365/"
+                className={styles.footer__social}
+              >
                 <LinkedinLogo size={32} />
               </Link>
-              <Link href="https://twitter.com/apffrancehandi1" className={styles.footer__social}>
+              <Link href="https://www.tiktok.com/@team_openfest" className={styles.footer__social}>
                 <TiktokLogo size={32} />
               </Link>
             </div>
