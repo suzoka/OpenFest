@@ -10,7 +10,7 @@ import DefaultLayout from '../layouts/Default'
 const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
 
 createInertiaApp({
-  progress: { color: '#5468FF' },
+  progress: { color: '#8E42E0' },
   title: (title) => `${title} - ${appName}`,
   resolve: (name) => {
     const pages = import.meta.glob('../pages/**/*.jsx', { eager: true })
