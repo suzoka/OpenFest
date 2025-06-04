@@ -42,6 +42,7 @@ const Header = () => {
 
     return (
         <header className={`${styles.header} ${scroll > 10 ? styles.onscroll : ''}`}>
+            {/* <a href="#main" class={styles.skip}>Skip to main content</a> */}
             <nav>
                 <ul className={styles.navList}>
                     <li>
