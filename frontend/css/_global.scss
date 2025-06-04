@@ -24,3 +24,11 @@
     // Italic
     --font-style-italic: italic;
 }
+
+.bold {
+    font-family: Poppins_SemiBold;
+}
+
+.small {
+    font-size: var(--size-desktop-paragraph-p-small);
+}
