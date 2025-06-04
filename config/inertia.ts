@@ -14,7 +14,13 @@ const inertiaConfig = defineConfig({
     errors: (ctx) => ctx.inertia.always(() => ctx.session?.flashMessages.get('errors')),
     user: (ctx) => ctx.inertia.always(async () => {
       await ctx.auth.check()
-      return ctx.auth.use('web')?.user
+      const user = ctx.auth.use('web')?.user
+
+      if (user) {
+        await user.load('festivalType')
+      }
+
+      return user
     }),
   },
 

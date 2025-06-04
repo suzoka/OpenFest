@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column, hasManyThrough, hasOne } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasManyThrough, belongsTo } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import type { HasManyThrough, HasOne } from '@adonisjs/lucid/types/relations'
+import type { HasManyThrough, BelongsTo } from '@adonisjs/lucid/types/relations'
 import Advice from '#models/advice'
 import SelectedAdvice from '#models/selectedAdvice'
 import FestivalType from '#models/festivalType'
@@ -80,6 +80,8 @@ export default class User extends compose(BaseModel, AuthFinder, Attachmentable)
   @hasManyThrough([() => Advice, () => SelectedAdvice])
   declare advices: HasManyThrough<typeof Advice>
 
-  @hasOne(() => FestivalType)
-  declare festivalType: HasOne<typeof FestivalType>
+  @belongsTo(() => FestivalType, {
+    foreignKey: 'festival_type_id',
+  })
+  declare festivalType: BelongsTo<typeof FestivalType>
 }

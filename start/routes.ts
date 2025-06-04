@@ -29,6 +29,7 @@ router.group(() => {
   router.get('/advices/:slug/edit', '#controllers/adviceController.edit').as('advices.edit')
   router.put('/advices/:id', '#controllers/adviceController.update').as('advices.update')
   router.delete('/advices/:id', '#controllers/adviceController.destroy').as('advices.destroy')
+  router.get('/advices/step/:step', '#controllers/adviceController.step').as('advices.step')
 
 
   router.get('/reindex-all', ({ response }) => {
