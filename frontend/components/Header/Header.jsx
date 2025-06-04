@@ -12,6 +12,19 @@ const Header = () => {
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const userMenuRef = useRef(null);
 
+    const [scroll, setScroll] = useState(0);
+
+    useEffect(() => {
+        function handleScroll() {
+            setScroll(window.scrollY);
+        }
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     useEffect(() => {
         if (!userMenuOpen) return;
 
@@ -26,12 +39,9 @@ const Header = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [userMenuOpen]);
-    useEffect(() => {
-        console.log("user", user);
-    }, [user]);
 
     return (
-        <header className={`${styles.header} ${styles.onscroll}`}>
+        <header className={`${styles.header} ${scroll > 10 ? styles.onscroll : ''}`}>
             <nav>
                 <ul className={styles.navList}>
                     <li>
