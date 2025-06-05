@@ -1,17 +1,20 @@
 import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
 import { Alien } from '@phosphor-icons/react'
-import Heading from '../components/Titles/Titles.jsx'
-import Button from '../components/Button/Button.jsx'
-import Label from '../components/Label/Label.jsx'
-import Team from '../components/Team/Team.jsx'
-import Partners from '../components/Partners/Partners.jsx'
-import Stats from '../components/Stats/Stats.jsx'
-import Footer from '../components/Footer/Footer.jsx'
+import Heading from '@/Titles/Titles.jsx'
+import Button from '@/Button/Button.jsx'
+import Label from '@/Label/Label.jsx'
+import Team from '@/Team/Team.jsx'
+import Partners from '@/Partners/Partners.jsx'
+import Stats from '@/Stats/Stats.jsx'
+import Footer from '@/Footer/Footer.jsx'
+import Hero from '@/Hero/Hero'
 
 export default function Home({ user }) {
   return (
     <>
+      <Hero title="Styles Guide" subtitle="Pour tester tout les composant sans craintes ni risques ! ✌️🤓" />
+
       <Heading as="h1"> OpenFest </Heading>
 
       <Stats title="Festivals en France chaque année" color="yellow" number={'100+'} />
