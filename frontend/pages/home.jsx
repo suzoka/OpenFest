@@ -1,10 +1,10 @@
 import { Head, Link } from '@inertiajs/react'
 import { Horse, Heart, Cube } from "@phosphor-icons/react";
-import Heading from '../components/Titles/Titles.jsx'
-import Button from '../components/Button/Button.jsx';
+import Heading from '@/Titles/Titles.jsx'
+import Button from '@/Button/Button.jsx';
 import { RocketLaunch, Headphones } from '@phosphor-icons/react';
-import Stats from '../components/Stats/Stats.jsx';
-import Partners from '../components/Partners/Partners.jsx';
+import Stats from '@/Stats/Stats.jsx';
+import Partners from '@/Partners/Partners.jsx';
 
 
 
