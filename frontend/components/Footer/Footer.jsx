@@ -52,16 +52,16 @@ const Footer = () => {
 
           {/* Haut droit : Liens de navigation */}
           <nav className={styles.footer__topright}>
-            <Link href="#" className={styles.footer__link}>
+            <Link href="/" className={styles.footer__link}>
               Accueil
             </Link>
-            <Link href="#" className={styles.footer__link}>
+            <Link href="/conseils" className={styles.footer__link}>
               Conseils
             </Link>
-            <Link href="#" className={styles.footer__link}>
+            <Link href="/info" className={styles.footer__link}>
               Démarche
             </Link>
-            <Link href="#" className={styles.footer__link}>
+            <Link href="/festival" className={styles.footer__link}>
               Les festivals accessibles
             </Link>
           </nav>
