@@ -8,6 +8,7 @@
     font-family: Poppins_SemiBold;
     font-size: 1rem;
     text-decoration: none;
+    height: 40px;
     cursor: pointer;
     transition: 
         background-color 0.2s cubic-bezier(0.4,0,0.2,1),
@@ -23,6 +24,7 @@
     &:hover, &:focus-visible {
         transform: scale(1.045);
         box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+        text-decoration: none;
     }
 }
 
@@ -54,6 +56,7 @@
 .btn__violet.btn__secondary {
     background-color: var(--colors--primary-200);
     color: var(--colors--primary-950);
+    font-family: ABeeZee_Regular;
 }
 
 .btn__violet.btn__outlined {
@@ -72,6 +75,7 @@
 .btn__red.btn__secondary {
     background-color: var(--colors--red-200);
     color: var(--colors--red-950);
+    font-family: ABeeZee_Regular;
 }
 
 .btn__red.btn__outlined {
@@ -90,6 +94,7 @@
 .btn__yellow.btn__secondary {
     background-color: var(--colors--yellow-200);
     color: var(--colors--yellow-950);
+    font-family: ABeeZee_Regular;
 }
 
 .btn__yellow.btn__outlined {

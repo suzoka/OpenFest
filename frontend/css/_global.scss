@@ -29,6 +29,9 @@
     --size-mobile-title-h5: 1rem;
     --size-mobile-title-h6: 0.938rem;
 
+    // Italic
+    --font-style-italic: italic;
+  
     // Mobile/Paragraph
     --size-mobile-paragraph-p-bis: 1.25rem;
     --size-mobile-paragraph-p-regular: 0.875rem;
@@ -36,3 +39,12 @@
     --size-mobile-paragraph-p-small: 0.75rem;
     --size-mobile-paragraph-p-micro: 0.625rem;
 }
+
+.bold {
+    font-family: Poppins_SemiBold;
+}
+
+.small {
+    font-size: var(--size-desktop-paragraph-p-small);
+}
+
