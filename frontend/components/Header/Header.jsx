@@ -65,7 +65,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/advices" className={`${styles.navLink} ${url.startsWith('/advices') ? styles.active : ''}`}>Conseils</Link>
+                        <Link href="/conseils" className={`${styles.navLink} ${url.startsWith('/conseils') ? styles.active : ''}`}>Conseils</Link>
                     </li>
                     <li>
                         <Link href="/info" className={`${styles.navLink} ${url.startsWith('/info') ? styles.active : ''}`}>Démarche</Link>

@@ -7,7 +7,7 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
 
   const submitForm = (e) => {
     e.preventDefault()
-    form.put('/advices')
+    form.put('/conseils')
   }
 
   console.log(errors)
@@ -20,6 +20,8 @@ export default function Home({ adviceDisabilities, adviceCategories, errors }) {
         <br />
         <br />
         <textarea name="description" id="description" onChange={e => form.setData('description', e.target.value)} />
+        <br />
+        <textarea name="content" id="content" onChange={e => form.setData('content', e.target.value)} />
         <br /><br />
         <input type="checkbox" name="forPmr" onChange={e => form.setData('forPmr', e.target.checked)} />
         <label htmlFor="forPmr">Personne à mobilité réduite</label>
