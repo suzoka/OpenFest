@@ -59,19 +59,18 @@
         position: relative;
         background-color: var(--colors--neutral-100);
 
-        & ::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(-99%);
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1512 / 115;
-            background-image: url('./images/plains.svg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
+    &-decoration ::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-99%);
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1512 / 115;
+        background-image: url('./images/plains.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     @media (max-width: 768px) {
