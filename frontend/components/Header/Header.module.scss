@@ -89,6 +89,12 @@
                 border-radius: var(--sizing-3xs);
             }
         }
+
+        &:hover,
+        &:focus-visible {
+            transform: scale(1);
+            box-shadow: initial;
+        }
     }
 
     .userMenu {
@@ -151,6 +157,13 @@
                 height: auto;
             }
         }
+
+        & a {
+            &:hover,
+            &:focus-visible {
+                box-shadow: initial;
+            }
+        }
     }
 
     &.onscroll {
@@ -172,7 +185,7 @@
         padding: 0.625em 0.9375em;
         text-decoration: none;
         width: max-content;
-    
+
         &:not(:focus):not(:active) {
             border: 0;
             clip: rect(0 0 0 0);
@@ -185,7 +198,7 @@
             white-space: nowrap;
             width: 1px;
         }
-    
+
         &:focus {
             left: 0;
             position: absolute;
