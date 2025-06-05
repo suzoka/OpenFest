@@ -13,7 +13,7 @@ import Hero from '@/Hero/Hero'
 export default function Home({ user }) {
   return (
     <>
-      <Hero title="Styles Guide" subtitle="Pour tester tout les composant sans craintes ni risques ! ✌️🤓" />
+      <Hero title="Styles Guide" subtitle="Pour tester tout les composants sans craintes ni risques ! ✌️🤓" grey />
 
       <Heading as="h1"> OpenFest </Heading>
 
