@@ -2,35 +2,30 @@ import React, { useState } from 'react'
 import { Link } from '@inertiajs/react'
 import { InstagramLogo, YoutubeLogo, LinkedinLogo, TiktokLogo } from '@phosphor-icons/react'
 
-import Heading from '../Titles/Titles.jsx'
+import Heading from '../Heading/Heading.jsx'
 import Button from '../Button/Button.jsx'
 
 import styles from './Footer.module.scss'
+import Separator from '../Separator/Separator.jsx'
 
 const Footer = () => {
-  const [hovered, setHovered] = useState(false)
 
   return (
-    <footer className={styles.footer}>
+    <footer id='footer' className={styles.footer}>
       <div className={styles.footer__container}>
         {/* Bloc haut */}
         <div className={styles.footer__containertop}>
           {/* Haut gauche : Contact + Réseaux sociaux */}
           <div className={styles.footer__topleft}>
             <div className={styles.footer__title}>
-              <Heading as="h5">Contactez-nous</Heading>
-              <Button
-                as="a"
+              <Heading as="h2" variant="h5">Contactez-nous</Heading>
+              <a
                 href="mailto:openfest.apffrancehandicap@gmail.com"
-                color="violet"
-                type={hovered ? 'primary' : 'secondary'}
-                variant="text"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                extraClass={styles.footer__button}
+                target='_blank'
+                className={styles.footer__button}
               >
                 openfest.apffrancehandicap@gmail.com
-              </Button>
+              </a>
             </div>
 
             <div className={styles.footer__socials}>
@@ -73,21 +68,21 @@ const Footer = () => {
         </div>
 
         {/* Séparateur visuel */}
-        <hr className={styles.footer__separator} />
+        <Separator black fullpage/>
 
         {/* Bloc bas */}
         <div className={styles.footer__containerbottom}>
           {/* Bas gauche : Logos partenaires */}
           <div className={styles.footer__bottomleft}>
-            <img src="./images/apf.png" alt="APF France Handicap" className={styles.footer__logo} />
+            <img src="./images/apf_logo.svg" alt="APF France Handicap" className={styles.footer__logo} />
             <img
               src="./images/iut.png"
               alt="Université Gustave Eiffel - IUT Marne-la-Vallée"
               className={styles.footer__logo}
             />
             <img
-              src="./public/images/ministere.png"
-              alt="Ministère de la Culture"
+              src="./public/images/ministere_culture_logo.svg"
+              alt="Soutenu par le Ministère de la Culture"
               className={styles.footer__logo}
             />
           </div>
@@ -104,19 +99,6 @@ const Footer = () => {
               Mentions légales
             </Link>
           </nav>
-        </div>
-
-        {/* Éléments graphiques décoratifs */}
-        <div className={styles.footer__toplogo}>
-          <img src="/images/traitsFooter.svg" alt="" className={styles.footer__logoextra} />
-        </div>
-
-        <div className={styles.footer__bottomlogo}>
-          <img
-            src="/images/openfestFooter.svg"
-            alt="Logo OpenFest"
-            className={styles.footer__logoextra}
-          />
         </div>
       </div>
     </footer>
