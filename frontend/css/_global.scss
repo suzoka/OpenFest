@@ -53,7 +53,7 @@
         background-color: var(--colors--neutral-100);
     }
 
-    &-decoration ::after {
+    &-decoration ::before {
         content: '';
         position: absolute;
         top: 0;
