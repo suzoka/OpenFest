@@ -227,7 +227,7 @@ img {
 
     &:hover,
     &:focus-visible {
-      transform: scale(1.045);
+      transform: scale(1.1);
     }
   }
 }
@@ -261,7 +261,7 @@ img {
   @media (max-width: 768px) {
     padding: 0;
     align-items: center;
-      gap: var(--sizing-2xl);
+    gap: var(--sizing-2xl);
   }
 }
 
