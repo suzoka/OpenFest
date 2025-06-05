@@ -115,8 +115,8 @@ const Header = () => {
                                 </Label>
                                 <p className="small">13/26 conseils</p>
                             </div>
-                            <Button as="link" href='/user' method='POST'>Espace Festival</Button>
-                            <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
+                            <Button as="link" href='/user' >Espace Festival</Button>
+                            <Button as="link" href='/deconnection' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
                             </Button>

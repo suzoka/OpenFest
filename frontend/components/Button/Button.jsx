@@ -63,21 +63,21 @@ const Button = ({
         );
     }
 
-  if (as === 'link' && href) {
-    return (
-      <Link href={href} className={classStyle} {...rest}>
-        {children}
-      </Link>
-    )
-  }
+    if (as === 'link' && href) {
+        return (
+            <Link href={href} className={classStyle} {...rest}>
+                {children}
+            </Link>
+        );
+    }
 
-  // Default to button
-  const Tag = as
-  return (
-    <Tag className={classStyle} {...rest}>
-      {children}
-    </Tag>
-  )
+    // Default to button
+    const Tag = as;
+    return (
+        <Tag className={classStyle} {...rest}>
+            {children}
+        </Tag>
+    );
 }
 
 export default Button
