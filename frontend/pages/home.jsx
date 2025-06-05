@@ -50,7 +50,7 @@ export default function Home({ }) {
             </div>
           </div>
         </section>
-        <section className="section section-grey">
+        <section className="section section-grey section-decoration">
           <div className={`max-width ${styles.thread}`}>
             <div>
               <Heading as="h2" className={styles.thread_title}>Vous avez dit OpenFest ?</Heading>
