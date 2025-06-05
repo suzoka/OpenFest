@@ -18,9 +18,6 @@
     --size-font-paragraph-p-small: 0.875rem;
     --size-font-paragraph-p-micro: 0.75rem;
 
-    // Italic
-    --font-style-italic: italic;
-
     @media (max-width: 768px) {
 
         //! Mobile Sizings
@@ -41,252 +38,9 @@
         --size-font-paragraph-p-micro: 0.625rem;
 
     }
-}
 
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-    &-decoration ::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-99%);
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1512 / 115;
-        background-image: url('./images/plains.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-  }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
-}
-
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-        & ::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(-99%);
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1512 / 115;
-            background-image: url('./images/plains.svg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
-}
-
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-    &-decoration ::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-99%);
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1512 / 115;
-        background-image: url('./images/plains.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-  }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
-}
-
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-        & ::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(-99%);
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1512 / 115;
-            background-image: url('./images/plains.svg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
-}
-
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-    &-decoration ::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-99%);
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1512 / 115;
-        background-image: url('./images/plains.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-  }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
-}
-
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-
-        & ::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            transform: translateY(-99%);
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1512 / 115;
-            background-image: url('./images/plains.svg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
+    // Italic
+    --font-style-italic: italic;
 }
 
 .section {
@@ -338,17 +92,21 @@
     font-style: var(--font-style-italic);
 }
 
+.small {
+    font-size: var(--size-font-paragraph-p-small);
+}
+
+.micro {
+    font-size: var(--size-font-paragraph-p-micro);
+}
+
 .p-large {
     font-family: Poppins_Bold;
-    font-size: var(--size-desktop-paragraph-p-bis);
+    font-size: var(--size-font-paragraph-p-bis);
 }
 
 .subtitle {
-    font-size: 1.188rem;
-
-    @media (max-width: 768px) {
-        font-size: 0.938rem;
-    }
+    font-size: var(--size-font-title-h6);
 }
 
 .masked-element {
