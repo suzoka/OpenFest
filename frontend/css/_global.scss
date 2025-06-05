@@ -289,6 +289,47 @@
     }
 }
 
+.section {
+    display: grid;
+    gap: var(--sizing-4xl);
+    padding: var(--sizing-5xl) var(--sizing-4xl);
+
+    &-grey {
+        position: relative;
+        background-color: var(--colors--neutral-100);
+
+        & ::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-99%);
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1512 / 115;
+            background-image: url('./images/plains.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: var(--sizing-4xl) var(--sizing-md);
+        gap: var(--sizing-2xl);
+    }
+}
+
+.max-width {
+    max-width: 1512px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--sizing-4xl);
+
+    @media (max-width: 768px) {
+        gap: var(--sizing-2xl);
+    }
+}
+
 .bold {
     font-family: Poppins_SemiBold;
 }
