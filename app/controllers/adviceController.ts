@@ -2,7 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
 import { createAdviceValidator } from '#validators/advice'
 import Tag from '#models/tag'
-import { adviceDisabilityOptions, adviceCategoryOptions, AdviceCategory } from '#models/advice'
+import { adviceCategoryOptions, AdviceCategory } from '#models/advice'
 
 const adviceCategoryValues = Object.values(AdviceCategory)
 
@@ -38,6 +38,7 @@ export default class AdvicesController {
 
     return inertia.render('advices/step', {
       advices: advices,
+      steps: adviceCategoryOptions
     })
   }
 
@@ -54,7 +55,6 @@ export default class AdvicesController {
 
   async new({ inertia }: HttpContext) {
     return inertia.render('advices/new', {
-      adviceDisabilities: adviceDisabilityOptions,
       adviceCategories: adviceCategoryOptions,
     })
   }

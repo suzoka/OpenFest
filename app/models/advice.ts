@@ -12,17 +12,6 @@ export enum AdviceDisability {
   DS = 'ds',
 }
 
-export const adviceDisabilityLabels: Record<AdviceDisability, string> = {
-  [AdviceDisability.PMR]: 'Personne à mobilité réduite',
-  [AdviceDisability.CIMP]: 'Handicape cognitif, intellectuel, psychique',
-  [AdviceDisability.DS]: 'Déficience sensoriel, visuelle ou auditif',
-}
-
-export const adviceDisabilityOptions: Array<{value: string, label: string}> = Object.values(AdviceDisability).map((value) => ({
-  value: value,
-  label: adviceDisabilityLabels[value],
-}))
-
 export enum AdviceCategory {
   BOOKING = 'booking',
   TRANSPORT = 'transport',
@@ -49,9 +38,23 @@ export const adviceCategoryLabels: Record<AdviceCategory, string> = {
   [AdviceCategory.BACKHOME]: `Retour chez soi`,
 }
 
-export const adviceCategoryOptions: Array<{value: string, label: string}> = Object.values(AdviceCategory).map((value) => ({
+export const adviceCategoryIcons: Record<AdviceCategory, string> = {
+  [AdviceCategory.BOOKING]: `Ticket`,
+  [AdviceCategory.TRANSPORT]: `TrainSimple`,
+  [AdviceCategory.RECEPTION]: `FlagBannerFold`,
+  [AdviceCategory.DISCOVERY]: `MapTrifold`,
+  [AdviceCategory.HEALTH]: `ToiletPaper`,
+  [AdviceCategory.RESTAURATION]: `ForkKnife`,
+  [AdviceCategory.PLACE]: `MapPinArea`,
+  [AdviceCategory.EVENT]: `Confetti`,
+  [AdviceCategory.ACCOMODATION]: `Bed`,
+  [AdviceCategory.BACKHOME]: `House`,
+}
+
+export const adviceCategoryOptions: Array<{value: string, label: string, icon: string}> = Object.values(AdviceCategory).map((value) => ({
   value: value,
   label: adviceCategoryLabels[value],
+  icon: adviceCategoryIcons[value]
 }))
 
 export default class Advice extends BaseModel {
