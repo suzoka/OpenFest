@@ -38,11 +38,11 @@ export default function Home({}) {
                     Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
                   </p>
                 </div>
-                <Button as="link" href="/logout" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+                <Button as="link" href="/deconnection" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
               <img src="./images/placeholder.png" alt="Image d'illustration" className={styles.intro_image} />
             </div>
-            <div className={styles.stats}> 
+            <div className={styles.stats}>
               <Stats title="Festivals en France chaque année" color="violet" number={100} suffix="plus"/>
               <Stats title="Festivaliers PMR par festival" color="red" number={2500}/>
               <Stats title="Statistique 3" color="yellow" number={50} suffix="percent"/>
@@ -57,7 +57,7 @@ export default function Home({}) {
             </div>
             <img src="./images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
             <div className={styles.thread_buttons}>
-              <Button as="link" href="#" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
+              <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
               <Button as="link" href="#" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
             </div>
           </div>
