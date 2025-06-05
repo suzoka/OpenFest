@@ -24,11 +24,11 @@
 }
 
 .team_name {
-    font-size: 1.438rem;
+    font-size: var(--size-font-paragraph-p-bis);
     font-family: Poppins_Bold;
 }
 
 .team_description {
-    font-size: 1rem;
+    font-size: var(--size-font-paragraph-p-regular);
     font-family : ABeeZee_Regular
 }

@@ -12,14 +12,14 @@
 *::after {
   box-sizing: border-box;
   font-family: 'ABeeZee_Regular', sans-serif;
-  // font-size: var(--size-desktop-paragraph-p-regular);
+  // font-size: var(--size-font-paragraph-p-regular);
   // line-height: 130%;
 }
 
 body {
   background-color: var(--colors--white);
   font-family: 'ABeeZee_Regular', sans-serif;
-  font-size: var(--size-desktop-paragraph-p-regular);
+  font-size: var(--size-font-paragraph-p-regular);
   // line-height: 130%;
   color: var(--colors--black);
 }
