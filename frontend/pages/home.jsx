@@ -39,7 +39,7 @@ export default function Home({ }) {
                     Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
                   </p>
                 </div>
-                <Button as="link" href="/logout" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+                <Button as="link" href="/deconnection" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
               <img src="https://placehold.co/400x600" alt="Image d'illustration" className={styles.intro_image} />
             </div>
@@ -58,7 +58,7 @@ export default function Home({ }) {
             </div>
             <img src="./images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
             <div className={styles.thread_buttons}>
-              <Button as="link" href="#" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
+              <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
               <Button as="link" href="#" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
             </div>
           </div>

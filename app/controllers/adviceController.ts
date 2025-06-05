@@ -27,6 +27,11 @@ export default class AdvicesController {
   }
 
   async step({ inertia, params }: HttpContext) {
+
+    if (!params.step || !adviceCategoryValues[params.step - 1]) {
+      return inertia.render('errors/not_found')
+    }
+
     const advices = await Advice.query()
       .preload('tags')
       .where('category', adviceCategoryValues[params.step - 1])

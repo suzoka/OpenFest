@@ -5,7 +5,7 @@ export default function Login({errors}) {
 
   const submitForm = (e) => {
     e.preventDefault()
-    form.post('/login')
+    form.post('/connection')
   }
 
   return (

@@ -29,8 +29,6 @@ router.group(() => {
   router.get('/conseils/:slug/edit', '#controllers/adviceController.edit').as('advices.edit')
   router.put('/conseils/:id', '#controllers/adviceController.update').as('advices.update')
   router.delete('/conseils/:id', '#controllers/adviceController.destroy').as('advices.destroy')
-  router.get('/conseils/etapes/:step', '#controllers/adviceController.step').as('advices.step')
-
 
   router.get('/reindex-all', ({ response }) => {
     Advice.reindexAll()
@@ -39,6 +37,7 @@ router.group(() => {
 }).use([middleware.auth(), middleware.admin()])
 
 router.get('/conseils', '#controllers/adviceController.index').as('advices.index')
+  router.get('/conseils/etapes/:step', '#controllers/adviceController.step').as('advices.step')
 router.get('/conseils/:slug', '#controllers/adviceController.show').as('advices.show')
 
 router.get('/tests', ({ inertia })=>{

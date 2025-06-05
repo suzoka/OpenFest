@@ -46,7 +46,7 @@ const Header = () => {
                 <ul>
                     {user &&
                         <li>
-                            <Link href="#main" class={styles.skipLink}>Espace Utilisateur</Link>
+                            <Link href="#main" className={styles.skipLink}>Espace Utilisateur</Link>
                         </li>
                     }
                     <li>
@@ -116,14 +116,14 @@ const Header = () => {
                                 <p className="small">13/26 conseils</p>
                             </div>
                             <Button as="link" href='/user' method='POST'>Espace Festival</Button>
-                            <Button as="link" href='/logout' method='POST' type="secondary" color="red" >
+                            <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
                             </Button>
                         </div>
                     </div>
                 ) :
-                    <Button as="link" href='/login' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
+                    <Button as="link" href='/connection' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
                 }
             </div>
         </header >
