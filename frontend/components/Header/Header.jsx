@@ -42,8 +42,21 @@ const Header = () => {
 
     return (
         <header className={`${styles.header} ${scroll > 10 ? styles.onscroll : ''}`}>
-            {user && <Link href="#main" class={styles.skipLink}>Espace Utilisateur</Link>}
-            <a href="#main" class={styles.skipLink}>Passer contenu principal</a>
+            <nav className={styles.skipNav}>
+                <ul>
+                    {user &&
+                        <li>
+                            <Link href="#main" class={styles.skipLink}>Espace Utilisateur</Link>
+                        </li>
+                    }
+                    <li>
+                        <Link href="#main" className={styles.skipLink}>Passer au contenu principal</Link>
+                    </li>
+                    <li>
+                        <Link href="#footer" className={styles.skipLink}>Aller au pied de page</Link>
+                    </li>
+                </ul>
+            </nav>
             <nav>
                 <ul className={styles.navList}>
                     <li>
