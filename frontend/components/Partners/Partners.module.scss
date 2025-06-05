@@ -2,6 +2,11 @@
     width: 400px;
     height: 400px;
     padding : 10px;
+
+    @media (max-width: 768px) {
+        padding : 20px 0px;
+        width: initial;
+    }
 }
 
 .partners_image {
@@ -38,9 +43,11 @@
     font-size: 1.438rem;
     font-family: Poppins_Bold;
     margin : var(--sizing-xs) 0;
+    padding : 0 var(--sizing-3xs);
 }
 
 .partners_description {
     font-size: 1rem;
-    font-family : ABeeZee_Regular
+    font-family : ABeeZee_Regular;
+    padding : 0 var(--sizing-3xs);
 }

@@ -6,27 +6,25 @@ export default class AuthController {
     return inertia.render('auth/login')
   }
 
-  async login({ request, response, auth, inertia, session }: HttpContext) {
+  async login({ request, response, auth, inertia }: HttpContext) {
     const { email, password } = request.body()
 
     try {
       const user = await User.verifyCredentials(email, password)
       await auth.use('web').login(user)
-      session.put('user', { id: user.id, email: user.email, name: user.name, role: user.role })
 
       return response.redirect().toRoute('home')
     } catch (error) {
       return inertia.render('auth/login', {
         errors: {
-          email: 'Invalid credentials',
+          email: 'Invalid credentials or email is not verified',
         },
       })
     }
   }
 
-  async logout({ auth, response, session }: HttpContext) {
+  async logout({ auth, response }: HttpContext) {
     await auth.use('web').logout()
-    session.forget('user')
 
     return response.redirect().toRoute('auth.login')
   }

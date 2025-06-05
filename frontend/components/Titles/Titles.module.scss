@@ -1,30 +1,55 @@
 .heading_h1 {
     font-family : Poppins_Bold;
     font-size: 4rem;
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
 }
 
 .heading_h2 {
     font-family : Poppins_Bold;
     font-size: 2.375rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.75rem;
+    }
 }
 
 .heading_h3 {
     font-family : Poppins_Bold;
     font-size: 2.063rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.375rem;
+    }
 }
 
 .heading_h4 {
     font-family : Poppins_Bold;
     font-size: 1.75rem;
+
+    @media (max-width: 768px) {
+        font-size: 1.125rem;
+    }
 }
 
 .heading_h5 {
     font-family : Poppins_Bold;
     font-size: 1.438rem;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
 }
 
 .heading_h6 {
     font-family : Poppins_Bold;
     font-size: 1.188rem;
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.938rem;
+        
+    }
 }
 

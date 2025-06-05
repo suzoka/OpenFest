@@ -24,8 +24,8 @@
 * C'est mon premier composant la team :D Soyez gentils :D 
 */
 
-import { Link } from '@inertiajs/react'   
-import styles from "./Button.module.scss";
+import { Link } from '@inertiajs/react'
+import styles from './Button.module.scss'
 
 const Button = ({
     variant = "text",
@@ -63,21 +63,21 @@ const Button = ({
         );
     }
 
-    if (as === "link" && href) {
-        return (
-            <Link href={href} className={classStyle} {...rest}>
-                {children}
-            </Link>
-        );
-    }
-
-    // Default to button
-    const Tag = as;
+  if (as === 'link' && href) {
     return (
-        <Tag className={classStyle} {...rest}>
-            {children}
-        </Tag>
-    );
-};
+      <Link href={href} className={classStyle} {...rest}>
+        {children}
+      </Link>
+    )
+  }
 
-export default Button;
+  // Default to button
+  const Tag = as
+  return (
+    <Tag className={classStyle} {...rest}>
+      {children}
+    </Tag>
+  )
+}
+
+export default Button
