@@ -30,4 +30,21 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+
+    &.grey {
+        background-color: var(--colors--neutral-100);
+
+        ::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1512 / 115;
+            background-image: url('./images/plains_white.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
 }
