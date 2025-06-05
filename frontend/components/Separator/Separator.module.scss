@@ -1,0 +1,19 @@
+.hr_container {
+    padding: 0 var(--sizing-4xl);
+
+    @media (max-width: 768px) {
+        padding: 0 var(--sizing-md);
+    }
+
+    .hr {
+        border: 0;
+        height: 1px;
+        background-color: var(--colors--neutral-200);
+        max-width: 1512px;
+        margin: 0 auto;
+
+        &_white {
+            background-color: var(--colors--white);
+        }
+    }
+}
