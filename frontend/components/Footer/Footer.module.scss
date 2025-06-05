@@ -3,7 +3,14 @@
     position: relative;
 
     &__container {
-        padding: 64px 72px 200px 72px;
+        position: relative;
+        padding: var(--sizing-4xl) 72px 200px 72px;
+        max-width: 1512px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--sizing-2xl);
 
         &top,
         &bottom {
@@ -16,30 +23,31 @@
         &bottom {
             align-items: center;
         }
-    }
 
-    &__toplogo {
-        position: absolute;
-        top: 3%;
-        left: 1%;
-    }
-
-    &__bottomlogo {
-        position: absolute;
-        bottom: 0%;
-        right: 0;
-        opacity: 0.1;
-        color: var(--colors--neutral-950);
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 68px;
+            height: 79.7px;
+            background-image: url('/images/traitsFooter.svg');
+        }
     }
 
     &__bottomleft {
-        position: relative;
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xl);
     }
 
     &__bottomright {
         display: flex;
         flex-direction: row;
-        gap: 24px;
+        gap: var(--sizing-2xs) var(--sizing-lg);
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 
     &__contentleft {
@@ -48,56 +56,77 @@
         flex-direction: column;
     }
 
+    &__topleft {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--sizing-4xl);
+    }
+
     &__topright {
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        gap: var(--sizing-xs);
     }
 
     &__title {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: var(--sizing-2xs);
     }
 
-    &__link {
-        color: var(--colors--neutral-950);
-        text-decoration: none;
-        margin-bottom: 8px;
-        font-family: 'ABeeZee_Regular', 'sans-serif';
-        border-bottom: 2px solid transparent;
-        transition: color .3s ease-in-out, border-color .3s ease-in-out;
-    }
-    
-    &__link:hover {
-        color: var(--colors--primary-950);
-        border-bottom-color: var(--colors--primary-950);
-    }
-
-    
 
     &__logo {
         height: 60px;
         width: auto;
-        object-fit: contain;
-        margin-right: 32px;
     }
 
-    &__separator {
-        margin: 40px 0;
-    }
 
     &__socials {
-        padding-top: 64px;
+
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+
 
         a {
-            margin-right: 12px;
+            display: block;
+            width: 32px;
+            height: 32px;
             color: var(--colors--primary-950);
+            transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+            &:hover,
+            &:focus-visible {
+                transform: scale(1.1);
+            }
         }
+
+
     }
 
     &__button {
-        transition: all .3s ease-in-out;
+        padding: var(--sizing-xs) var(--sizing-2xs);
+        background-color: var(--colors--primary-200);
+        color: var(--colors--neutral-950);
+        border-radius: var(--sizing-2xs);
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        right: 0;
+        width: 80vw;
+        max-width: 2000px;
+        height: auto;
+        opacity: 0.1;
+        aspect-ratio: 1211 / 211;
+        background-image: url('/images/openfestFooter.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 }
