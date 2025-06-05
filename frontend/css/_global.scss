@@ -41,47 +41,13 @@
 
     // Italic
     --font-style-italic: italic;
-}
 
-.section {
-    display: grid;
-    gap: var(--sizing-4xl);
-    padding: var(--sizing-5xl) var(--sizing-4xl);
-
-    &-grey {
-        position: relative;
-        background-color: var(--colors--neutral-100);
-    }
-
-    &-decoration ::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translateY(-99%);
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1512 / 115;
-        background-image: url('./images/plains.svg');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (max-width: 768px) {
-        padding: var(--sizing-4xl) var(--sizing-md);
-        gap: var(--sizing-2xl);
-    }
-}
-
-.max-width {
-    max-width: 1512px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--sizing-4xl);
-
-    @media (max-width: 768px) {
-        gap: var(--sizing-2xl);
-    }
+    // Mobile/Paragraph
+    --size-mobile-paragraph-p-bis: 1.25rem;
+    --size-mobile-paragraph-p-regular: 0.875rem;
+    --size-mobile-paragraph-p-bold: 0.875rem;
+    --size-mobile-paragraph-p-small: 0.75rem;
+    --size-mobile-paragraph-p-micro: 0.625rem;
 }
 
 .section {
@@ -133,21 +99,17 @@
     font-style: var(--font-style-italic);
 }
 
-.small {
-    font-size: var(--size-font-paragraph-p-small);
-}
-
-.micro {
-    font-size: var(--size-font-paragraph-p-micro);
-}
-
 .p-large {
     font-family: Poppins_Bold;
-    font-size: var(--size-font-paragraph-p-bis);
+    font-size: var(--size-desktop-paragraph-p-bis);
 }
 
 .subtitle {
-    font-size: var(--size-font-title-h6);
+    font-size: 1.188rem;
+
+    @media (max-width: 768px) {
+        font-size: 0.938rem;
+    }
 }
 
 .masked-element {

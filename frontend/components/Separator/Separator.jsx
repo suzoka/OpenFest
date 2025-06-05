@@ -1,10 +1,10 @@
 import styles from "./Separator.module.scss";
 
-const Separator = ({black, fullpage}) => {
+const Separator = ({white}) => {
 
     return (
-        <div className={`${styles.hr_container} ${fullpage ? styles.fullpage : ""}`}>
-            <hr className={`${styles.hr} ${black ? styles.hr_black :""}`} />
+        <div className={styles.hr_container}>
+            <hr className={`${styles.hr} ${white ? styles.hr_white :""}`} />
         </div>
     );
 };
