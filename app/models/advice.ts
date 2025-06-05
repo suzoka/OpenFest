@@ -104,6 +104,13 @@ export default class Advice extends BaseModel {
   })
   declare tags: ManyToMany<typeof Tag>
 
+  @manyToMany(() => Advice, {
+    pivotTable: 'similar_advices',
+    pivotForeignKey: 'advice_id',
+    pivotRelatedForeignKey: 'similar_advice_id',
+  })
+  declare similarAdvices: ManyToMany<typeof Advice>
+
   @beforeCreate()
   public static async onCreate (advice: Advice) {
     advice.slug = advice.title

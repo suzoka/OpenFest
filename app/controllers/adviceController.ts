@@ -39,6 +39,7 @@ export default class AdvicesController {
   async show({ inertia, params }: HttpContext) {
     const advice = await Advice.query()
       .preload('tags')
+      .preload('similarAdvices')
       .where('slug', params.slug)
       .firstOrFail()
     return inertia.render('advices/show', {
