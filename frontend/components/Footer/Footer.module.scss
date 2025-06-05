@@ -34,6 +34,9 @@
 
     &__bottomleft {
         position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
     }
 
     &__bottomright {
@@ -67,12 +70,11 @@
         margin-bottom: 8px;
         font-family: 'ABeeZee_Regular', 'sans-serif';
         border-bottom: 2px solid transparent;
-        transition: color .3s ease-in-out, border-color .3s ease-in-out;
+        transition: color .3s ease-in-out;
     }
     
     &__link:hover {
         color: var(--colors--primary-950);
-        border-bottom-color: var(--colors--primary-950);
     }
 
     
@@ -81,7 +83,6 @@
         height: 60px;
         width: auto;
         object-fit: contain;
-        margin-right: 32px;
     }
 
     &__separator {

@@ -1,0 +1,93 @@
+.connection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.connectionForm {
+    background-color: var(--colors--neutral-50);
+    border: 1px solid var(--colors--neutral-300);
+    padding: 48px 20px 20px 20px;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        text-align: center;
+        padding-bottom: 48px;
+        margin: 0 !important;
+    }
+
+    &__separator {
+        height: 1px;
+        background-color: var(--colors--neutral-300);
+        margin: 24px 0;
+    }
+
+    &__formGroup {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-weight: var(--font-weight-bold);
+        margin-bottom: 8px;
+        color: var(--colors--neutral-950);
+        font-family: 'poppins', sans-serif;
+    }
+
+    &__input {
+        padding: 12px;
+        border-radius: 0.5rem;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        flex: 1;
+            padding-right: 2rem;
+    }
+
+    &__forgotPassword {
+        text-align: right;
+        font-size: var(--size-desktop-paragraph-p-small);
+        margin-bottom: 16px;
+        color: var(--colors--neutral-950);
+    }
+
+    &__noAccount {
+        font-weight: var(--font-weight-bold);
+        font-family: 'poppins', sans-serif;
+        text-align: center;
+        font-size: var(--size-desktop-paragraph-p-bis);
+        padding-bottom: 16px;
+    }
+
+    &__registerLink {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    &__registerButton {
+    width: 100%;
+    text-align: center;
+    }
+}
+
+.inputWithIcon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.iconEye {
+    position: absolute;
+    right: 0.75rem;
+    top: 10px;
+    cursor: pointer; 
+    background-color: transparent;
+    border: none;
+}
