@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
 import { Alien } from '@phosphor-icons/react'
-import Heading from '@/Heading/Heading.jsx'
+import Heading from '@/Titles/Titles.jsx'
 import Button from '@/Button/Button.jsx'
 import Label from '@/Label/Label.jsx'
 import Team from '@/Team/Team.jsx'
@@ -13,7 +13,7 @@ import Hero from '@/Hero/Hero'
 export default function Home({ user }) {
   return (
     <>
-      <Hero title="Styles Guide" subtitle="Pour tester tout les composants sans craintes ni risques ! ✌️🤓" grey />
+      <Hero title="Styles Guide" subtitle="Pour tester tout les composant sans craintes ni risques ! ✌️🤓" />
 
       <Heading as="h1"> OpenFest </Heading>
 
