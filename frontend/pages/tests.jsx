@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
 import { Alien } from '@phosphor-icons/react'
-import Heading from '@/Titles/Titles.jsx'
+import Heading from '@/Heading/Heading.jsx'
 import Button from '@/Button/Button.jsx'
 import Label from '@/Label/Label.jsx'
 import Team from '@/Team/Team.jsx'
@@ -89,7 +89,7 @@ export default function Home({ user }) {
         <Partners
           name="APF France Handicap"
           role={[{ label: 'Association' }]}
-          image="/images/apf.png"
+          image="/images/apf_logo.svg"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
         <Partners
@@ -101,7 +101,7 @@ export default function Home({ user }) {
         <Partners
           name="Ministère de la culture"
           role={[{ label: 'Ministère', color: 'red' }]}
-          image="/images/ministere.png"
+          image="/images/ministere_culture_logo.svg"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </div>

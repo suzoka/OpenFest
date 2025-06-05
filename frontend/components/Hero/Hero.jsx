@@ -1,4 +1,4 @@
-import Heading from "../Titles/Titles";
+import Heading from "../Heading/Heading";
 import styles from "./Hero.module.scss";
 
 const Hero= ({title, subtitle, children, grey}) => {
