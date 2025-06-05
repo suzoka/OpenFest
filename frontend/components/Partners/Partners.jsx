@@ -64,7 +64,7 @@ const Partners = ({
                 </div>
             </div>
             <div className={styles.partners_info}>
-                <h3 className={styles.partners_name}>{name}</h3>
+                <h3 className={`p-large ${styles.partners_name}`}>{name}</h3>
                 <p className={styles.partners_description}>{description}</p>
             </div>
         </div>

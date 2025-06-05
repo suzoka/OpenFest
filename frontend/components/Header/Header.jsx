@@ -41,7 +41,7 @@ const Header = () => {
     }, [userMenuOpen]);
 
     return (
-        <header className={`${styles.header} ${scroll > 10 ? styles.onscroll : ''}`}>
+        <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>
             <nav className={styles.skipNav}>
                 <ul>
                     {user &&
