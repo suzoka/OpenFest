@@ -130,4 +130,25 @@ export default class AdvicesController {
         .delete()
     }
   }
+
+  async check({ request, response, params, auth }: HttpContext) {
+    await auth.check()
+    if (!auth.user) {
+      return response.status(401).send('Unauthorized')
+    }
+
+    const advice = await SelectedAdvice.query()
+      .where('user_id', auth.user.id)
+      .where('advice_id', params.id)
+      .first()
+
+    if (!advice) {
+      return response.status(404).send('Not Found')
+    }
+
+    const { check } = request.body()
+
+    advice.isChecked = check
+    await advice.save()
+  }
 }

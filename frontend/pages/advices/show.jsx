@@ -1,8 +1,6 @@
 import { Head } from '@inertiajs/react'
 
 export default function Home({ advice }) {
-
-  console.log(advice)
   return (
     <>
       <Head title={advice.title} />

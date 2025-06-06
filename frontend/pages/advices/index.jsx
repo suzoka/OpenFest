@@ -4,8 +4,6 @@ import AdvicesCard from '../../components/AdvicesCard/AdvicesCard'
 
 export default function Home({ advices }) {
 
-  console.log(advices)
-
   return (
     <>
       <Head title="Conseils" />

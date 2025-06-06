@@ -3,12 +3,12 @@ import styles from "./AdvicesCard.module.scss";
 import Label from "@/Label/Label";
 import Button from "@/Button/Button";
 import { BookBookmark, BookmarkSimple, CheckSquare, Selection, Ticket } from "@phosphor-icons/react";
-import { sendCheckboxvalueToServer } from "#/advices"
+import { saveAdvice, checkAdvice } from "#/advices"
 import { useState } from "react";
 
 const AdvicesCard = ({ data }) => {
 
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(data?.isSelected?.length > 0 && data?.isSelected[0]?.isChecked);
     const [saved, setSaved] = useState(data?.isSelected?.length > 0 || false);
 
     return (
@@ -29,7 +29,7 @@ const AdvicesCard = ({ data }) => {
             </Link>
             <div className={styles.advicesCard__btn_wrapper}>
                 {saved &&
-                    <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => setChecked(!checked)}>
+                    <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => checkAdvice(setChecked, !checked, data.id)}>
                         {
                             checked ? (
                                 <CheckSquare size={24} weight="fill" />
@@ -39,7 +39,7 @@ const AdvicesCard = ({ data }) => {
                         }
                     </Button>
                 }
-                <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => sendCheckboxvalueToServer(setSaved, saved, data.id)}>
+                <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => saveAdvice(setSaved, !saved, data.id)}>
                     {saved ? (
                         <BookmarkSimple size={24} weight="fill" />
                     ) : (
