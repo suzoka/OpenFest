@@ -25,6 +25,7 @@
         .navLink {
             position: relative;
             padding: var(--sizing-2xs) 0;
+            text-decoration: none;
 
             &::after {
                 content: '';
@@ -40,12 +41,8 @@
                 transition: 0.3s ease-in-out;
             }
 
-            &:hover {
-                text-decoration: none;
-
-                &::after {
-                    width: calc(100% - 10px);
-                }
+            &:hover::after {
+                width: calc(100% - 10px);
             }
 
             &.active {
@@ -159,6 +156,7 @@
         }
 
         & a {
+
             &:hover,
             &:focus-visible {
                 box-shadow: initial;
