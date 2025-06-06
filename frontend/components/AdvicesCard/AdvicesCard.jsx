@@ -11,7 +11,7 @@ const AdvicesCard = ({ data }) => {
     const [saved, setSaved] = useState(false);
 
     return (
-        <li className={`${styles.advicesCard} ${checked ? styles.checked : ""}`}>
+        <li className={`${styles.advicesCard} ${checked && saved ? styles.checked : ""}`}>
             <div className={styles.advicesCard__top}>
                 <div className={styles.advicesCard__step_wrapper}>
                     <Ticket size={32} className={styles.step_icon} />
