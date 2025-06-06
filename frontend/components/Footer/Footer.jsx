@@ -89,7 +89,7 @@ const Footer = () => {
 
           {/* Bas droit : Liens légaux */}
           <nav className={styles.footer__bottomright}>
-            <Link href="#" className={styles.footer__link}>
+            <Link href="#" className={styles.footer__link}  >
               Politique de confidentialité
             </Link>
             <Link href="#" className={styles.footer__link}>
