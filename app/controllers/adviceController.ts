@@ -49,9 +49,22 @@ export default class AdvicesController {
 
     const advices = await advicesQuery
 
+    const counts = await Advice.query()
+      .select('category')
+      .count('* as count')
+      .groupBy('category')
+
+    const steps = adviceCategoryOptions.map((step) => {
+      const found = counts.find(c => c.category === step.value)
+      return {
+        ...step,
+        count: found ? Number(found.$extras.count) : 0
+      }
+    })
+
     return inertia.render('advices/step', {
       advices: advices,
-      steps: adviceCategoryOptions
+      steps: steps
     })
   }
 
