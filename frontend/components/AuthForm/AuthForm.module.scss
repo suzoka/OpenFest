@@ -1,17 +1,16 @@
-.connection {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 26.45%;
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.connectionForm {
+.authForm {
     background-color: var(--colors--neutral-50);
     border: 1px solid var(--colors--neutral-300);
     padding: var(--sizing-3xl) var(--sizing-md) var(--sizing-md) var(--sizing-md);
     border-radius: var(--sizing-2lg);
-    width: 100%;
+    width: 30%;
     display: flex;
     flex-direction: column;
 
@@ -36,7 +35,7 @@
         gap: var(--sizing-sm);
         margin-bottom: var(--sizing-2xs);
 
-        > * {
+        >* {
             display: flex;
             flex-direction: column;
         }
@@ -61,7 +60,6 @@
         flex: 1;
     }
 
-
     &__forgotPassword {
         text-align: right;
         font-size: var(--size-desktop-paragraph-p-small);
@@ -85,9 +83,28 @@
     }
 
     &__registerButton {
-    width: 100%;
-    text-align: center;
-    font-family: 'abeezee_regular', sans-serif;
+        width: 100%;
+        text-align: center;
+        font-family: 'abeezee_regular', sans-serif;
+    }
+
+    &__alreadyAccount {
+        text-align: center;
+        font-family: 'poppins', sans-serif;
+        font-size: var(--size-desktop-paragraph-p-bis);
+        margin-top: var(--sizing-sm);
+    }
+
+    &__hint {
+        font-size: var(--size-desktop-paragraph-p-small);
+        color: var(--colors--neutral-700);
+        margin-top: var(--sizing-2xs);
+        font-family: 'ABeeZee_Regular', sans-serif;
+    }
+
+    &__alreadyAccount {
+        text-align: center;
+
     }
 }
 
@@ -102,7 +119,7 @@
     right: var(--sizing-xs);
     top: 50%;
     transform: translate(0, -40%);
-    cursor: pointer; 
+    cursor: pointer;
     background-color: transparent;
     border: none;
 }

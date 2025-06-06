@@ -1,15 +1,14 @@
 import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
 import { Alien } from '@phosphor-icons/react'
-import ConnectionForm from '../components/ConnectionForm/ConnectionForm.jsx'
 import Partners from '../components/Partners/Partners.jsx'
 import Stats from '../components/Stats/Stats.jsx'
 import Footer from '../components/Footer/Footer.jsx'
-
-export default function Home({ user }) {
+import AuthForm from '../components/AuthForm/AuthForm.jsx'
+export default function Home({ user, errors }) {
   return (
     <>
-      <ConnectionForm />
+      <AuthForm mode="register" errors={errors} />
       <div style={{ display: 'flex', gap: '20px', marginBottom: '50px' }}>
         <Partners
           name="APF France Handicap"

@@ -1,9 +1,9 @@
-import ConnectionForm from '@/ConnectionForm/ConnectionForm.jsx'
+import AuthForm from '@/AuthForm/AuthForm.jsx'
 
 export default function Login({ errors }) {
   return (
     <>
-      <ConnectionForm errors={errors} />
+      <AuthForm mode="login" errors={errors} />
     </>
   )
 }
