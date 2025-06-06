@@ -2,24 +2,49 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
 import { createAdviceValidator } from '#validators/advice'
 import Tag from '#models/tag'
-import { adviceDisabilityOptions, adviceCategoryOptions } from '#models/advice'
+import { adviceDisabilityOptions, adviceCategoryOptions, AdviceCategory } from '#models/advice'
 
+const adviceCategoryValues = Object.values(AdviceCategory)
 
 export default class AdvicesController {
 
-  async index({ inertia }: HttpContext) {
-    const advices = await Advice.query()
-      .preload('tags')
-      .orderBy('created_at', 'desc')
+  async index({ inertia, request }: HttpContext) {
+    let advices
+
+    const params = request.qs()
+
+    if (params.search) {
+      advices = await Advice.search(params.search)
+    } else {
+      advices = await Advice.query()
+        .preload('tags')
+        .orderBy('created_at', 'desc')
+    }
 
     return inertia.render('advices/index', {
       advices: advices
     })
   }
 
+  async step({ inertia, params }: HttpContext) {
+
+    if (!params.step || !adviceCategoryValues[params.step - 1]) {
+      return inertia.render('errors/not_found')
+    }
+
+    const advices = await Advice.query()
+      .preload('tags')
+      .where('category', adviceCategoryValues[params.step - 1])
+
+    return inertia.render('advices/step', {
+      advices: advices,
+    })
+  }
+
   async show({ inertia, params }: HttpContext) {
     const advice = await Advice.query()
       .preload('tags')
+      .preload('similarAdvices')
       .where('slug', params.slug)
       .firstOrFail()
     return inertia.render('advices/show', {

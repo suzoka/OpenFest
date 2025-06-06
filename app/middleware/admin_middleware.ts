@@ -7,7 +7,9 @@ export default class AdminMiddleware {
      * Middleware logic goes here (before the next call)
      */
 
-    const user = ctx.session?.get('user')
+    await ctx.auth.check()
+    const user = ctx.auth.use('web')?.user
+
     if (!user || user.role !== 'admin') {
       ctx.session.flashExcept(['_csrf'])
       ctx.session.flashErrors({ 401: 'Unauthorized' })

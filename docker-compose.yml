@@ -1,0 +1,11 @@
+version: '1.0'
+
+services:
+  meilisearch:
+    image: getmeili/meilisearch:v1.14
+    volumes:
+      - ./data.ms:/data.ms
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_MASTER_KEY=${MEILISEARCH_KEY}

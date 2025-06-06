@@ -1,30 +1,30 @@
 .heading_h1 {
     font-family : Poppins_Bold;
-    font-size: 3rem;
+    font-size: var(--size-font-title-h1);
 }
 
 .heading_h2 {
     font-family : Poppins_Bold;
-    font-size: 2.375rem;
+    font-size: var(--size-font-title-h2);
 }
 
 .heading_h3 {
     font-family : Poppins_Bold;
-    font-size: 2.063rem;
+    font-size: var(--size-font-title-h3);
 }
 
 .heading_h4 {
     font-family : Poppins_Bold;
-    font-size: 1.75rem;
+    font-size: var(--size-font-title-h4);
 }
 
 .heading_h5 {
     font-family : Poppins_Bold;
-    font-size: 1.438rem;
+    font-size: var(--size-font-title-h5);
 }
 
 .heading_h6 {
     font-family : Poppins_Bold;
-    font-size: 1.188rem;
+    font-size: var(--size-font-title-h6);
 }
 

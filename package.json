@@ -73,8 +73,10 @@
     "@vinejs/vine": "^3.0.1",
     "edge.js": "^6.2.0",
     "luxon": "^3.5.0",
+    "meilisearch": "^0.50.0",
     "pg": "^8.13.1",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "reflect-metadata": "^0.2.2",
     "sharp": "^0.33.5"

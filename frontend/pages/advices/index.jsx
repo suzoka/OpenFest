@@ -9,7 +9,7 @@ export default function Home({ advices }) {
       <ul>
         {advices.map((advice, index) => (
           <li key={index}>
-            <Link href={`/advices/${advice.slug}`}>{advice.title}</Link>
+            <Link href={`/conseils/${advice.slug}`}>{advice.title}</Link>
           </li>
         ))}
       </ul>
