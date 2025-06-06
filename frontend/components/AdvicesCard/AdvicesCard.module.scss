@@ -1,3 +1,57 @@
-.step_icon {
-    color: var(--colors--primary-950);
+.advicesCard {
+    display: flex;
+    flex-direction: column;
+    padding: var(--sizing-xs);
+    gap: var(--sizing-md);
+    border: 1px solid var(--colors--primary-200);
+    border-radius: var(--sizing-md);
+    background-color: var(--colors--neutral-100);
+    width: 100%;
+    max-width: 500px;
+
+    &__top {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-3xs);
+    }
+
+    &__step_wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+
+        .step_icon {
+            color: var(--colors--primary-950);
+        }
+    }
+
+    &__tag_wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-3xs);
+        flex-wrap: wrap;
+    }
+
+    &__btn_wrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+        width: 100%;
+
+        & > :last-child {
+            width: 100%;
+        }
+    }
+
+    &.checked {
+        background-color: var(--colors--primary-100);
+        color: var(--colors--primary-950);
+
+        .advicesCard__title {
+            text-decoration: line-through;
+            color: var(--colors--primary-950);
+            opacity: 0.9;
+        }
+    }
+
 }
