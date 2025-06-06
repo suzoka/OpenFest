@@ -1,9 +1,9 @@
-import ConnectionForm from '../../components/ConnectionForm/ConnectionForm.jsx'
+import ConnectionForm from '@/ConnectionForm/ConnectionForm.jsx'
 
-export default function Login() {
+export default function Login({ errors }) {
   return (
     <>
-      <ConnectionForm />
+      <ConnectionForm errors={errors} />
     </>
   )
 }
