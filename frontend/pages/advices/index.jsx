@@ -3,9 +3,11 @@ import Hero from '@/Hero/Hero'
 import AdvicesCard from '../../components/AdvicesCard/AdvicesCard'
 import ProgressStepTab from '../../components/ProgressStepTab/ProgressStepTab'
 import styles from '../../css/pages/_advices.module.scss';
+import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 
 export default function Home({ advices }) {
 
+  const count = advices.length;
   console.log(advices)
 
   return (
@@ -16,7 +18,11 @@ export default function Home({ advices }) {
       </Hero>
       <main id='main'>
         <div className={styles.advices__right}>
-          <Link href="/conseils/etapes/1" className={styles.advices__button}>Step</Link>
+          <div className={styles.advices__right_Header}>
+            <p>{count} conseil{count > 1 ? "s" : ""}</p>
+            <div className={styles.verticalSeparator}></div>
+            <SwitchAdvices current="all" />
+          </div>
           <ul className={styles.advices__list}>
             {advices.map((advice, index) => (
               <AdvicesCard key={`conseil${advice.id}`} data={advice} />

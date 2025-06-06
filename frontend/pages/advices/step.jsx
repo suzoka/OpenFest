@@ -2,9 +2,14 @@ import Hero from '@/Hero/Hero'
 import AdvicesCard from "@/AdvicesCard/AdvicesCard"
 import ProgressStepTab from '@/ProgressStepTab/ProgressStepTab'
 import styles from '../../css/pages/_advices.module.scss';
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
+import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 
 export default function Step({ advices, steps }) {
+  const { url } = usePage();
+  const currentStepID = url.split('/').pop() - 1;
+  const currentStep = steps[currentStepID];
+
   return (
     <>
       <Head title="Conseils" />
@@ -23,7 +28,11 @@ export default function Step({ advices, steps }) {
           </ul>
         </aside>
         <div className={styles.advices__right}>
-            <Link href="/conseils/" className={styles.advices__button}>Tous</Link>
+          <div className={styles.advices__right_Header}>
+            <p>{currentStep?.count} conseil{currentStep.count > 1 ? "s" : ""}</p>
+            <div className={styles.verticalSeparator}></div>
+            <SwitchAdvices current="step" />
+          </div>
           <ul className={styles.advices__list}>
             {advices.map((advice, index) => (
               <AdvicesCard key={`conseil${advice.id}`} data={advice} />
