@@ -5,6 +5,10 @@
         padding: 0 var(--sizing-md);
     }
 
+    &.fullpage {
+        padding: 0;
+    }
+
     .hr {
         border: 0;
         height: 1px;
@@ -12,8 +16,8 @@
         max-width: 1512px;
         margin: 0 auto;
 
-        &_white {
-            background-color: var(--colors--white);
+        &_black {
+            background-color: var(--colors--neutral-300);
         }
     }
 }

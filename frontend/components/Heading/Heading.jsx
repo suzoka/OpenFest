@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Titles.module.scss";
+import styles from "./Heading.module.scss";
 
-export const Heading = ({ as: Tag = "p", className, children, ...props }) => {
+export const Heading = ({ as: Tag = "p", className, variant, children, ...props }) => {
 const componentClass = {
   h1: styles.heading_h1,
   h2: styles.heading_h2,
@@ -12,7 +12,7 @@ const componentClass = {
 }
 
   return (
-    <Tag className={`${className} ${componentClass[Tag]}`} {...props}>
+    <Tag className={`${className} ${componentClass[variant || Tag]}`} {...props}>
       {children}
     </Tag>
   );
