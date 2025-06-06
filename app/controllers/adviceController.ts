@@ -10,18 +10,35 @@ const adviceCategoryValues = Object.values(AdviceCategory)
 
 export default class AdvicesController {
 
-  async index({ inertia, request }: HttpContext) {
-    let advices
+  async index({ inertia, request, auth }: HttpContext) {
+    await auth.check()
+    const user = auth.user as User
+
+    let advicesQuery
 
     const params = request.qs()
 
     if (params.search) {
-      advices = await Advice.search(params.search)
+      const searchResults = await Advice.search(params.search)
+      const ids = searchResults.map(a => a.id)
+      advicesQuery = Advice.query().whereIn('id', ids).preload('tags')
+
+      if (user) {
+        advicesQuery = advicesQuery.preload('isSelected', q => q.where('user_id', user.id))
+      }
     } else {
-      advices = await Advice.query()
+      advicesQuery = Advice.query()
         .preload('tags')
         .orderBy('created_at', 'desc')
+
+      if (user) {
+        advicesQuery.preload('isSelected', (query) => {
+          query.where('user_id', user.id)
+        })
+      }
     }
+
+    const advices = await advicesQuery
 
     return inertia.render('advices/index', {
       advices: advices
@@ -76,6 +93,7 @@ export default class AdvicesController {
       .firstOrFail()
     return inertia.render('advices/show', {
       advice: advice,
+      step: adviceCategoryOptions.find(option => option.value === advice.category) || null,
     })
   }
 

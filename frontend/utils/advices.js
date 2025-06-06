@@ -1,3 +1,5 @@
+import {router} from '@inertiajs/react'
+
 export const saveAdvice = async (setSaved, saved, id) => {
 
   setSaved(saved)
@@ -15,6 +17,8 @@ export const saveAdvice = async (setSaved, saved, id) => {
   if (!query.ok) {
     setSaved(!saved)
   }
+
+  router.reload({ only: ['user'] })
 }
 
 export const checkAdvice = async (setChecked, checked, id) => {
@@ -32,4 +36,6 @@ export const checkAdvice = async (setChecked, checked, id) => {
   if (!query.ok) {
     setChecked(!checked)
   }
+
+  router.reload({ only: ['user'] })
 }

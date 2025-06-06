@@ -3,7 +3,7 @@ const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, Fo
 
 import AdvicesCard from "@/AdvicesCard/AdvicesCard"
 
-export default function Step({ advices, steps }) {
+export default function Step({ advices, steps, user }) {
   return (
     <>
       <ul>

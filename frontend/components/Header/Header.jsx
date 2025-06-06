@@ -111,12 +111,12 @@ const Header = () => {
                             <div className={styles.userInfoProgress}>
                                 <Label color="red">
                                     <FlagBannerFold size={16} color="currentColor" />
-                                    50%
+                                    {Math.round((user?.adviceCheckedCount || 0) / (user?.adviceSavedCount || 1) * 100)}%
                                 </Label>
-                                <p className="small">13/26 conseils</p>
+                                <p className="small">{user?.adviceCheckedCount || 0}/{user?.adviceSavedCount || 0} conseils</p>
                             </div>
                             <Button as="link" href='/user' >Espace Festival</Button>
-                            <Button as="link" href='/deconnection' type="secondary" color="red" >
+                            <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
                             </Button>
