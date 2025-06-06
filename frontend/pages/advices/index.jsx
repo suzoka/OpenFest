@@ -1,16 +1,20 @@
 import { Head, Link } from '@inertiajs/react'
+import Hero from '@/Hero/Hero'
+import AdvicesCard from '../../components/AdvicesCard/AdvicesCard'
 
 export default function Home({ advices }) {
 
+  console.log(advices)
+
   return (
     <>
-      <Head title="Advices" />
-      <h1>Advices</h1>
+      <Head title="Conseils" />
+      <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet. " grey>
+        <p>recherche</p>
+      </Hero>
       <ul>
         {advices.map((advice, index) => (
-          <li key={index}>
-            <Link href={`/conseils/${advice.slug}`}>{advice.title}</Link>
-          </li>
+          <AdvicesCard key={index} data={advice} />
         ))}
       </ul>
     </>
