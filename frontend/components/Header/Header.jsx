@@ -65,7 +65,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/conseils" className={`${styles.navLink} ${url.startsWith('/conseils') ? styles.active : ''}`}>Conseils</Link>
+                        <Link href="/conseils/etapes/1" className={`${styles.navLink} ${url.startsWith('/conseils') ? styles.active : ''}`}>Conseils</Link>
                     </li>
                     <li>
                         <Link href="/info" className={`${styles.navLink} ${url.startsWith('/info') ? styles.active : ''}`}>Démarche</Link>
@@ -123,7 +123,7 @@ const Header = () => {
                         </div>
                     </div>
                 ) :
-                    <Button as="link" href='/connection' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
+                    <Button as="link" href='/connection' type="secondary" className={styles.headerBtn}>Se connecter</Button>
                 }
             </div>
         </header >

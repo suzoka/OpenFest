@@ -1,9 +1,36 @@
 .advices {
     display: grid;
     grid-template-columns: 400px 1fr;
+    scroll-margin-top: 80px;
 
     &__aside {
         position: sticky;
+        display: flex;
+        flex-direction: column;
         top: 80px;
+        height: calc(100dvh - 80px);
+        padding: var(--sizing-lg) var(--sizing-md);
+        border-left: 1px solid var(--colors--neutral-200);
+        gap: var(--sizing-lg);
+        overflow-y: auto;
+    }
+
+    &__progressList {
+        list-style: none;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-lg);
+        padding: var(--sizing-lg) var(--sizing-md);
+        width: 100%;
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
+        gap: var(--sizing-lg);
     }
 }
