@@ -1,0 +1,82 @@
+.progressStepTab {
+    margin-top: -12px;
+
+    &__object {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+    }
+
+    &__number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--colors--primary);
+        color: var(--colors--primary-50);
+        outline: 8px solid var(--colors--neutral-100);
+    }
+
+    &__link {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: repeat(2, min-content);
+        gap: var(--sizing-3xs) var(--sizing-2xs);
+        text-decoration: none !important;
+        background-color: var(--colors--neutral-100);
+        padding: var(--sizing-2xs);
+        padding-left: var(--sizing-xs);
+        border-radius: var(--sizing-2xs);
+        color: var(--colors--black);
+        border: 1px solid transparent;
+        width: 316px;
+
+        .progressStepTab__icon {
+            grid-row: 1 / -1;
+            grid-column: 2;
+            color: var(--colors--neutral-500);
+            transition: 0.2s ease-in-out;
+        }
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--colors--primary-200);
+            color: var(--colors--primary-950);
+
+            .progressStepTab__icon {
+                color: var(--colors--primary-500);
+            }
+        }
+    }
+
+    &__title {
+        -webkit-line-clamp: 1;
+                line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+                box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        margin-top: -12px;
+        width: 32px;
+        height: 58px;
+        background-image: url('/images/decoration/Progress_strokes.svg');
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+    
+    &:last-child {
+        &::after {
+            display: none;
+        }
+    }
+}
