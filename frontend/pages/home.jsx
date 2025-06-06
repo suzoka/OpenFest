@@ -1,7 +1,7 @@
 import { Head, Link } from '@inertiajs/react'
 import { Horse, Heart, Cube } from "@phosphor-icons/react";
-import Heading from '../components/Titles/Titles.jsx'
-import Button from '../components/Button/Button.jsx';
+import Heading from '@/Heading/Heading.jsx'
+import Button from '@/Button/Button.jsx';
 import { RocketLaunch, Headphones } from '@phosphor-icons/react';
 import Stats from '@/Stats/Stats.jsx';
 import Partners from '@/Partners/Partners.jsx';
@@ -49,9 +49,9 @@ export default function Home({ }) {
               <Stats title="Statistique 3" color="yellow" number={50} suffix="percent" />
             </div>
           </div>
-        </div>
-        <div className={styles.thread_container}>
-          <div className={styles.thread_max_width}>
+        </section>
+        <section className="section section-grey section-decoration">
+          <div className={`max-width ${styles.thread}`}>
             <div>
               <Heading as="h2" className={styles.thread_title}>Vous avez dit OpenFest ?</Heading>
               <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. <span className='bold'>(Faudrait développer le bloc en dessous la team)</span></p>
