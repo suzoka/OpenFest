@@ -79,4 +79,20 @@
             display: none;
         }
     }
+
+    &.active {
+        .progressStepTab__number {
+            background-color: var(--colors--primary-950);
+            outline-color: var(--colors--primary-200);
+        }
+
+        .progressStepTab__link {
+            background-color: var(--colors--primary-200);
+            color: var(--colors--primary-950);
+
+            .progressStepTab__icon {
+                color: var(--colors--primary-950);
+            }
+        }
+    }
 }

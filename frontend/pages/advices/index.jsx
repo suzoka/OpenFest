@@ -15,8 +15,11 @@ export default function Home({ advices }) {
         <p>recherche</p>
       </Hero>
 
-      <main id='main'>
+      <main id='main' className={styles.advices}>
         <aside className={styles.advices__aside}>
+          <p className={`p-large ${styles.advices__asideTitle}`}>
+            Cheminement
+          </p>
           <ul className={styles.advices__progressList}>
             <ProgressStepTab />
             <ProgressStepTab />

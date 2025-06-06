@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react";
 const ProgressStepTab= ({data}) => {
 
     return (
-        <li className={styles.progressStepTab}>
+        <li className={`${styles.progressStepTab}`}>
             <div className={styles.progressStepTab__object}>
                 <p className={`bold ${styles.progressStepTab__number}`}>
                     01
