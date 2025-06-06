@@ -14,7 +14,6 @@ export default function Home({ advices }) {
       <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet. " grey>
         <p>recherche</p>
       </Hero>
-
       <main id='main' className={styles.advices}>
         <aside className={styles.advices__aside}>
           <p className={`p-large ${styles.advices__asideTitle}`}>
