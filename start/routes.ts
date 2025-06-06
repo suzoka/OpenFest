@@ -37,8 +37,10 @@ router.group(() => {
 }).use([middleware.auth(), middleware.admin()])
 
 router.get('/conseils', '#controllers/adviceController.index').as('advices.index')
-  router.get('/conseils/etapes/:step', '#controllers/adviceController.step').as('advices.step')
+router.get('/conseils/etapes/:step', '#controllers/adviceController.step').as('advices.step')
 router.get('/conseils/:slug', '#controllers/adviceController.show').as('advices.show')
+router.post('/conseils/:id/save', '#controllers/adviceController.save').as('advices.save')
+router.post('/conseils/:id/check', '#controllers/adviceController.check').as('advices.check')
 
 router.get('/tests', ({ inertia })=>{
   return inertia.render('tests')
