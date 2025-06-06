@@ -18,6 +18,9 @@
     --size-font-paragraph-p-small: 0.875rem;
     --size-font-paragraph-p-micro: 0.75rem;
 
+    // Italic
+    --font-style-italic: italic;
+
     @media (max-width: 768px) {
 
         //! Mobile Sizings
@@ -38,16 +41,6 @@
         --size-font-paragraph-p-micro: 0.625rem;
 
     }
-
-    // Italic
-    --font-style-italic: italic;
-
-    // Mobile/Paragraph
-    --size-mobile-paragraph-p-bis: 1.25rem;
-    --size-mobile-paragraph-p-regular: 0.875rem;
-    --size-mobile-paragraph-p-bold: 0.875rem;
-    --size-mobile-paragraph-p-small: 0.75rem;
-    --size-mobile-paragraph-p-micro: 0.625rem;
 }
 
 .section {
@@ -241,6 +234,7 @@
         padding: var(--sizing-4xl) var(--sizing-md);
         gap: var(--sizing-2xl);
     }
+  }
 }
 
 .max-width {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
 import { Alien } from '@phosphor-icons/react'
-import Heading from '@/Titles/Titles.jsx'
+import Heading from '@/Heading/Heading.jsx'
 import Button from '@/Button/Button.jsx'
 import Label from '@/Label/Label.jsx'
 import Team from '@/Team/Team.jsx'

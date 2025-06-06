@@ -1,13 +1,14 @@
 import { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from "@phosphor-icons/react"
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 
+import AdvicesCard from "@/AdvicesCard/AdvicesCard"
+
 export default function Step({ advices, steps }) {
   return (
     <>
       <ul>
         {advices.map(advice => (
-          <li key={advice.id}>{advice.title}</li>
-
+          <AdvicesCard key={`conseil${advice.id}`} data={advice} />
         ))}
       </ul>
 
@@ -15,7 +16,7 @@ export default function Step({ advices, steps }) {
 
       {steps.map((step, i) => {
         const Icon = icons[step.icon]
-        return <Icon key={i} />
+        return <Icon key={`icon${i}`} />
       })}
     </>
   )

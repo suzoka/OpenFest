@@ -3,12 +3,13 @@ import styles from "./AdvicesCard.module.scss";
 import Label from "@/Label/Label";
 import Button from "@/Button/Button";
 import { BookBookmark, BookmarkSimple, CheckSquare, Selection, Ticket } from "@phosphor-icons/react";
+import { sendCheckboxvalueToServer } from "#/advices"
 import { useState } from "react";
 
 const AdvicesCard = ({ data }) => {
 
     const [checked, setChecked] = useState(false);
-    const [saved, setSaved] = useState(false);
+    const [saved, setSaved] = useState(data?.isSelected?.length > 0 || false);
 
     return (
         <li className={`${styles.advicesCard} ${checked ? styles.checked : ""}`}>
@@ -38,7 +39,7 @@ const AdvicesCard = ({ data }) => {
                         }
                     </Button>
                 }
-                <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => setSaved(!saved)}>
+                <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => sendCheckboxvalueToServer(setSaved, saved, data.id)}>
                     {saved ? (
                         <BookmarkSimple size={24} weight="fill" />
                     ) : (

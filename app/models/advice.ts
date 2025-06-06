@@ -1,9 +1,10 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany, beforeSave, beforeCreate } from '@adonisjs/lucid/orm'
-import type { ManyToMany } from '@adonisjs/lucid/types/relations'
+import { BaseModel, column, manyToMany, beforeSave, beforeCreate, hasMany } from '@adonisjs/lucid/orm'
+import type { ManyToMany, HasMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 import meiliClient from '../../config/meilisearch.js'
 import { afterCreate, afterUpdate, afterDelete } from '@adonisjs/lucid/orm'
+import SelectedAdvice from './selectedAdvice.js'
 
 
 export enum AdviceDisability {
@@ -113,6 +114,12 @@ export default class Advice extends BaseModel {
     pivotRelatedForeignKey: 'similar_advice_id',
   })
   declare similarAdvices: ManyToMany<typeof Advice>
+
+  @hasMany(() => SelectedAdvice, {
+    foreignKey: 'adviceId',
+    localKey: 'id',
+  })
+  declare isSelected: HasMany<typeof SelectedAdvice>
 
   @beforeCreate()
   public static async onCreate (advice: Advice) {

@@ -3,6 +3,8 @@ import Advice from '#models/advice'
 import { createAdviceValidator } from '#validators/advice'
 import Tag from '#models/tag'
 import { adviceCategoryOptions, AdviceCategory } from '#models/advice'
+import SelectedAdvice from '#models/selectedAdvice'
+import User from '#models/user'
 
 const adviceCategoryValues = Object.values(AdviceCategory)
 
@@ -26,15 +28,26 @@ export default class AdvicesController {
     })
   }
 
-  async step({ inertia, params }: HttpContext) {
+  async step({ inertia, params, auth }: HttpContext) {
+    await auth.check()
+
+    const user = auth.user as User
 
     if (!params.step || !adviceCategoryValues[params.step - 1]) {
       return inertia.render('errors/not_found')
     }
 
-    const advices = await Advice.query()
+    const advicesQuery = Advice.query()
       .preload('tags')
       .where('category', adviceCategoryValues[params.step - 1])
+
+    if (user) {
+      advicesQuery.preload('isSelected', (query) => {
+        query.where('user_id', user.id)
+      })
+    }
+
+    const advices = await advicesQuery
 
     return inertia.render('advices/step', {
       advices: advices,
@@ -81,5 +94,27 @@ export default class AdvicesController {
     await advice.related('tags').attach([tag.id, tag2.id])
 
     return response.redirect().toRoute('home')
+  }
+
+  async save({ request, response, params, auth }: HttpContext) {
+    await auth.check()
+    if (!auth.user) {
+      return response.status(401).send('Unauthorized')
+    }
+
+    const advice = await Advice.findOrFail(params.id)
+    const { save } = request.body()
+
+    if (save) {
+      await SelectedAdvice.firstOrCreate({
+        userId: auth.user.id,
+        adviceId: advice.id,
+      })
+    } else {
+      await SelectedAdvice.query()
+        .where('user_id', auth.user.id)
+        .where('advice_id', advice.id)
+        .delete()
+    }
   }
 }
