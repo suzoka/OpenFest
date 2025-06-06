@@ -16,8 +16,8 @@ export default function Home({ }) {
       <Head title="Homepage" />
       <section className={styles.hero + ' ' + styles.container}>
         <div className={styles.hero_logo}>
-          <img src="./images/confetti.svg" alt="Confettis" className={styles.confetti} />
-          <img src="./images/logo.svg" alt="Logo d'Openfest" />
+          <img src="/images/decoration/confetti.svg" alt="Confettis" className={styles.confetti} />
+          <img src="/images/logo/openfest_logo_black.svg" alt="Logo d'Openfest" />
           <h1 className="masked-element">OpenFest</h1>
           <p className='subtitle'> Les festivals à portée de toutes et tous !</p>
         </div>
@@ -56,7 +56,7 @@ export default function Home({ }) {
               <Heading as="h2" className={styles.thread_title}>Vous avez dit OpenFest ?</Heading>
               <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. <span className='bold'>(Faudrait développer le bloc en dessous la team)</span></p>
             </div>
-            <img src="./images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
+            <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
             <div className={styles.thread_buttons}>
               <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
               <Button as="link" href="#" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
@@ -66,25 +66,25 @@ export default function Home({ }) {
         <section className="section">
           <div className="max-width">
             <div className={styles.podcast}>
-              <img src="./images/podcast.png" alt="Podcast d'OpenFest" className={styles.podcast_image} />
+              <img src="/images/photo/podcast.png" alt="Podcast d'OpenFest" className={styles.podcast_image} />
               <div className={styles.podcast_container}>
                 <div className={styles.podcast_text}>
                   <Heading as="h2" className={styles.podcast_title}> Notre Podcast </Heading>
                   <div className={styles.podcast_icons}>
                     <a href="" target='_blank' title='Écouter sur Soundcloud' className={styles.podcast_LinkIcon}>
-                      <img src="./images/Soundcloud.svg" alt="Soundcloud" className={styles.podcast_Icon} />
+                      <img src="/images/icon/Soundcloud.svg" alt="Soundcloud" className={styles.podcast_Icon} />
                     </a>
                     <a href="" target='_blank' title='Écouter sur Spotify' className={styles.podcast_LinkIcon}>
-                      <img src="./images/Spotify.svg" alt="Spotify" className={styles.podcast_Icon} />
+                      <img src="/images/icon/Spotify.svg" alt="Spotify" className={styles.podcast_Icon} />
                     </a>
                     <a href="" target='_blank' title='Écouter sur Deezer' className={styles.podcast_LinkIcon}>
-                      <img src="./images/Deezer.svg" alt="Deezer" className={styles.podcast_Icon} />
+                      <img src="/images/icon/Deezer.svg" alt="Deezer" className={styles.podcast_Icon} />
                     </a>
                     <a href="" target='_blank' title='Écouter sur Youtube Music' className={styles.podcast_LinkIcon}>
-                      <img src="./images/Youtube_Music.svg" alt="Youtube Music" className={styles.podcast_Icon} />
+                      <img src="/images/icon/Youtube_Music.svg" alt="Youtube Music" className={styles.podcast_Icon} />
                     </a>
                     <a href="" target='_blank' title='Écouter sur Apple Podcast' className={styles.podcast_LinkIcon}>
-                      <img src="./images/Apple_Podcast.svg" alt="Apple Podcast" className={styles.podcast_Icon} />
+                      <img src="/images/icon/Apple_Podcast.svg" alt="Apple Podcast" className={styles.podcast_Icon} />
                     </a>
                   </div>
                   <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
@@ -105,19 +105,19 @@ export default function Home({ }) {
               <Partners
                 name="APF France Handicap"
                 role={[{ label: "Association", color: "violet" }]}
-                image="./images/apf_logo.svg"
+                image="/images/partner/apf_logo.svg"
                 description="Association dédiée au développement web et mobile."
               />
               <Partners
                 name="Université Gustave Eiffel - IUT de Marne-la-Vallée"
                 role={[{ label: "Université", color: "yellow" }]}
-                image="./images/iut.png"
+                image="/images/partner/iut_logo.png"
                 description="Université spécialisée dans les technologies de l'information."
               />
               <Partners
                 name="Ministère de la Culture"
                 role={[{ label: "Ministère", color: "red" }]}
-                image="./images/ministere_culture_logo.svg"
+                image="/images/partner/ministere_culture_logo.svg"
                 description="Ministère en charge de la culture et des arts."
               />
             </div>

@@ -47,7 +47,7 @@ const Partners = ({
     name = "Nom de l'organisme",
     role = [{ label: "Role 1", color: "violet" }],
     description = "Description de l'organisme ou de l'association",
-    image="/images/apf.png"
+    image="/images/partner/apf_logo.svg"
 }) => {
     return (
         <div className={styles.partners}>

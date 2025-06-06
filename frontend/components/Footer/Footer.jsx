@@ -74,14 +74,14 @@ const Footer = () => {
         <div className={styles.footer__containerbottom}>
           {/* Bas gauche : Logos partenaires */}
           <div className={styles.footer__bottomleft}>
-            <img src="./images/apf_logo.svg" alt="APF France Handicap" className={styles.footer__logo} />
+            <img src="/images/partner/apf_logo.svg" alt="APF France Handicap" className={styles.footer__logo} />
             <img
-              src="./images/iut.png"
+              src="/images/partner/iut_logo.png"
               alt="Université Gustave Eiffel - IUT Marne-la-Vallée"
               className={styles.footer__logo}
             />
             <img
-              src="./public/images/ministere_culture_logo.svg"
+              src="/images/partner/ministere_culture_logo.svg"
               alt="Soutenu par le Ministère de la Culture"
               className={styles.footer__logo}
             />
