@@ -61,7 +61,7 @@ const Header = () => {
                 <ul className={styles.navList}>
                     <li>
                         <Link href="/" title="OpenFest Accueil" className={styles.logo}>
-                            <img src="/images/openfest_logo_color.svg" alt="OpenFest Logo" />
+                            <img src="/images/logo/openfest_logo_color.svg" alt="OpenFest Logo" />
                         </Link>
                     </li>
                     <li>

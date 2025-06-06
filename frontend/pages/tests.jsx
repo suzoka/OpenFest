@@ -70,7 +70,7 @@ export default function Home({ user }) {
             { label: 'Dev', color: 'red' },
             { label: 'Gestion de Projet', color: 'yellow' },
           ]}
-          image="/images/bg_team.png"
+          image="/images/team/bg_team.png"
           description="UX/UI Designer, Intégrateur web, Cheffe de projet"
         />
 
@@ -80,7 +80,7 @@ export default function Home({ user }) {
             { label: 'Créa', color: 'violet' },
             { label: 'Podcasteur', color: '#8E42E0' },
           ]}
-          image="/images/bg_team.png"
+          image="/images/team/bg_team.png"
           description="Rédacteur, Community manager, Mixeur, Chef d’équipe Créa"
         />
       </div>
@@ -89,19 +89,19 @@ export default function Home({ user }) {
         <Partners
           name="APF France Handicap"
           role={[{ label: 'Association' }]}
-          image="/images/apf_logo.svg"
+          image="/images/partner/apf_logo.svg"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
         <Partners
           name="Université Gustave EIffel - IUT de Marne-la-Vallée"
           role={[{ label: 'Université', color: 'yellow' }]}
-          image="/images/iut.png"
+          image="/images/partner/iut_logo.png"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
         <Partners
           name="Ministère de la culture"
           role={[{ label: 'Ministère', color: 'red' }]}
-          image="/images/ministere_culture_logo.svg"
+          image="/images/partner/ministere_culture_logo.svg"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </div>
