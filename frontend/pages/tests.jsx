@@ -19,7 +19,7 @@ export default function Home({ user, errors }) {
         <Partners
           name="Université Gustave EIffel - IUT de Marne-la-Vallée"
           role={[{ label: 'Université', color: 'yellow' }]}
-          image="/images/iut.png"
+          image="/images/partner/iut_logo.png"
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
         <Partners

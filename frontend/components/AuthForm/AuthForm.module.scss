@@ -95,17 +95,24 @@
         margin-top: var(--sizing-sm);
     }
 
-    &__hint {
-        font-size: var(--size-desktop-paragraph-p-small);
-        color: var(--colors--neutral-700);
-        margin-top: var(--sizing-2xs);
-        font-family: 'ABeeZee_Regular', sans-serif;
-    }
-
     &__alreadyAccount {
         text-align: center;
-
     }
+
+    &__passwordInfo {
+        font-size: var(--size-font-paragraph-p-small);
+        color: var(--colors--neutral-900);
+    }
+
+    &__passwordValid {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+    &__passwordInvalid {
+            color: #e74c3c; 
+            font-weight: bold;
+        }
 }
 
 .inputWithIcon {

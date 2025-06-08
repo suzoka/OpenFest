@@ -8,6 +8,7 @@ import Button from '@/Button/Button.jsx'
 
 const AuthForm = ({ errors, mode = 'login' }) => {
   const [showPassword, setShowPassword] = useState(false)
+  const [showPasswordConfirmation, setShowPasswordConfirmation] = useState(false)
 
   const isLogin = mode === 'login'
 
@@ -17,17 +18,27 @@ const AuthForm = ({ errors, mode = 'login' }) => {
     ...(isLogin ? {} : { password_confirmation: '' }),
   })
 
+  const isPasswordValid = (password) => {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{4,}$/.test(password)
+  }
+
+  const passwordIsValid = isPasswordValid(form.data.password)
+  const passwordsMatch = form.data.password === form.data.password_confirmation
+
   const handleChange = (field) => (e) => {
     form.setData(field, e.target.value)
   }
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev)
-  }
-
   const submitForm = (e) => {
     e.preventDefault()
-    form.post(isLogin ? '/login' : '/register')
+
+    if (!isLogin) {
+      if (!passwordIsValid || !passwordsMatch) {
+        return
+      }
+    }
+
+    form.post(isLogin ? '/connection' : '/registration')
   }
 
   return (
@@ -40,6 +51,7 @@ const AuthForm = ({ errors, mode = 'login' }) => {
         <div className={styles.authForm__formGroup}>
           {errors?.invalid && <div className={styles.authForm__error}>{errors.invalid}</div>}
 
+          {/* Email */}
           <div>
             <label htmlFor="email" className={styles.authForm__label}>
               Adresse mail
@@ -53,8 +65,10 @@ const AuthForm = ({ errors, mode = 'login' }) => {
               onChange={handleChange('email')}
               className={styles.authForm__input}
             />
+            {errors?.email && <div className={styles.authForm__error}>{errors.email}</div>}
           </div>
 
+          {/* Password */}
           <div>
             <label htmlFor="password" className={styles.authForm__label}>
               Mot de passe
@@ -71,22 +85,39 @@ const AuthForm = ({ errors, mode = 'login' }) => {
               />
               <button
                 type="button"
-                onClick={togglePasswordVisibility}
+                onClick={() => setShowPassword((prev) => !prev)}
                 className={styles.iconEye}
                 aria-label="Afficher ou masquer le mot de passe"
               >
                 {showPassword ? <Eye size={24} /> : <EyeClosed size={24} />}
               </button>
             </div>
+          </div>
 
-            {!isLogin && (
+          {/* Password confirmation */}
+          {!isLogin && (
+            <>
+              <p
+                className={
+                  `${styles.authForm__passwordInfo} ` +
+                  (form.data.password
+                    ? passwordIsValid
+                      ? styles.authForm__passwordValid
+                      : styles.authForm__passwordInvalid
+                    : '')
+                }
+              >
+                Votre mot de passe doit comporter des chiffres, des lettres (majuscule et minuscule)
+                et des caractères spéciaux.
+              </p>
+
               <div>
                 <label htmlFor="password_confirmation" className={styles.authForm__label}>
                   Confirmation du mot de passe
                 </label>
                 <div className={styles.inputWithIcon}>
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPasswordConfirmation ? 'text' : 'password'}
                     id="password_confirmation"
                     name="password_confirmation"
                     required
@@ -96,20 +127,21 @@ const AuthForm = ({ errors, mode = 'login' }) => {
                   />
                   <button
                     type="button"
-                    onClick={togglePasswordVisibility}
+                    onClick={() => setShowPasswordConfirmation((prev) => !prev)}
                     className={styles.iconEye}
                     aria-label="Afficher ou masquer le mot de passe"
                   >
-                    {showPassword ? <Eye size={24} /> : <EyeClosed size={24} />}
+                    {showPasswordConfirmation ? <Eye size={24} /> : <EyeClosed size={24} />}
                   </button>
                 </div>
-                <small className={styles.authForm__hint}>
-                  Votre mot de passe doit comporter des chiffres, des lettres majuscules et
-                  minuscules et des caractères spéciaux.
-                </small>
+                {!passwordsMatch && form.data.password_confirmation && (
+                  <div className={styles.authForm__error}>
+                    Les mots de passe ne correspondent pas.
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
 
         {isLogin && (
@@ -118,7 +150,13 @@ const AuthForm = ({ errors, mode = 'login' }) => {
           </Link>
         )}
 
-        <Button type="primary" color="violet" variant="text" as="button" disabled={form.processing}>
+        <Button
+          type="primary"
+          color="violet"
+          variant="text"
+          as="button"
+          disabled={form.processing || (!isLogin && (!passwordIsValid || !passwordsMatch))}
+        >
           {isLogin ? (
             <>
               Connexion <img src="/images/arrow.svg" alt="" />
@@ -129,12 +167,13 @@ const AuthForm = ({ errors, mode = 'login' }) => {
             </>
           )}
         </Button>
+
         <hr className={styles.authForm__separator} />
 
         {isLogin ? (
           <>
             <p className={styles.authForm__noAccount}>Pas de compte festival ?</p>
-            <Link href="/register" className={styles.authForm__registerLink}>
+            <Link href="/registration" className={styles.authForm__registerLink}>
               <Button
                 type="secondary"
                 color="red"
@@ -148,7 +187,7 @@ const AuthForm = ({ errors, mode = 'login' }) => {
           </>
         ) : (
           <p className={styles.authForm__alreadyAccount}>
-            <Link href="/login">J’ai déjà un compte.</Link>
+            <Link href="/connection">J’ai déjà un compte.</Link>
           </p>
         )}
       </form>
