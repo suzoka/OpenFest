@@ -1,9 +1,10 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany, beforeSave, beforeCreate } from '@adonisjs/lucid/orm'
-import type { ManyToMany } from '@adonisjs/lucid/types/relations'
+import { BaseModel, column, manyToMany, beforeSave, beforeCreate, hasMany } from '@adonisjs/lucid/orm'
+import type { ManyToMany, HasMany } from '@adonisjs/lucid/types/relations'
 import Tag from '#models/tag'
 import meiliClient from '../../config/meilisearch.js'
 import { afterCreate, afterUpdate, afterDelete } from '@adonisjs/lucid/orm'
+import SelectedAdvice from './selectedAdvice.js'
 
 
 export enum AdviceDisability {
@@ -11,17 +12,6 @@ export enum AdviceDisability {
   CIMP = 'cimp',
   DS = 'ds',
 }
-
-export const adviceDisabilityLabels: Record<AdviceDisability, string> = {
-  [AdviceDisability.PMR]: 'Personne à mobilité réduite',
-  [AdviceDisability.CIMP]: 'Handicape cognitif, intellectuel, psychique',
-  [AdviceDisability.DS]: 'Déficience sensoriel, visuelle ou auditif',
-}
-
-export const adviceDisabilityOptions: Array<{value: string, label: string}> = Object.values(AdviceDisability).map((value) => ({
-  value: value,
-  label: adviceDisabilityLabels[value],
-}))
 
 export enum AdviceCategory {
   BOOKING = 'booking',
@@ -49,9 +39,23 @@ export const adviceCategoryLabels: Record<AdviceCategory, string> = {
   [AdviceCategory.BACKHOME]: `Retour chez soi`,
 }
 
-export const adviceCategoryOptions: Array<{value: string, label: string}> = Object.values(AdviceCategory).map((value) => ({
+export const adviceCategoryIcons: Record<AdviceCategory, string> = {
+  [AdviceCategory.BOOKING]: `Ticket`,
+  [AdviceCategory.TRANSPORT]: `TrainSimple`,
+  [AdviceCategory.RECEPTION]: `FlagBannerFold`,
+  [AdviceCategory.DISCOVERY]: `MapTrifold`,
+  [AdviceCategory.HEALTH]: `ToiletPaper`,
+  [AdviceCategory.RESTAURATION]: `ForkKnife`,
+  [AdviceCategory.PLACE]: `MapPinArea`,
+  [AdviceCategory.EVENT]: `Confetti`,
+  [AdviceCategory.ACCOMODATION]: `Bed`,
+  [AdviceCategory.BACKHOME]: `House`,
+}
+
+export const adviceCategoryOptions: Array<{value: string, label: string, icon: string}> = Object.values(AdviceCategory).map((value) => ({
   value: value,
   label: adviceCategoryLabels[value],
+  icon: adviceCategoryIcons[value]
 }))
 
 export default class Advice extends BaseModel {
@@ -111,6 +115,12 @@ export default class Advice extends BaseModel {
   })
   declare similarAdvices: ManyToMany<typeof Advice>
 
+  @hasMany(() => SelectedAdvice, {
+    foreignKey: 'adviceId',
+    localKey: 'id',
+  })
+  declare isSelected: HasMany<typeof SelectedAdvice>
+
   @beforeCreate()
   public static async onCreate (advice: Advice) {
     advice.slug = advice.title
@@ -155,7 +165,7 @@ export default class Advice extends BaseModel {
     await meiliClient.index('advices').addDocuments(documents)
   }
 
-  public static async search(query: string) {
+  public static async search(query: string): Promise<Advice[]> {
     const searchResults = await meiliClient.index('advices').search(query, {
       limit: 20,
       attributesToRetrieve: ['id', 'title', 'slug', 'description', 'content', 'disabilityType', 'category'],

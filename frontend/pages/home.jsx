@@ -1,5 +1,4 @@
 import { Head, Link } from '@inertiajs/react'
-import { Horse, Heart, Cube } from "@phosphor-icons/react";
 import Heading from '@/Heading/Heading.jsx'
 import Button from '@/Button/Button.jsx';
 import { RocketLaunch, Headphones } from '@phosphor-icons/react';
@@ -9,8 +8,7 @@ import Separator from '@/Separator/Separator';
 
 import styles from '../css/pages/_homepage.module.scss';
 
-export default function Home({ }) {
-
+export default function Home({ user }) {
   return (
     <>
       <Head title="Homepage" />

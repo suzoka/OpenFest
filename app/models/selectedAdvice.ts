@@ -10,10 +10,10 @@ export default class SelectedAdvice extends BaseModel {
   @column({ isPrimary: true })
   declare id: string
 
-  @column()
+  @column({ columnName: 'user_id' })
   declare userId: string
 
-  @column()
+  @column({ columnName: 'advice_id' })
   declare adviceId: string
 
   @column({ columnName: 'is_checked' })

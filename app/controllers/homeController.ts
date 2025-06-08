@@ -1,6 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
-import { adviceDisabilityOptions, adviceCategoryOptions } from '#models/advice'
+import { adviceCategoryOptions } from '#models/advice'
 
 export default class HomeController {
   async home({ inertia }: HttpContext) {
@@ -11,7 +11,6 @@ export default class HomeController {
 
     return inertia.render('home', {
       advice: myAdvice,
-      adviceDisabilities: adviceDisabilityOptions,
       adviceCategories: adviceCategoryOptions,
     })
   }

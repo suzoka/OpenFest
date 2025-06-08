@@ -1,10 +1,9 @@
 import { DateTime } from 'luxon'
 import hash from '@adonisjs/core/services/hash'
 import { compose } from '@adonisjs/core/helpers'
-import { BaseModel, column, hasManyThrough, belongsTo } from '@adonisjs/lucid/orm'
+import { BaseModel, column, hasMany, belongsTo } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-import type { HasManyThrough, BelongsTo } from '@adonisjs/lucid/types/relations'
-import Advice from '#models/advice'
+import type { HasMany, BelongsTo } from '@adonisjs/lucid/types/relations'
 import SelectedAdvice from '#models/selectedAdvice'
 import FestivalType from '#models/festivalType'
 import { attachment, Attachmentable } from '@jrmc/adonis-attachment'
@@ -77,8 +76,11 @@ export default class User extends compose(BaseModel, AuthFinder, Attachmentable)
   @column.dateTime({ autoCreate: true, autoUpdate: true, columnName: 'updated_at' })
   declare updatedAt: DateTime | null
 
-  @hasManyThrough([() => Advice, () => SelectedAdvice])
-  declare advices: HasManyThrough<typeof Advice>
+  @hasMany(() => SelectedAdvice, {
+    localKey: 'id',
+    foreignKey: 'userId',
+  })
+  declare selectedAdvices: HasMany<typeof SelectedAdvice>
 
   @belongsTo(() => FestivalType, {
     foreignKey: 'festival_type_id',
