@@ -1,0 +1,9 @@
+.advices {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+
+    &__aside {
+        position: sticky;
+        top: 80px;
+    }
+}

@@ -1,18 +1,37 @@
 import { Head, Link } from '@inertiajs/react'
+import Hero from '@/Hero/Hero'
+import AdvicesCard from '../../components/AdvicesCard/AdvicesCard'
+import ProgressStepTab from '../../components/ProgressStepTab/ProgressStepTab'
+import styles from '../../css/pages/_advices.module.scss';
 
 export default function Home({ advices }) {
 
+  console.log(advices)
+
   return (
     <>
-      <Head title="Advices" />
-      <h1>Advices</h1>
-      <ul>
-        {advices.map((advice, index) => (
-          <li key={index}>
-            <Link href={`/conseils/${advice.slug}`}>{advice.title}</Link>
-          </li>
-        ))}
-      </ul>
+      <Head title="Conseils" />
+      <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet. " grey>
+        <p>recherche</p>
+      </Hero>
+      <main id='main' className={styles.advices}>
+        <aside className={styles.advices__aside}>
+          <p className={`p-large ${styles.advices__asideTitle}`}>
+            Cheminement
+          </p>
+          <ul className={styles.advices__progressList}>
+            <ProgressStepTab />
+            <ProgressStepTab />
+            <ProgressStepTab />
+          </ul>
+        </aside>
+
+        <ul>
+          {advices.map((advice, index) => (
+            <AdvicesCard key={index} data={advice} />
+          ))}
+        </ul>
+      </main>
     </>
   )
 }
