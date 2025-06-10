@@ -8,7 +8,6 @@ import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 export default function Home({ advices }) {
 
   const count = advices.length;
-  console.log(advices)
 
   return (
     <>

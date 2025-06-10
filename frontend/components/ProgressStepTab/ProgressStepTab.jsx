@@ -7,9 +7,6 @@ const ProgressStepTab= ({data, id}) => {
 
     const { url, props } = usePage()
     const number = (id + 1);
-
-    console.log(data, id);
-
     const Icon = icons[data.icon]
 
     return (

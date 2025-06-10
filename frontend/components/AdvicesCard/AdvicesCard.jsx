@@ -10,9 +10,7 @@ const AdvicesCard = ({ data }) => {
 
     const { url, props } = usePage()
     const { user } = props;
-
-    console.log("user", user);
-
+    
     const [checked, setChecked] = useState(data?.isSelected?.length > 0 && data?.isSelected[0]?.isChecked);
     const [saved, setSaved] = useState(data?.isSelected?.length > 0 || false);
 
