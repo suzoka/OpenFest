@@ -4,6 +4,8 @@ import Heading from '@/Heading/Heading.jsx'
 import {ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch} from '@phosphor-icons/react'
 import Label from '@/Label/Label.jsx'
 import Button from '@/Button/Button.jsx'
+import AdviceCard from '@/AdvicesCard/AdvicesCard.jsx'
+import { Link } from '@inertiajs/react'
 
 
 export default function Home({ advice }) {
@@ -13,12 +15,14 @@ export default function Home({ advice }) {
       <main id="main">  
           <div className={styles.hero}>
             <div className={styles.heroLeft}>
+                <Link href="/conseils">
               <div className={styles.heroReturn}>
-                <div className={styles.heroReturnIcon}>
-                  <ArrowUUpLeft size={24} />
-                </div>
-                <p> Retour </p>
-              </div>
+                  <div className={styles.heroReturnIcon}>
+                      <ArrowUUpLeft size={24} />
+                  </div>
+                    <p> Retour </p>
+                  </div>
+                </Link> 
               <Heading as="h1" variant="h1" className={styles.heroTitle}>
                 {advice.title}
               </Heading>
@@ -87,9 +91,10 @@ export default function Home({ advice }) {
               <Heading as="h2" variant="h2">Règles similaires</Heading>
               <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
             </div>
-            <p>
-              <strong>Similaire :</strong> {advice.similarAdvices.map((a) => a.title).join(', ')}
-            </p>
+              <div className={styles.similarRules_Cards}>
+                <AdviceCard data={advice.similarAdvices[0]} />
+                <AdviceCard data={advice.similarAdvices[1]} />
+              </div>
             <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
           </div>
         </section>

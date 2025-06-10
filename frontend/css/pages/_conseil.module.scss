@@ -272,3 +272,13 @@
         box-shadow: 0 0 0 0 rgba(150, 0, 255, 0);
     }
 }
+
+.similarRules_Cards {
+    display: flex;
+    max-width: 1385px;
+    gap : var(--sizing-lg);
+
+    > li {
+        max-width: 328px;
+    }
+}
