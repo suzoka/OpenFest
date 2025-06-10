@@ -45,3 +45,7 @@ router.post('/conseils/:id/check', '#controllers/adviceController.check').as('ad
 router.get('/tests', ({ inertia })=>{
   return inertia.render('tests')
 })
+
+router.get('/info', ({ inertia })=>{
+  return inertia.render('info')
+})
