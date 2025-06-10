@@ -20,8 +20,12 @@ router.group(() => {
   router.post('/registration', '#controllers/authController.register')
 }).use(middleware.guest())
 
-router.post('/deconnection', '#controllers/authController.logout').as('auth.logout')
+router.group(() => {
+  router.post('/deconnection', '#controllers/authController.logout').as('auth.logout')
 
+  router.get('/sauvegardees', '#controllers/userController.advices').as('user.advices')
+  router.get('/sauvegardees/etapes/:step', '#controllers/userController.advicesByStep').as('user.advicesByStep')
+}).use(middleware.auth())
 
 router.group(() => {
   router.get('/conseils/nouveau', '#controllers/adviceController.new').as('advices.new')
