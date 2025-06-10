@@ -65,7 +65,7 @@ const Header = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/conseils" className={`${styles.navLink} ${url.startsWith('/conseils') ? styles.active : ''}`}>Conseils</Link>
+                        <Link href="/conseils/etapes/1" className={`${styles.navLink} ${url.startsWith('/conseils') ? styles.active : ''}`}>Conseils</Link>
                     </li>
                     <li>
                         <Link href="/info" className={`${styles.navLink} ${url.startsWith('/info') ? styles.active : ''}`}>Démarche</Link>
@@ -95,15 +95,15 @@ const Header = () => {
                     >
                         {userMenuOpen ? (
                             <div className={styles.userMenuName}>
-                                <p className={styles.userName}>{user?.name}</p>
-                                <p className="small">Festival de {user?.festivalType?.name || "musique"}</p>
+                                <p className={styles.userName}>{ user?.name}</p>
+                                <p className="small">Festival de { user?.festivalType?.name || "musique"}</p>
                                 <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
                             </div>
                         ) :
                             (
                                 <Button method='POST' type="secondary" className={`${styles.headerBtn} ${styles.userBtn}`} onClick={() => setUserMenuOpen(true)}>
-                                    {user?.name}
-                                    <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                                    { user?.name}
+                                    <img src={ user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
                                 </Button>
                             )
                         }
@@ -115,7 +115,7 @@ const Header = () => {
                                 </Label>
                                 <p className="small">{user?.adviceCheckedCount || 0}/{user?.adviceSavedCount || 0} conseils</p>
                             </div>
-                            <Button as="link" href='/user' >Espace Festival</Button>
+                            <Button as="link" href='/user'>Espace Festival</Button>
                             <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
@@ -123,7 +123,7 @@ const Header = () => {
                         </div>
                     </div>
                 ) :
-                    <Button as="link" href='/connection' method='POST' type="secondary" className={styles.headerBtn}>Se connecter</Button>
+                    <Button as="link" href='/connection' type="secondary" className={styles.headerBtn}>Se connecter</Button>
                 }
             </div>
         </header >
