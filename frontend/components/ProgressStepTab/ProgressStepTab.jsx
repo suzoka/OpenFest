@@ -1,23 +1,28 @@
-import { Ticket } from "@phosphor-icons/react";
+import { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from "@phosphor-icons/react"
 import styles from "./ProgressStepTab.module.scss";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
+const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 
-const ProgressStepTab= ({data}) => {
+const ProgressStepTab= ({data, id}) => {
+
+    const { url, props } = usePage()
+    const number = (id + 1);
+    const Icon = icons[data.icon]
 
     return (
-        <li className={`${styles.progressStepTab}`}>
+        <li className={`${styles.progressStepTab} ${url.startsWith(`/conseils/etapes/${number}`) ? styles.active : ''}`}>
             <div className={styles.progressStepTab__object}>
                 <p className={`bold ${styles.progressStepTab__number}`}>
-                    01
+                    {number.toString().padStart(2, '0')}
                 </p>
-                <Link href="#" className={styles.progressStepTab__link}>
+                <Link href={`/conseils/etapes/${number}`} className={styles.progressStepTab__link} preserveScroll>
                     <p className={`bold ${styles.progressStepTab__title}`}>
-                        Prise d’informations et réservation
+                        {data?.label}
                     </p>
                     <p className={styles.progressStepTab__conseilNum}>
-                        0 conseils
+                        {data?.count} conseil{data.count > 1 ? "s" : ""}
                     </p>
-                    <Ticket size={32} className={styles.progressStepTab__icon} />
+                    <Icon size={32} className={styles.progressStepTab__icon} />
                 </Link>
             </div>
         </li>

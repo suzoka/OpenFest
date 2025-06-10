@@ -5,6 +5,10 @@
         display: flex;
         align-items: center;
         gap: var(--sizing-xs);
+
+        &:hover .progressStepTab__number {
+            outline-color: var(--colors--neutral-200);
+        }
     }
 
     &__number {
@@ -17,6 +21,7 @@
         background-color: var(--colors--primary);
         color: var(--colors--primary-50);
         outline: 8px solid var(--colors--neutral-100);
+        transition: 0.2s ease-in-out;
     }
 
     &__link {
@@ -44,6 +49,7 @@
         &:hover,
         &:focus-visible {
             border-color: var(--colors--primary-200);
+            background-color: var(--colors--neutral-200);
             color: var(--colors--primary-950);
 
             .progressStepTab__icon {
@@ -54,10 +60,10 @@
 
     &__title {
         -webkit-line-clamp: 1;
-                line-clamp: 1;
+        line-clamp: 1;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-                box-orient: vertical;
+        box-orient: vertical;
         overflow: hidden;
     }
 
@@ -73,7 +79,7 @@
     &:first-child {
         margin-top: 0;
     }
-    
+
     &:last-child {
         &::after {
             display: none;

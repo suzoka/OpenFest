@@ -1,9 +1,57 @@
 .advices {
     display: grid;
     grid-template-columns: 400px 1fr;
+    scroll-margin-top: 80px;
 
     &__aside {
         position: sticky;
+        display: flex;
+        flex-direction: column;
         top: 80px;
+        height: calc(100dvh - 80px);
+        padding: var(--sizing-lg) var(--sizing-md);
+        padding-top: 0;
+        border-left: 1px solid var(--colors--neutral-200);
+        overflow-y: auto;
+
+        &Title {
+            padding: var(--sizing-lg) var(--sizing-md);
+            margin: 0 -20px;
+            background-color: var(--colors--white);
+            position: sticky;
+            top: 0;
+        }
+    }
+
+    &__progressList {
+        list-style: none;
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-xl);
+        padding: var(--sizing-lg) var(--sizing-xl);
+        width: 100%;
+
+        &_Header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: var(--sizing-xs);
+
+            .verticalSeparator {
+                width: 1px;
+                height: 16px;
+                background-color: var(--colors--neutral-300);
+            } 
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
+        gap: var(--sizing-lg);
     }
 }
