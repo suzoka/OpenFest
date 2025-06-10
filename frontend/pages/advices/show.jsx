@@ -17,11 +17,9 @@ export default function Home({ advice, user }) {
   const [saved, setSaved] = useState(advice?.isSelected?.length > 0 || false);
   const contentRef = useRef(null);
   const [summary, setSummary] = useState([]);
-  console.log(advice);
 
   useEffect(() => {
     if (contentRef.current) {
-      console.log(contentRef.current);
       setSummary([]);
       const headings = contentRef.current.querySelectorAll('h2');
       headings.forEach((heading) => {
