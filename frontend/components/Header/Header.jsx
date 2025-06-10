@@ -1,45 +1,44 @@
-import { useEffect, useRef, useState } from "react";
-import styles from "./Header.module.scss";
+import { useEffect, useRef, useState } from 'react'
+import styles from './Header.module.scss'
 import { Link, usePage } from '@inertiajs/react'
-import Button from "../Button/Button";
-import { FlagBannerFold, SignOut } from "@phosphor-icons/react";
-import Label from "../Label/Label";
+import Button from '../Button/Button'
+import { FlagBannerFold, SignOut } from '@phosphor-icons/react'
+import Label from '../Label/Label'
 
 const Header = () => {
+  const { url, props } = usePage()
+  const { user } = props
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
+  const userMenuRef = useRef(null)
 
-    const { url, props } = usePage()
-    const { user } = props;
-    const [userMenuOpen, setUserMenuOpen] = useState(false);
-    const userMenuRef = useRef(null);
+  const [scroll, setScroll] = useState(0)
 
-    const [scroll, setScroll] = useState(0);
+  useEffect(() => {
+    function handleScroll() {
+      setScroll(window.scrollY)
+    }
 
-    useEffect(() => {
-        function handleScroll() {
-            setScroll(window.scrollY);
-        }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+  useEffect(() => {
+    if (!userMenuOpen) return
 
-    useEffect(() => {
-        if (!userMenuOpen) return;
+    function handleClickOutside(event) {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setUserMenuOpen(false)
+      }
+    }
 
-        function handleClickOutside(event) {
-            if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
-                setUserMenuOpen(false);
-            }
-        }
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [userMenuOpen]);
-
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [userMenuOpen])
+  
     return (
         <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>
             <nav className={styles.skipNav}>
@@ -125,9 +124,9 @@ const Header = () => {
                 ) :
                     <Button as="link" href='/connection' type="secondary" className={styles.headerBtn}>Se connecter</Button>
                 }
-            </div>
-        </header >
-    );
-};
+      </div>
+    </header>
+  )
+}
 
-export default Header;
+export default Header
