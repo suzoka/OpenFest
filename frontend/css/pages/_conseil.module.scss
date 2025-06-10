@@ -132,10 +132,6 @@
     }
 }
 
-.adviceContent {
-    padding: 0 var(--sizing-3xl);
-}
-
 .adviceMenu {
     position: sticky;
     top: 200px;
@@ -166,6 +162,7 @@
     font-size: 2.375rem;
     color: var(--colors--primary-950);
     margin: var(--sizing-lg) 0;
+    padding: 0 var(--sizing-3xl);
 
     @media (max-width: 768px) {
         font-size: 1.75rem;
