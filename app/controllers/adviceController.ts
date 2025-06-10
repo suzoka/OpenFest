@@ -85,12 +85,23 @@ export default class AdvicesController {
     })
   }
 
-  async show({ inertia, params }: HttpContext) {
-    const advice = await Advice.query()
+  async show({ inertia, params, auth }: HttpContext) {
+    await auth.check()
+    const user = auth.use('web').user as User
+
+    const adviceQuery = Advice.query()
       .preload('tags')
       .preload('similarAdvices')
       .where('slug', params.slug)
-      .firstOrFail()
+
+    if (user) {
+      adviceQuery.preload('isSelected', (query) => {
+        query.where('user_id', user.id)
+      })
+    }
+
+    const advice = await adviceQuery.firstOrFail()
+
     return inertia.render('advices/show', {
       advice: advice,
       step: adviceCategoryOptions.find(option => option.value === advice.category) || null,
