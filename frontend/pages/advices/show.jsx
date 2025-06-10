@@ -91,10 +91,13 @@ export default function Home({ advice }) {
               <Heading as="h2" variant="h2">Règles similaires</Heading>
               <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
             </div>
-              <div className={styles.similarRules_Cards}>
-                <AdviceCard data={advice.similarAdvices[0]} />
-                <AdviceCard data={advice.similarAdvices[1]} />
-              </div>
+
+            <div className={styles.similarRules_Cards}>
+              {advice.similarAdvices.map((similarAdvice, index) => (
+                <AdviceCard key={index} data={similarAdvice} />
+              ))}
+            </div>
+            
             <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
           </div>
         </section>
