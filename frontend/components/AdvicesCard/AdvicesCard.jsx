@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from '@inertiajs/react'
 import styles from "./AdvicesCard.module.scss";
 import Label from "@/Label/Label";
 import Button from "@/Button/Button";
@@ -7,6 +7,11 @@ import { saveAdvice, checkAdvice } from "#/advices"
 import { useState } from "react";
 
 const AdvicesCard = ({ data }) => {
+
+    const { url, props } = usePage()
+    const { user } = props;
+
+    console.log("user", user);
 
     const [checked, setChecked] = useState(data?.isSelected?.length > 0 && data?.isSelected[0]?.isChecked);
     const [saved, setSaved] = useState(data?.isSelected?.length > 0 || false);
@@ -39,13 +44,16 @@ const AdvicesCard = ({ data }) => {
                         }
                     </Button>
                 }
-                <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => saveAdvice(setSaved, !saved, data.id)}>
-                    {saved ? (
-                        <BookmarkSimple size={24} weight="fill" />
-                    ) : (
-                        <BookmarkSimple size={24} />
-                    )}
-                </Button>
+                {user && (
+
+                    <Button as="button" variant="only" type="secondary" className={styles.advicesCard__button} onClick={() => saveAdvice(setSaved, !saved, data.id)}>
+                        {saved ? (
+                            <BookmarkSimple size={24} weight="fill" />
+                        ) : (
+                            <BookmarkSimple size={24} />
+                        )}
+                    </Button>
+                )}
                 <Button as="link" href={`/conseils/${data?.slug}`}>
                     <BookBookmark size={24} />
                     Lire
