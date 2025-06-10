@@ -165,7 +165,7 @@ export default class Advice extends BaseModel {
     await meiliClient.index('advices').addDocuments(documents)
   }
 
-  public static async search(query: string) {
+  public static async search(query: string): Promise<Advice[]> {
     const searchResults = await meiliClient.index('advices').search(query, {
       limit: 20,
       attributesToRetrieve: ['id', 'title', 'slug', 'description', 'content', 'disabilityType', 'category'],

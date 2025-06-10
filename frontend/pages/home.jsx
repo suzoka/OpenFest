@@ -8,8 +8,7 @@ import Separator from '@/Separator/Separator';
 
 import styles from '../css/pages/_homepage.module.scss';
 
-export default function Home({ }) {
-
+export default function Home({ user }) {
   return (
     <>
       <Head title="Homepage" />

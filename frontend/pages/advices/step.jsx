@@ -5,11 +5,11 @@ import styles from '../../css/pages/_advices.module.scss';
 import { Head, Link, usePage } from "@inertiajs/react";
 import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 
-export default function Step({ advices, steps }) {
+export default function Step({ advices, steps, user }) {
   const { url } = usePage();
   const currentStepID = url.split('/').pop() - 1;
   const currentStep = steps[currentStepID];
-
+  
   return (
     <>
       <Head title="Conseils" />
