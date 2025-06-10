@@ -97,8 +97,8 @@ export default function Home({ advice }) {
                 <AdviceCard key={index} data={similarAdvice} />
               ))}
             </div>
-            
-            <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
+
+            <Button as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
           </div>
         </section>
       </main>
