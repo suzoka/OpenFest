@@ -13,7 +13,7 @@ import { saveAdvice, checkAdvice } from "#/advices"
 
 export default function Home({ advice, user }) {
 
-  const [checked, setChecked] = useState(advice?.isSelected?.length > 0 && data?.isSelected[0]?.isChecked);
+  const [checked, setChecked] = useState(advice?.isSelected?.length > 0 && advice?.isSelected[0]?.isChecked);
   const [saved, setSaved] = useState(advice?.isSelected?.length > 0 || false);
   const contentRef = useRef(null);
   const [summary, setSummary] = useState([]);
