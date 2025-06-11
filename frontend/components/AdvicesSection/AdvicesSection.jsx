@@ -2,8 +2,8 @@ import styles from "./AdvicesSection.module.scss";
 import AdvicesCard from "@/AdvicesCard/AdvicesCard"
 import ProgressStepTab from '@/ProgressStepTab/ProgressStepTab'
 import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
-import { usePage } from "@inertiajs/react";
-
+import { usePage, router } from "@inertiajs/react";
+import { useEffect, useRef } from "react";
 
 const AdvicesSection = ({stepUrl}) => {
     const { url, props } = usePage();
@@ -12,9 +12,29 @@ const AdvicesSection = ({stepUrl}) => {
     const currentStepID = url.split('/').pop() - 1;
     const currentStep = steps[currentStepID];
 
+    const asideRef = useRef(null);
+
+    useEffect(() => {
+      const handleBeforeVisit = () => {
+        if (asideRef.current) {
+          sessionStorage.setItem("asideScroll", asideRef.current.scrollTop);
+        }
+      };
+      router.on("before", handleBeforeVisit);
+    }, []);
+
+    useEffect(() => {
+      if (asideRef.current) {
+        const scroll = sessionStorage.getItem("asideScroll");
+        if (scroll) {
+          asideRef.current.scrollTop = scroll;
+        }
+      }
+    }, [url]);
+
     return (
       <main id='main' className={styles.advices}>
-        <aside className={styles.advices__aside}>
+        <aside className={styles.advices__aside} ref={asideRef}>
           <p className={`p-large ${styles.advices__asideTitle}`}>
             Cheminement
           </p>
