@@ -23,8 +23,8 @@ router.group(() => {
 router.group(() => {
   router.post('/deconnection', '#controllers/authController.logout').as('auth.logout')
 
-  router.get('/sauvegardees', '#controllers/userController.advices').as('user.advices')
-  router.get('/sauvegardees/etapes/:step', '#controllers/userController.advicesByStep').as('user.advicesByStep')
+  router.get('/mon-espace', '#controllers/userController.advices').as('user.advices')
+  router.get('/mon-espace/etapes/:step', '#controllers/userController.advicesByStep').as('user.advicesByStep')
 }).use(middleware.auth())
 
 router.group(() => {

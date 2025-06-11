@@ -38,7 +38,7 @@ const Header = () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [userMenuOpen])
-  
+
     return (
         <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>
             <nav className={styles.skipNav}>
@@ -114,7 +114,7 @@ const Header = () => {
                                 </Label>
                                 <p className="small">{user?.adviceCheckedCount || 0}/{user?.adviceSavedCount || 0} conseils</p>
                             </div>
-                            <Button as="link" href='/user'>Espace Festival</Button>
+                            <Button as="link" href='/mon-espace/etapes/1'>Espace Festival</Button>
                             <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
