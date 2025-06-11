@@ -168,9 +168,20 @@ export default class Advice extends BaseModel {
   public static async search(query: string): Promise<Advice[]> {
     const searchResults = await meiliClient.index('advices').search(query, {
       limit: 20,
-      attributesToRetrieve: ['id', 'title', 'slug', 'description', 'content', 'disabilityType', 'category'],
+      attributesToRetrieve: ['id', 'title', 'slug', 'description', 'content', 'category'],
     })
 
     return searchResults.hits as Advice[]
+  }
+
+  public getCategory() {
+    const idx = adviceCategoryOptions.findIndex(option => option.value === this.category)
+    return { ...adviceCategoryOptions[idx], index: idx + 1 }
+  }
+
+  public override serialize() {
+    const base = BaseModel.prototype.serialize.call(this)
+    base.categoryData = this.getCategory()
+    return base
   }
 }

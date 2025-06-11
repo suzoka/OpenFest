@@ -103,8 +103,7 @@ export default class AdvicesController {
     const advice = await adviceQuery.firstOrFail()
 
     return inertia.render('advices/show', {
-      advice: advice,
-      step: adviceCategoryOptions.find(option => option.value === advice.category) || null,
+      advice: advice.serialize(),
     })
   }
 
