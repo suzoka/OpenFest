@@ -43,7 +43,7 @@ export default class UserController {
     })
 
     return inertia.render('user/advices/step', {
-      advices: advices,
+      advices: advices.map(advice => advice.serialize()),
       steps: steps
     })
   }
