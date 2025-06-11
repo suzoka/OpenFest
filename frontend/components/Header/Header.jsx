@@ -6,39 +6,39 @@ import { FlagBannerFold, SignOut } from '@phosphor-icons/react'
 import Label from '../Label/Label'
 
 const Header = () => {
-  const { url, props } = usePage()
-  const { user } = props
-  const [userMenuOpen, setUserMenuOpen] = useState(false)
-  const userMenuRef = useRef(null)
+    const { url, props } = usePage()
+    const { user } = props
+    const [userMenuOpen, setUserMenuOpen] = useState(false)
+    const userMenuRef = useRef(null)
 
-  const [scroll, setScroll] = useState(0)
+    const [scroll, setScroll] = useState(0)
 
-  useEffect(() => {
-    function handleScroll() {
-      setScroll(window.scrollY)
-    }
+    useEffect(() => {
+        function handleScroll() {
+            setScroll(window.scrollY)
+        }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
-  useEffect(() => {
-    if (!userMenuOpen) return
+    useEffect(() => {
+        if (!userMenuOpen) return
 
-    function handleClickOutside(event) {
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
-        setUserMenuOpen(false)
-      }
-    }
+        function handleClickOutside(event) {
+            if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+                setUserMenuOpen(false)
+            }
+        }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [userMenuOpen])
-  
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [userMenuOpen])
+
     return (
         <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>
             <nav className={styles.skipNav}>
@@ -94,15 +94,15 @@ const Header = () => {
                     >
                         {userMenuOpen ? (
                             <div className={styles.userMenuName}>
-                                <p className={styles.userName}>{ user?.name}</p>
-                                <p className="small">Festival de { user?.festivalType?.name || "musique"}</p>
+                                <p className={styles.userName}>{user?.name}</p>
+                                <p className="small">Festival de {user?.festivalType?.name || "musique"}</p>
                                 <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
                             </div>
                         ) :
                             (
                                 <Button method='POST' type="secondary" className={`${styles.headerBtn} ${styles.userBtn}`} onClick={() => setUserMenuOpen(true)}>
-                                    { user?.name}
-                                    <img src={ user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                                    {user?.name}
+                                    <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
                                 </Button>
                             )
                         }
@@ -124,9 +124,9 @@ const Header = () => {
                 ) :
                     <Button as="link" href='/connection' type="secondary" className={styles.headerBtn}>Se connecter</Button>
                 }
-      </div>
-    </header>
-  )
+            </div>
+        </header>
+    )
 }
 
 export default Header

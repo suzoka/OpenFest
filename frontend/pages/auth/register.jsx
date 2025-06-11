@@ -22,8 +22,15 @@
 // }
 
 import AuthForm from '@/AuthForm/AuthForm.jsx'
+import styles from '../../css/pages/_logInOut.module.scss';
 
 export default function Login({ errors }) {
+
   console.log('errors received:', errors)
-  return <AuthForm mode="register" errors={errors} />
+
+  return (
+      <main id='main' className={styles.container}>
+        <AuthForm mode="register" errors={errors} />
+      </main>
+    )
 }
