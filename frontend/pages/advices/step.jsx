@@ -7,9 +7,8 @@ export default function Step() {
     <>
       <Head title="Conseils" />
       <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet." grey>
-        <p>recherche</p>
       </Hero>
-      <AdvicesSection stepUrl="/conseils/etapes" />
+      <AdvicesSection stepUrl="/conseils/etapes" page="advices" />
     </>
   )
 }

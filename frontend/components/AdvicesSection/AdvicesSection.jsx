@@ -5,7 +5,7 @@ import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 import { usePage } from "@inertiajs/react";
 
 
-const AdvicesSection = ({stepUrl}) => {
+const AdvicesSection = ({stepUrl, page}) => {
     const { url, props } = usePage();
     const { advices, steps } = props;
 
@@ -28,7 +28,7 @@ const AdvicesSection = ({stepUrl}) => {
           <div className={styles.advices__right_Header}>
             <p>{currentStep?.count} conseil{currentStep.count > 1 ? "s" : ""}</p>
             <div className={styles.verticalSeparator}></div>
-            <SwitchAdvices current="step" />
+            <SwitchAdvices current="step" page={page}/>
           </div>
           <ul className={styles.advices__list}>
             {advices.map((advice) => (
