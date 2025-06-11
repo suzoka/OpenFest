@@ -42,7 +42,7 @@ export default class UserController {
       }
     })
 
-    return inertia.render('advices/step', {
+    return inertia.render('user/advices/step', {
       advices: advices,
       steps: steps
     })
