@@ -114,7 +114,7 @@ const Header = () => {
                                 </Label>
                                 <p className="small">{user?.adviceCheckedCount || 0}/{user?.adviceSavedCount || 0} conseils</p>
                             </div>
-                            <Button as="link" href='/sauvegardees/etapes/1'>Espace Festival</Button>
+                            <Button as="link" href='/mon-espace/etapes/1'>Espace Festival</Button>
                             <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />

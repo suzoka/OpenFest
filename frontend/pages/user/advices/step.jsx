@@ -5,7 +5,7 @@ export default function Step() {
   return (
     <>
       <Head title="Mes conseils" />
-      <AdvicesSection stepUrl="/sauvegardees/etapes" />
+      <AdvicesSection stepUrl="/mon-espace/etapes" />
     </>
   )
 }
