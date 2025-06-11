@@ -1,7 +1,3 @@
-.main {
-    margin-top: 80px;
-}
-
 .FestivalAccessible {
     display: flex;
     flex-direction: column;
@@ -62,10 +58,9 @@
 
 .TeamGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sizing-xl);
+    width: 100%;
 }
 
 .Partenaires, .Podcast {

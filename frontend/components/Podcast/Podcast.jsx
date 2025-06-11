@@ -22,7 +22,7 @@ const Podcast = ({
                         <div className={styles.separator}></div>
                         <p className={styles.podcast__date}>{date}</p>
                     </div>
-                    <Heading as="h6" className={styles.podcast__name}>
+                    <Heading as="h3" variant="h6" className={styles.podcast__name}>
                         {name}
                     </Heading>
                 </div>
