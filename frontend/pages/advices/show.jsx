@@ -38,7 +38,7 @@ export default function Home({ advice, user }) {
   return (
     <>
       <Head title={advice?.title} />
-      <div className={styles.hero}>
+      <section className={styles.hero}>
         <div className={styles.heroLeft}>
           <ReturnBtn />
           <Heading as="h1" variant="h1" className={styles.heroTitle}>
@@ -104,7 +104,7 @@ export default function Home({ advice, user }) {
           </div>
           {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
         </div>
-      </div>
+      </section>
       <main id="main">
         <section className={styles.advice + ' section section-grey section-decoration'}>
           <div className="max-width">
