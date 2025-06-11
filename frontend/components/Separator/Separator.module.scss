@@ -15,8 +15,12 @@
         background-color: var(--colors--neutral-200);
         max-width: 1512px;
         margin: 0 auto;
+    }
 
-        &_black {
+    &_black {
+        background-color: var(--colors--neutral-100);
+
+        .hr {
             background-color: var(--colors--neutral-300);
         }
     }
