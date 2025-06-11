@@ -45,7 +45,7 @@ const Header = () => {
                 <ul>
                     {user &&
                         <li>
-                            <Link href="#main" className={styles.skipLink}>Espace Utilisateur</Link>
+                            <Link href="/mon-espace/etapes/1" className={styles.skipLink}>Espace Utilisateur</Link>
                         </li>
                     }
                     <li>
