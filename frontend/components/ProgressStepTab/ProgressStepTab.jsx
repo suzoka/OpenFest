@@ -10,7 +10,7 @@ const ProgressStepTab = ({ data, id, stepUrl, page }) => {
     const Icon = icons[data.icon]
 
     return (
-        <li className={`${styles.progressStepTab} ${url.startsWith(`${stepUrl}/${number}`) ? styles.active : ''}`}>
+        <li className={`${styles.progressStepTab} ${url == (`${stepUrl}/${number}`) ? styles.active : ''}`}>
             <div className={styles.progressStepTab__object}>
                 <p className={`bold ${styles.progressStepTab__number}`}>
                     {number.toString().padStart(2, '0')}

@@ -41,7 +41,7 @@ export default class AdvicesController {
     const advices = await advicesQuery
 
     return inertia.render('advices/index', {
-      advices: advices
+      advices: advices.map(advice => advice.serialize()),
     })
   }
 
@@ -80,7 +80,7 @@ export default class AdvicesController {
     })
 
     return inertia.render('advices/step', {
-      advices: advices,
+      advices: advices.map(advice => advice.serialize()),
       steps: steps
     })
   }
@@ -103,8 +103,7 @@ export default class AdvicesController {
     const advice = await adviceQuery.firstOrFail()
 
     return inertia.render('advices/show', {
-      advice: advice,
-      step: adviceCategoryOptions.find(option => option.value === advice.category) || null,
+      advice: advice.serialize(),
     })
   }
 
