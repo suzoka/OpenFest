@@ -1,0 +1,32 @@
+.ReturnBtn {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: var(--sizing-xs);
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    font-size: var(--size-font-paragraph-p-regular);
+
+    &__Icon {
+        padding: var(--sizing-2xs);
+        background-color: var(--colors--primary-200);
+        border-radius: var(--sizing-2xs);
+        max-height: 40px;
+        max-width: 40px;
+        transition: 0.2s ease-in-out;
+
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: var(--colors--primary-950);
+
+        .ReturnBtn__Icon {
+            background-color: var(--colors--primary-300);
+            transform: scale(1.045);
+        }
+    }
+}

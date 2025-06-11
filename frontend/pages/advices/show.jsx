@@ -8,6 +8,7 @@ import AdviceCard from '@/AdvicesCard/AdvicesCard.jsx'
 import { Link } from '@inertiajs/react'
 import { useEffect, useRef, useState } from 'react'
 import { saveAdvice, checkAdvice } from "#/advices"
+import ReturnBtn from '../../components/ReturnBtn/ReturnBtn'
 
 
 
@@ -37,79 +38,74 @@ export default function Home({ advice, user }) {
   return (
     <>
       <Head title={advice?.title} />
-      <main id="main">
-        <div className={styles.hero}>
-          <div className={styles.heroLeft}>
-            <Link href="/conseils" className={styles.heroReturn}>
-              <div className={styles.heroReturnIcon}>
-                <ArrowUUpLeft size={24} />
-              </div>
-              Retour
-            </Link>
-            <Heading as="h1" variant="h1" className={styles.heroTitle}>
-              {advice?.title}
-            </Heading>
-            <p>{advice?.description}</p>
-          </div>
-          <div className={styles.heroRight}>
-            <Ticket size={424} className={styles.step_icon_large} />
-            <div className={styles.step_tags}>
-              <div className={styles.step_container}>
-                <p className={`bold ${styles.step_name}`}><span>01</span>Prise d'informations et réservation</p>
-                <span className={styles.step_logo}><Ticket size={20} /></span>
-              </div>
-              <div className={styles.tag_container}>
-                {/* Tag type d'handicap */}
-                <div>
-                  {advice.forPmr && <Label color="violet">PMR</Label>}
-                  {advice.forCimp && <Label color="red">CIMP</Label>}
-                  {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
-                </div>
-                {/* Tag supplémentaire */}
-                <div>
-                  {advice?.tags.map((tag, index) => (
-                    <Label key={index} color="blue">{tag}</Label>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.action_container}>
-
-              <Share size={32} />
-              {user && (
-                <div className={styles.action_buttons}>
-
-                  {
-                    saved ? (
-                      <>
-                        <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
-                          {
-                            checked ? (
-                              <CheckSquare size={24} weight="fill" />
-                            ) : (
-                              <Selection size={24} />
-                            )
-                          }
-                        </Button>
-                        <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                          <BookmarkSimple weight='fill' size={24} />
-                          Supprimer
-                        </Button>
-                      </>
-                    ) : (
-                      <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                        <BookmarkSimple size={24} />
-                        Enregistrer
-                      </Button>
-                    )
-                  }
-                </div>
-              )}
-            </div>
-            {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
-          </div>
+      <div className={styles.hero}>
+        <div className={styles.heroLeft}>
+          <ReturnBtn />
+          <Heading as="h1" variant="h1" className={styles.heroTitle}>
+            {advice?.title}
+          </Heading>
+          <p>{advice?.description}</p>
         </div>
+        <div className={styles.heroRight}>
+          <Ticket size={424} className={styles.step_icon_large} />
+          <div className={styles.step_tags}>
+            <div className={styles.step_container}>
+              <p className={`bold ${styles.step_name}`}><span>01</span>Prise d'informations et réservation</p>
+              <span className={styles.step_logo}><Ticket size={20} /></span>
+            </div>
+            <div className={styles.tag_container}>
+              {/* Tag type d'handicap */}
+              <div>
+                {advice.forPmr && <Label color="violet">PMR</Label>}
+                {advice.forCimp && <Label color="red">CIMP</Label>}
+                {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
+              </div>
+              {/* Tag supplémentaire */}
+              <div>
+                {advice?.tags.map((tag, index) => (
+                  <Label key={index} color="blue">{tag}</Label>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.action_container}>
+
+            <Share size={32} />
+            {user && (
+              <div className={styles.action_buttons}>
+
+                {
+                  saved ? (
+                    <>
+                      <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                        {
+                          checked ? (
+                            <CheckSquare size={24} weight="fill" />
+                          ) : (
+                            <Selection size={24} />
+                          )
+                        }
+                      </Button>
+                      <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                        <BookmarkSimple weight='fill' size={24} />
+                        Supprimer
+                      </Button>
+                    </>
+                  ) : (
+                    <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                      <BookmarkSimple size={24} />
+                      Enregistrer
+                    </Button>
+                  )
+                }
+              </div>
+            )}
+          </div>
+          {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
+        </div>
+      </div>
+      <main id="main">
         <section className={styles.advice + ' section section-grey section-decoration'}>
           <div className="max-width">
             <div className={styles.adviceFlex}>
