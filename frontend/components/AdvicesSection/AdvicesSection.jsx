@@ -41,4 +41,4 @@ const AdvicesSection = ({ stepUrl, page }) => {
       );
 };
 
-      export default AdvicesSection;
+export default AdvicesSection;
