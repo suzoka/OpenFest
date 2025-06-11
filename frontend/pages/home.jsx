@@ -37,7 +37,7 @@ export default function Home({ user }) {
                     Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
                   </p>
                 </div>
-                <Button as="link" href="/deconnection" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+                <Button as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
               <img src="https://placehold.co/400x600" alt="Image d'illustration" className={styles.intro_image} />
             </div>
