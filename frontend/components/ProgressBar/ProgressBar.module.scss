@@ -1,0 +1,30 @@
+.progressBar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sizing-2xs);
+    grid-column: 1 / -1;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--sizing-2xs);
+    }
+
+    &__wrapper {
+        width: 100%;
+        height: 32px;
+        border-radius: var(--sizing-2xs);
+        border: 1px solid var(--colors--primary-300);
+        overflow: hidden;
+        background-color: var(--colors--primary-200);
+    }
+
+    &__fill {
+        height: 100%;
+        background: linear-gradient(to right, var(--colors--primary), var(--colors--red));
+        background-size: calc(100vw - 64px*2);
+        transition: width 0.3s ease-in-out;
+    }
+}
