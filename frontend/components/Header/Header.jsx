@@ -4,6 +4,7 @@ import { Link, usePage } from '@inertiajs/react'
 import Button from '../Button/Button'
 import { FlagBannerFold, SignOut } from '@phosphor-icons/react'
 import Label from '../Label/Label'
+import UserProgressTag from '../UserProgressTag/UserProgressTag'
 
 const Header = () => {
     const { url, props } = usePage()
@@ -107,13 +108,7 @@ const Header = () => {
                             )
                         }
                         <div className={styles.dropdownWrapper}>
-                            <div className={styles.userInfoProgress}>
-                                <Label color="red">
-                                    <FlagBannerFold size={16} color="currentColor" />
-                                    {Math.round((user?.adviceCheckedCount || 0) / (user?.adviceSavedCount || 1) * 100)}%
-                                </Label>
-                                <p className="small">{user?.adviceCheckedCount || 0}/{user?.adviceSavedCount || 0} conseils</p>
-                            </div>
+                            <UserProgressTag checkedCount={user?.adviceCheckedCount} savedCount={user?.adviceSavedCount} navBar/>
                             <Button as="link" href='/mon-espace/etapes/1'>Espace Festival</Button>
                             <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion

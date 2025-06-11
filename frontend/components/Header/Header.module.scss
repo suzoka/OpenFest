@@ -137,12 +137,6 @@
             }
         }
 
-        .userInfoProgress {
-            display: flex;
-            align-items: center;
-            gap: var(--sizing-2xs);
-        }
-
         &.open {
             height: auto;
             overflow: visible;

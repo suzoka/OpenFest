@@ -1,10 +1,10 @@
 import { Head, Link } from '@inertiajs/react'
-import Hero from '@/Hero/Hero'
 import AdvicesCard from '@/AdvicesCard/AdvicesCard'
-import ProgressStepTab from '@/ProgressStepTab/ProgressStepTab'
 import styles from '../../../css/pages/_advices.module.scss';
 import SwitchAdvices from '@/SwitchAdvices/SwitchAdvices';
 import UserHero from "@/UserHero/UserHero";
+import UserProgressTag from '../../../components/UserProgressTag/UserProgressTag';
+import Heading from '@/Heading/Heading';
 
 export default function All({ advices }) {
 
@@ -13,10 +13,11 @@ export default function All({ advices }) {
         <>
             <Head title="Mes conseils" />
             <UserHero />
-            <main id='main'>
+            <main id='main' className={styles.user__main_all}>
+                <Heading as="h2" className={styles.user__h2}>Conseils enregistrés</Heading>
                 <div className={styles.advices__right}>
                     <div className={styles.advices__right_Header}>
-                        <p>{count} conseil{count > 1 ? "s" : ""}</p>
+                        <UserProgressTag checkedCount={1} savedCount={count} />
                         <div className={styles.verticalSeparator}></div>
                         <SwitchAdvices current="all" page="user" />
                     </div>

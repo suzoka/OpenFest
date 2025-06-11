@@ -3,32 +3,33 @@ import AdvicesCard from "@/AdvicesCard/AdvicesCard"
 import ProgressStepTab from '@/ProgressStepTab/ProgressStepTab'
 import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 import { usePage } from "@inertiajs/react";
+import AdvicesAside from "../AdvicesAside/AdvicesAside";
+import UserProgressTag from "../UserProgressTag/UserProgressTag";
+import Heading from "@/Heading/Heading";
 
 
-const AdvicesSection = ({stepUrl, page}) => {
-    const { url, props } = usePage();
-    const { advices, steps } = props;
+const AdvicesSection = ({ stepUrl, page }) => {
+  const { url, props } = usePage();
+  const { advices, steps } = props;
 
-    const currentStepID = url.split('/').pop() - 1;
-    const currentStep = steps[currentStepID];
+  const currentStepID = url.split('/').pop() - 1;
+  const currentStep = steps[currentStepID];
 
-    return (
-      <main id='main' className={styles.advices}>
-        <aside className={styles.advices__aside}>
-          <p className={`p-large ${styles.advices__asideTitle}`}>
-            Cheminement
-          </p>
-          <ul className={styles.advices__progressList}>
-            {steps.map((step, i) => (
-              <ProgressStepTab key={i} id={i} data={step} stepUrl={stepUrl} />
-            ))}
-          </ul>
-        </aside>
+  return (
+    <main id='main' className={`${styles.advices} ${page === "user" ? styles.user__main_step : ""}`}>
+        {page === "user" && <Heading as="h2" className={styles.user__h2}>Conseils enregistrés</Heading>}
+        <AdvicesAside steps={steps} stepUrl={stepUrl} page={page} />
         <div className={styles.advices__right}>
           <div className={styles.advices__right_Header}>
-            <p>{currentStep?.count} conseil{currentStep.count > 1 ? "s" : ""}</p>
+            {
+              page === "user" ? (
+                <UserProgressTag checkedCount={1} savedCount={currentStep?.count} />
+              ) : (
+                <p>{currentStep?.count} conseil{currentStep.count > 1 ? "s" : ""}</p>
+              )
+            }
             <div className={styles.verticalSeparator}></div>
-            <SwitchAdvices current="step" page={page}/>
+            <SwitchAdvices current="step" page={page} />
           </div>
           <ul className={styles.advices__list}>
             {advices.map((advice) => (
@@ -37,7 +38,7 @@ const AdvicesSection = ({stepUrl, page}) => {
           </ul>
         </div>
       </main>
-    );
+      );
 };
 
-export default AdvicesSection;
+      export default AdvicesSection;

@@ -1,11 +1,11 @@
 import { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from "@phosphor-icons/react"
 import styles from "./ProgressStepTab.module.scss";
 import { Link, usePage } from "@inertiajs/react";
+import UserProgressTag from "../UserProgressTag/UserProgressTag";
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 
-const ProgressStepTab= ({data, id, stepUrl}) => {
-
-    const { url } = usePage()
+const ProgressStepTab = ({ data, id, stepUrl, page }) => {
+    const { url, props } = usePage();
     const number = (id + 1);
     const Icon = icons[data.icon]
 
@@ -19,13 +19,17 @@ const ProgressStepTab= ({data, id, stepUrl}) => {
                     <p className={`bold ${styles.progressStepTab__title}`}>
                         {data?.label}
                     </p>
-                    <p className={styles.progressStepTab__conseilNum}>
-                        {data?.count} conseil{data.count > 1 ? "s" : ""}
-                    </p>
+                    {page === "user" ? (
+                        <UserProgressTag checkedCount={1} savedCount={data?.count} />
+                    ) : (
+                        <p className={styles.progressStepTab__conseilNum}>
+                            {data?.count} conseil{data.count > 1 ? "s" : ""}
+                        </p>
+                    )}
                     <Icon size={32} className={styles.progressStepTab__icon} />
                 </Link>
             </div>
-        </li>
+        </li >
     );
 };
 
