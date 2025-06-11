@@ -3,19 +3,19 @@ import styles from "./ProgressStepTab.module.scss";
 import { Link, usePage } from "@inertiajs/react";
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 
-const ProgressStepTab= ({data, id}) => {
+const ProgressStepTab= ({data, id, stepUrl}) => {
 
-    const { url, props } = usePage()
+    const { url } = usePage()
     const number = (id + 1);
     const Icon = icons[data.icon]
 
     return (
-        <li className={`${styles.progressStepTab} ${url.startsWith(`/conseils/etapes/${number}`) ? styles.active : ''}`}>
+        <li className={`${styles.progressStepTab} ${url.startsWith(`${stepUrl}/${number}`) ? styles.active : ''}`}>
             <div className={styles.progressStepTab__object}>
                 <p className={`bold ${styles.progressStepTab__number}`}>
                     {number.toString().padStart(2, '0')}
                 </p>
-                <Link href={`/conseils/etapes/${number}`} className={styles.progressStepTab__link} preserveScroll>
+                <Link href={`${stepUrl}/${number}`} className={styles.progressStepTab__link} preserveScroll only={["advices"]}>
                     <p className={`bold ${styles.progressStepTab__title}`}>
                         {data?.label}
                     </p>

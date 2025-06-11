@@ -11,7 +11,7 @@ import styles from '../css/pages/_homepage.module.scss';
 export default function Home({ user }) {
   return (
     <>
-      <Head title="Homepage" />
+      <Head title="Openfest" />
       <section className={styles.hero + ' ' + styles.container}>
         <div className={styles.hero_logo}>
           <img src="/images/decoration/confetti.svg" alt="Confettis" className={styles.confetti} />
@@ -93,7 +93,7 @@ export default function Home({ user }) {
                   </div>
                   <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
                 </div>
-                <Button as="link" href="#" color="violet" type="primary" variant="left"> <Headphones size={24} />  Écouter le podcast </Button>
+                <Button as="link" href="/info#podcast" color="violet" type="primary" variant="left"> <Headphones size={24} />  Écouter le podcast </Button>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Home({ user }) {
                 description="Ministère en charge de la culture et des arts."
               />
             </div>
-            <Button as="link" href="#" color="red" type="secondary" variant="text"> En savoir plus sur l’équipe </Button>
+            <Button as="link" href="/info#equipe" color="red" type="secondary" variant="text"> En savoir plus sur l’équipe </Button>
           </div>
         </section>
       </main>

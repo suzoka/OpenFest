@@ -63,7 +63,7 @@ const Team = ({
                 </div>
             </div>
             <div className={styles.team_info}>
-                <h3 className={styles.team_name}>{name}</h3>
+                <h3 className={`p-large ${styles.team_name}`}>{name}</h3>
                 <p className={styles.team_description}>{description}</p>
             </div>
         </div>
