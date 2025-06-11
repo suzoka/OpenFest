@@ -1,23 +1,22 @@
 import { Head } from '@inertiajs/react'
 import styles from '../../css/pages/_conseil.module.scss'
 import Heading from '@/Heading/Heading.jsx'
-import { ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare } from '@phosphor-icons/react'
+import { ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
+const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
+
 import Label from '@/Label/Label.jsx'
 import Button from '@/Button/Button.jsx'
 import AdviceCard from '@/AdvicesCard/AdvicesCard.jsx'
-import { Link } from '@inertiajs/react'
 import { useEffect, useRef, useState } from 'react'
 import { saveAdvice, checkAdvice } from "#/advices"
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn'
 
-
-
 export default function Home({ advice, user }) {
-
   const [checked, setChecked] = useState(advice?.isSelected?.length > 0 && advice?.isSelected[0]?.isChecked);
   const [saved, setSaved] = useState(advice?.isSelected?.length > 0 || false);
   const contentRef = useRef(null);
   const [summary, setSummary] = useState([]);
+  const Icon = icons[advice.categoryData.icon]
 
   useEffect(() => {
     if (contentRef.current) {
@@ -47,11 +46,11 @@ export default function Home({ advice, user }) {
           <p>{advice?.description}</p>
         </div>
         <div className={styles.heroRight}>
-          <Ticket size={424} className={styles.step_icon_large} />
+          <Icon size={424} className={styles.step_icon_large} />
           <div className={styles.step_tags}>
             <div className={styles.step_container}>
-              <p className={`bold ${styles.step_name}`}><span>01</span>Prise d'informations et réservation</p>
-              <span className={styles.step_logo}><Ticket size={20} /></span>
+              <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
+              <span className={styles.step_logo}><Icon size={20} /></span>
             </div>
             <div className={styles.tag_container}>
               {/* Tag type d'handicap */}
@@ -63,7 +62,7 @@ export default function Home({ advice, user }) {
               {/* Tag supplémentaire */}
               <div>
                 {advice?.tags.map((tag, index) => (
-                  <Label key={index} color="blue">{tag}</Label>
+                  <Label key={index} color="blue">{tag.title}</Label>
                 ))}
               </div>
             </div>

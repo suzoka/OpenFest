@@ -2,7 +2,8 @@ import { Link, usePage } from '@inertiajs/react'
 import styles from "./AdvicesCard.module.scss";
 import Label from "@/Label/Label";
 import Button from "@/Button/Button";
-import { BookBookmark, BookmarkSimple, CheckSquare, Selection, Ticket } from "@phosphor-icons/react";
+import { BookBookmark, BookmarkSimple, CheckSquare, Selection, Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from "@phosphor-icons/react";
+const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 import { saveAdvice, checkAdvice } from "#/advices"
 import { useState } from "react";
 
@@ -10,16 +11,18 @@ const AdvicesCard = ({ data }) => {
 
     const { url, props } = usePage()
     const { user } = props;
-    
+
     const [checked, setChecked] = useState(data?.isSelected?.length > 0 && data?.isSelected[0]?.isChecked);
     const [saved, setSaved] = useState(data?.isSelected?.length > 0 || false);
+
+    const Icon = icons[data.categoryData.icon];
 
     return (
         <li className={`${styles.advicesCard} ${checked ? styles.checked : ""}`}>
             <div className={styles.advicesCard__top}>
                 <div className={styles.advicesCard__step_wrapper}>
-                    <Ticket size={32} className={styles.step_icon} />
-                    <p className={styles.step_name}>Prise d’informationse et réservation</p>
+                    <Icon size={32} className={styles.step_icon} />
+                    <p className={styles.step_name}>{data.categoryData.label}</p>
                 </div>
                 <div className={styles.advicesCard__tag_wrapper}>
                     {data.forPmr && <Label color="violet">PMR</Label>}
