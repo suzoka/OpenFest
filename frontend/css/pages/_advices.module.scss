@@ -3,30 +3,6 @@
     grid-template-columns: 400px 1fr;
     scroll-margin-top: 80px;
 
-    &__aside {
-        position: sticky;
-        display: flex;
-        flex-direction: column;
-        top: 80px;
-        height: calc(100dvh - 80px);
-        padding: var(--sizing-lg) var(--sizing-md);
-        padding-top: 0;
-        border-left: 1px solid var(--colors--neutral-200);
-        overflow-y: auto;
-
-        &Title {
-            padding: var(--sizing-lg) var(--sizing-md);
-            margin: 0 -20px;
-            background-color: var(--colors--white);
-            position: sticky;
-            top: 0;
-        }
-    }
-
-    &__progressList {
-        list-style: none;
-    }
-
     &__right {
         display: flex;
         flex-direction: column;
@@ -53,5 +29,27 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         width: 100%;
         gap: var(--sizing-lg);
+    }
+}
+
+.user {
+    &__main {
+        &_all {
+            display: grid;
+            gap: var(--sizing-xl);
+            padding-top: var(--sizing-xl);
+            padding-bottom: var(--sizing-4xl);
+        }
+
+        &_step {
+            gap: var(--sizing-xl) 0;
+            padding-top: var(--sizing-xl);
+            padding-bottom: var(--sizing-4xl);
+        }
+    }
+
+    &__h2 {
+        grid-column: 1 / -1;
+        padding: 0 var(--sizing-4xl);
     }
 }

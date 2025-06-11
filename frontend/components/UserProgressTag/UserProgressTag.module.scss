@@ -1,0 +1,9 @@
+.UserProgressTag {
+    display: flex;
+    align-items: center;
+    gap: var(--sizing-2xs);
+
+    .opacity {
+        opacity: 0.5;
+    }
+}
