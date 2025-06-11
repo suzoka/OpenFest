@@ -26,19 +26,26 @@ export default class UserController {
       })
       .select('advices.*')
 
-    const counts = await Advice.query()
-      .whereHas('isSelected', (query) => {
-        query.where('user_id', user.id)
-      })
-      .select('category')
-      .count('* as count')
-      .groupBy('category')
+      const selectedCounts = await Advice.query()
+        .select('category')
+        .count('* as count')
+        .whereHas('isSelected', q => q.where('user_id', user.id))
+        .groupBy('category')
+
+      const checkedCounts = await Advice.query()
+        .select('category')
+        .count('* as count')
+        .whereHas('isSelected', q => q.where('user_id', user.id).where('is_checked', true))
+        .groupBy('category')
 
     const steps = adviceCategoryOptions.map((step) => {
-      const found = counts.find(c => c.category === step.value)
+      const checkedCount = checkedCounts.find(c => c.category === step.value)
+      const selectedCount = selectedCounts.find(c => c.category === step.value)
+
       return {
         ...step,
-        count: found ? Number(found.$extras.count) : 0
+        count: selectedCount ? Number(selectedCount.$extras.count) : 0,
+        checked: checkedCount ? Number(checkedCount.$extras.count) : 0
       }
     })
 
