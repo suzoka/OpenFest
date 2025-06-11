@@ -16,7 +16,6 @@ const AdvicesSection = ({stepUrl}) => {
 
     useEffect(() => {
       const handleBeforeVisit = () => {
-        console.log("coucou");
         if (asideRef.current) {
           sessionStorage.setItem("asideScroll", asideRef.current.scrollTop);
         }

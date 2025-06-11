@@ -18,7 +18,6 @@ const UserHero = () => {
         }
     }, [user?.adviceCheckedCount, user?.adviceSavedCount]);
 
-    console.log(user);
     return (
         <section className={styles.userHero}>
             <div className={styles.userHero__info}>
