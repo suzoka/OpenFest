@@ -1,5 +1,6 @@
 .advicesCard {
-    display: flex;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     flex-direction: column;
     padding: var(--sizing-xs);
     gap: var(--sizing-md);

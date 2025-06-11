@@ -6,74 +6,66 @@
 }
 
 .authForm {
+    display: flex;
+    width: 90vw;
+    max-width: 440px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sizing-3xl);
+    padding: var(--sizing-3xl) var(--sizing-md) var(--sizing-md);
     background-color: var(--colors--neutral-50);
     border: 1px solid var(--colors--neutral-300);
-    padding: var(--sizing-3xl) var(--sizing-md) var(--sizing-md) var(--sizing-md);
     border-radius: var(--sizing-2lg);
-    width: 30%;
-    display: flex;
-    flex-direction: column;
 
     &__title {
         text-align: center;
-        padding-bottom: var(--sizing-3xl);
+        line-height: 100%;
     }
 
-    &__separator {
-        border-width: 1px;
-        background-color: var(--colors--neutral-300);
-        margin: var(--sizing-lg) 0;
-        height: 1px;
-        padding: 0;
-        color: var(--colors--neutral-300);
-        border: 0;
-    }
-
-    &__formGroup {
+    &__wrapper {
         display: flex;
         flex-direction: column;
-        gap: var(--sizing-sm);
-        margin-bottom: var(--sizing-2xs);
-
-        >* {
-            display: flex;
-            flex-direction: column;
-        }
+        gap: var(--sizing-lg);
     }
 
     &__error {
-        color: var(--colors--red-500);
-        font-size: var(--size-desktop-paragraph-p-small);
-        font-family: 'abeezee_regular', sans-serif;
+        color: var(--colors--red-600);
+        font-size: var(--size-font-paragraph-p-small);
     }
 
-    &__label {
-        font-weight: var(--font-weight-bold);
-        margin-bottom: var(--sizing-2xs);
-        color: var(--colors--neutral-950);
-        font-family: 'poppins', sans-serif;
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-sm);
+    }
+
+    &__inputWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-2xs);
     }
 
     &__input {
         padding: var(--sizing-xs);
         border-radius: var(--sizing-2xs);
+        background-color: var(--colors--neutral-100);
+        border: none;
         flex: 1;
     }
 
     &__forgotPassword {
+        margin-left: auto;
         text-align: right;
-        font-size: var(--size-desktop-paragraph-p-small);
-        font-family: 'ABeeZee_Regular', sans-serif;
-        margin-bottom: var(--sizing-sm);
-        color: var(--colors--neutral-950);
+        text-decoration-color: var(--colors--neutral-900);
+        font-size: var(--size-font-paragraph-p-small);
+        color: var(--colors--neutral-900);
     }
 
     &__noAccount {
-        font-weight: var(--font-weight-bold);
-        font-family: 'poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: var(--sizing-sm);
         text-align: center;
-        font-size: var(--size-desktop-paragraph-p-bis);
-        padding-bottom: var(--sizing-sm);
     }
 
     &__registerLink {
@@ -84,19 +76,11 @@
 
     &__registerButton {
         width: 100%;
-        text-align: center;
-        font-family: 'abeezee_regular', sans-serif;
     }
 
     &__alreadyAccount {
         text-align: center;
-        font-family: 'poppins', sans-serif;
-        font-size: var(--size-desktop-paragraph-p-bis);
-        margin-top: var(--sizing-sm);
-    }
-
-    &__alreadyAccount {
-        text-align: center;
+        text-decoration-color: currentColor;
     }
 
     &__passwordInfo {
@@ -105,14 +89,12 @@
     }
 
     &__passwordValid {
-            color: #2ecc71;
-            font-weight: bold;
-        }
+        color: #2ecc71;
+    }
 
     &__passwordInvalid {
-            color: #e74c3c; 
-            font-weight: bold;
-        }
+        color: var(--colors--red-600);
+    }
 }
 
 .inputWithIcon {
@@ -129,4 +111,5 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+    color: var(--colors--neutral-900);
 }

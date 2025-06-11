@@ -1,0 +1,101 @@
+.userHero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: repeat(2, auto);
+    gap: var(--sizing-xl);
+    padding: 160px var(--sizing-4xl);
+    background-color: var(--colors--neutral-100);
+
+    &__info {
+        display: flex;
+        align-items: stretch;
+        gap: var(--sizing-lg);
+        height: min-content;
+
+        &Right {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sizing-lg);
+
+            &Header {
+                display: grid;
+                grid-template-columns: repeat(3, max-content);
+                grid-template-rows: auto;
+                align-items: center;
+                gap: var(--sizing-sm) var(--sizing-xs);
+            }
+        }
+    }
+
+    &__title {
+        line-height: 100%;
+        grid-column: 1 / -1;
+    }
+
+    &__avatar {
+        height: 148px;
+        aspect-ratio: 1 / 1;
+        border-radius: var(--sizing-md);
+        background-color: var(--colors--neutral-200);
+        border: 1px solid var(--colors--primary-300);
+    }
+
+    &__labelWrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-3xs);
+    }
+
+    &__label {
+        text-transform: capitalize;
+    }
+
+    &__verticalSeparator {
+        width: 1px;
+        height: 16px;
+        background-color: var(--colors--neutral-300);
+        border-radius: 1px;
+    }
+
+    &__location {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-3xs);
+    }
+
+    &__progressInfo {
+        display: inline-flex;
+        align-items: center;
+
+        &Checked {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sizing-3xs);
+            padding: var(--sizing-2xs) var(--sizing-xs);
+            border-radius: var(--sizing-2xs);
+            background-color: var(--colors--primary-200);
+            font-size: var(--size-font-paragraph-p-regular);
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+        align-self: flex-start;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1512 / 115;
+        background-image: url('/images/decoration/plains_white.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}

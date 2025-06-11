@@ -37,7 +37,7 @@ export default function Home({ user }) {
                     Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
                   </p>
                 </div>
-                <Button as="link" href="/deconnection" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+                <Button as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
               <img src="https://placehold.co/400x600" alt="Image d'illustration" className={styles.intro_image} />
             </div>
@@ -54,10 +54,16 @@ export default function Home({ user }) {
               <Heading as="h2" className={styles.thread_title}>Vous avez dit OpenFest ?</Heading>
               <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. <span className='bold'>(Faudrait développer le bloc en dessous la team)</span></p>
             </div>
-            <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
+            <Link href="/conseils/etapes/1" className={styles.thread_image_link}>
+              <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
+            </Link>
             <div className={styles.thread_buttons}>
               <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
-              <Button as="link" href="#" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
+              { user ? (
+                <Button as="link" href="/user" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
+              ) : (
+                <Button as="link" href="/registration" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
+              )}
             </div>
           </div>
         </section>

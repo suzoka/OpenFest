@@ -163,6 +163,12 @@ img {
 
 // --- Thread Section ---
 
+.thread_image_link {
+  width: 100%;
+  cursor: pointer;
+  display: block
+}
+
 .thread {
   // display: flex;
   // flex-direction: column;

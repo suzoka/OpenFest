@@ -24,6 +24,7 @@ import styles from './Label.module.scss';
 const Label = ({
         color = "violet",
         textcolor = "#ffffff",
+        className = "",
         children,
     }) => {
         const colorClass = {
@@ -33,7 +34,7 @@ const Label = ({
         };
 
         const isPredefined = color in colorClass;
-        const spanClass = `${styles.label} ${isPredefined ? colorClass[color] : styles.label_custom}`;
+        const spanClass = `${styles.label} ${isPredefined ? colorClass[color] : styles.label_custom} ${className}`;
         const customStyle = !isPredefined ? { backgroundColor: color || "#000000", color: textcolor || "#ffffff" } : {};
 
         return (
