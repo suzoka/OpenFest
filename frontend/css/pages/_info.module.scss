@@ -2,3 +2,100 @@
     margin-top: 80px;
 }
 
+.FestivalAccessible {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : var(--sizing-2xl);
+
+    p {
+        font-size: var(--size-font-paragraph-p-regular);
+        max-width: 815px;
+        text-align: center;
+    }
+}
+
+.PouvoirAccessibilite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap : var(--sizing-3xl);
+
+    &_Left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap : var(--sizing-lg);
+        max-width: 560px;
+        text-align: left;
+    }
+}
+
+.Conseils {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    gap: var(--sizing-lg);
+
+    p {
+        max-width: 715px;
+    }
+}
+
+.Equipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sizing-lg);
+
+    p {
+        max-width: 1015px;
+        text-align: center;
+    }
+}
+
+.TeamGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.Partenaires, .Podcast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sizing-lg);
+
+    p {
+        max-width: 740px;
+        text-align: center;
+    }
+}
+
+.podcastContainer {
+    gap :  var(--sizing-xl) !important;
+    padding : var(--sizing-5xl) 0 !important;
+}
+
+.PartnersGrid {
+    display: flex;
+    gap : var(--sizing-xl);
+}
+
+.PodcastContainer > div:not(:first-child) {
+    border-top: none !important;
+}
+
+
+
+
+
