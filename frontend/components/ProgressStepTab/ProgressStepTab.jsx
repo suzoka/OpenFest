@@ -5,7 +5,7 @@ import UserProgressTag from "../UserProgressTag/UserProgressTag";
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
 
 const ProgressStepTab = ({ data, id, stepUrl, page }) => {
-    const { url, props } = usePage();
+    const { url } = usePage();
     const number = (id + 1);
     const Icon = icons[data.icon]
 
@@ -20,7 +20,7 @@ const ProgressStepTab = ({ data, id, stepUrl, page }) => {
                         {data?.label}
                     </p>
                     {page === "user" ? (
-                        <UserProgressTag checkedCount={1} savedCount={data?.count} />
+                        <UserProgressTag checkedCount={data?.checked} savedCount={data?.count} />
                     ) : (
                         <p className={styles.progressStepTab__conseilNum}>
                             {data?.count} conseil{data.count > 1 ? "s" : ""}

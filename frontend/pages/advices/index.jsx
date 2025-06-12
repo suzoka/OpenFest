@@ -12,7 +12,7 @@ export default function Home({ advices }) {
   return (
     <>
       <Head title="Conseils" />
-      <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet." grey>
+      <Hero title="Conseils" subtitle="Besoin d’un coup de pouce ? Retrouvez ici tous nos conseils pour passer à l’action." grey>
       </Hero>
       <main id='main'>
         <div className={styles.advices__right}>
