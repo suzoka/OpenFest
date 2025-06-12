@@ -38,7 +38,7 @@ export default function Home({ user }) {
                 </div>
                 <Button as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
-              <img src="https://placehold.co/400x600" alt="Image d'illustration" className={styles.intro_image} />
+              <img src="/images/hellfest.jpg" alt="Image d'illustration" className={styles.intro_image} />
             </div>
             <div className={styles.stats}>
               <Stats title="Personnes en situation de handicap en France" color="violet" number={12} suffix="millions" />
