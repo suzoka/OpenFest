@@ -100,7 +100,7 @@ export default function Home({ user }) {
                   <br />
                   Et il ne s’agit pas seulement de répondre à une obligation légale, ou de cocher une case, il s’agit de créer du lien, grâce à la culture. Ce qui fait qu’un festival est unique, ce n’est pas ce qui est présenté, c’est les gens qui s’y rendent, alors mieux vaut ne pas les laisser de côté. </p>
               </div>
-              <img src="/images/team/placeholder_676px.png" alt="Placeholder image" className={styles.PouvoirAccessibilite_Right} />
+              <img src="/images/advices/testImg2.jpg" alt="" className={styles.PouvoirAccessibilite_Right} />
             </div>
 
             <div className={styles.Conseils}>
@@ -114,7 +114,7 @@ export default function Home({ user }) {
               <Button as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /></Button>
             </div>
 
-            <img src="/images/team/placeholder_1384px.png" alt="Placeholder image" className={styles.ConseilsImage} />
+            <img src="/images/advices/testImgBan.jpg" alt="" className={styles.ConseilsImage} />
           </div>
         </section>
         <Separator black />
@@ -153,19 +153,19 @@ export default function Home({ user }) {
                 name="APF France Handicap"
                 role={[{ label: 'Association' }]}
                 image="/images/partner/apf_logo.svg"
-                description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                description="Association dédiée au développement web et mobile."
               />
               <Partners
                 name="Université Gustave EIffel - IUT de Marne-la-Vallée"
                 role={[{ label: 'Université', color: 'yellow' }]}
                 image="/images/partner/iut_logo.png"
-                description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                description="Université spécialisée dans les technologies de l'information."
               />
               <Partners
                 name="Ministère de la culture"
                 role={[{ label: 'Ministère', color: 'red' }]}
                 image="/images/partner/ministere_culture_logo.svg"
-                description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                description="Ministère en charge de la culture et des arts."
               />
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function Home({ user }) {
           <div className="max-width">
             <div className={styles.Podcast}>
               <Heading as="h2" variant="h2" className={styles.PodcastTitle}> Notre Podcast </Heading>
-              <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
+              <p>Professionnels, concernés, organisateurs : nos podcasts donnent la parole à celles et ceux qui rendent la culture plus inclusive.</p>
             </div>
           </div>
           <div className={styles.PodcastContainer}>

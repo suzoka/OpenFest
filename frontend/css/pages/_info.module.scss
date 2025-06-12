@@ -13,8 +13,8 @@
 }
 
 .PouvoirAccessibilite {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-content: center;
     gap : var(--sizing-3xl);
@@ -26,6 +26,10 @@
         gap : var(--sizing-lg);
         max-width: 560px;
         text-align: left;
+    }
+
+    img {
+        border-radius: var(--sizing-md);
     }
 }
 
@@ -41,6 +45,11 @@
     p {
         max-width: 715px;
     }
+}
+
+.ConseilsImage {
+    width: 100%;
+    border-radius: var(--sizing-md);
 }
 
 .Equipe {
