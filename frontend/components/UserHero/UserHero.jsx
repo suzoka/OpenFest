@@ -21,7 +21,7 @@ const UserHero = () => {
     return (
         <section className={styles.userHero}>
             <div className={styles.userHero__info}>
-                <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.userHero__avatar} />
+                <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.userHero__avatar} />
                 <div className={styles.userHero__infoRight}>
                     <div className={styles.userHero__infoRightHeader}>
                         <Heading as="h1" className={styles.userHero__title}>

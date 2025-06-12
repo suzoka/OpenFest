@@ -73,9 +73,13 @@ const Header = () => {
                     <li>
                         <Link href="/festival" className={`${styles.navLink} ${url.startsWith('/festival') ? styles.active : ''}`}>Les festivals accessibles</Link>
                     </li>
-                    <li>
-                        <Link href="/tests" className={`${styles.navLink} ${url.startsWith('/tests') ? styles.active : ''}`}>[dev] Styles Guides</Link>
-                    </li>
+                    {
+                        user?.role === 'admin' && (
+                            <li>
+                                <Link href="/tests" className={`${styles.navLink} ${url.startsWith('/tests') ? styles.active : ''}`}>[dev] Styles Guides</Link>
+                            </li>
+                        )
+                    }
                 </ul>
             </nav>
 
@@ -97,19 +101,19 @@ const Header = () => {
                             <div className={styles.userMenuName}>
                                 <p className={styles.userName}>{user?.name}</p>
                                 <p className="small">Festival de {user?.festivalType?.name || "musique"}</p>
-                                <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                                <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
                             </div>
                         ) :
                             (
                                 <Button method='POST' type="secondary" className={`${styles.headerBtn} ${styles.userBtn}`} onClick={() => setUserMenuOpen(true)}>
                                     {user?.name}
-                                    <img src={user?.avatar || 'https://placehold.co/400/000000/FFF'} alt="" className={styles.profilPic} />
+                                    <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
                                 </Button>
                             )
                         }
                         <div className={styles.dropdownWrapper}>
                             <UserProgressTag checkedCount={user?.adviceCheckedCount} savedCount={user?.adviceSavedCount} navBar/>
-                            <Button as="link" href='/mon-espace/etapes/1'>Espace Festival</Button>
+                            <Button as="link" href='/mon-espace/etapes/1'>Mon Espace Festival</Button>
                             <Button as="link" href='/deconnection' method='POST' type="secondary" color="red" >
                                 Déconnexion
                                 <SignOut size={24} color="currentColor" />
