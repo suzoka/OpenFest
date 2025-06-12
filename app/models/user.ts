@@ -6,7 +6,7 @@ import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import type { HasMany, BelongsTo } from '@adonisjs/lucid/types/relations'
 import SelectedAdvice from '#models/selectedAdvice'
 import FestivalType from '#models/festivalType'
-import { attachment, Attachmentable } from '@jrmc/adonis-attachment'
+import { attachment } from '@jrmc/adonis-attachment'
 import type { Attachment } from '@jrmc/adonis-attachment/types/attachment'
 
 
@@ -25,10 +25,10 @@ const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   passwordColumnName: 'password',
 })
 
-export default class User extends compose(BaseModel, AuthFinder, Attachmentable) {
+export default class User extends compose(BaseModel, AuthFinder) {
   public static table = 'users'
 
-  @attachment({ folder: 'uploads/avatars' })
+  @attachment({ folder: 'uploads/avatars', preComputeUrl: true })
   declare avatar: Attachment
 
   @column({ isPrimary: true })

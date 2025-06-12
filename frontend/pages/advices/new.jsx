@@ -1,6 +1,6 @@
 import { Head, useForm } from '@inertiajs/react'
 
-export default function Home({ adviceDisabilities, adviceCategories, errors }) {
+export default function Home({ adviceCategories, errors }) {
   const form = useForm({
     isPublished: false,
   })
