@@ -29,12 +29,11 @@ export default function Home({ user }) {
                 <div>
                   <Heading as="h2" className={styles.intro_title}>Vous avez dit OpenFest ?</Heading>
                   <p>
-                    Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus.
+                    Imaginez, du jour au lendemain vous vous retrouvez en fauteuil roulant. Seriez-vous capable de continuer votre vie comme avant ? Imaginez vouloir vivre comme avant, sortir, retrouver vos amis… et aller à un festival. Pourriez-vous encore en profiter pleinement ? Et si cette simple envie devenait un véritable parcours d’obstacles ?
                     <br></br><br></br>
-                    Nunc sollicitudin nunc sit amet quam suscipit condimentum. Maecenas sodales malesuada dui eu commodo. Aliquam posuere sed nulla nec maximus. Etiam dignissim nunc urna, a tempor arcu euismod eu. Praesent hendrerit est est.
-                    Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Pourtant, comme le dit Stephen Hawking, “Le handicap ne peut pas être un handicap”.
                     <br></br><br></br>
-                    Ut dictum justo ac metus rutrum, sed posuere mauris porta. Nullam id ultrices lorem, non fringilla ante.
+                    C’est pour toutes les raisons énoncées précédemment, que nous avons créé la solution OpenFest. Elle pourra être utile autant aux personnes en situation de handicap qu’à vous, pour rendre les festivals plus accessibles à toutes et tous.
                   </p>
                 </div>
                 <Button as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
@@ -42,17 +41,17 @@ export default function Home({ user }) {
               <img src="https://placehold.co/400x600" alt="Image d'illustration" className={styles.intro_image} />
             </div>
             <div className={styles.stats}>
-              <Stats title="Festivals en France chaque année" color="violet" number={100} suffix="plus" />
-              <Stats title="Festivaliers PMR par festival" color="red" number={2500} />
-              <Stats title="Statistique 3" color="yellow" number={50} suffix="percent" />
+              <Stats title="Personnes en situation de handicap en France" color="violet" number={12} suffix="millions" />
+              <Stats title="Personnes sera un jour en situation de handicap" color="yellow" number={1} suffix="sur2" />
+              <Stats title="Festivals en France chaque années" color="red" number={6} suffix="kPlus"/>
             </div>
           </div>
         </section>
         <section className="section section-grey section-decoration">
           <div className={`max-width ${styles.thread}`}>
             <div>
-              <Heading as="h2" className={styles.thread_title}>Vous avez dit OpenFest ?</Heading>
-              <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. <span className='bold'>(Faudrait développer le bloc en dessous la team)</span></p>
+              <Heading as="h2" className={styles.thread_title}>Agir pas à pas</Heading>
+              <p>Rendre un festival accessible, ça commence dès le premier pas. Suivez le parcours d’un·e festivalier·ère pour savoir où, quand et comment agir.</p>
             </div>
             <Link href="/conseils/etapes/1" className={styles.thread_image_link}>
               <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
@@ -91,7 +90,7 @@ export default function Home({ user }) {
                       <img src="/images/icon/Apple_Podcast.svg" alt="Apple Podcast" className={styles.podcast_Icon} />
                     </a>
                   </div>
-                  <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
+                  <p>Professionnels, concernés, organisateurs : nos podcasts donnent la parole à celles et ceux qui rendent la culture plus inclusive.</p>
                 </div>
                 <Button as="link" href="/info#podcast" color="violet" type="primary" variant="left"> <Headphones size={24} />  Écouter le podcast </Button>
               </div>
@@ -103,7 +102,7 @@ export default function Home({ user }) {
           <div className={`max-width ${styles.partners}`}>
             <div className={styles.partners_text}>
               <Heading as="h2" className={styles.partners_title}> Nos partenaires </Heading>
-              <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
+              <p>Nos partenaires partagent notre vision : une culture accessible à toutes et à tous. Merci à celles et ceux qui nous accompagnent pour faire de ce projet une réalité.</p>
             </div>
             <div className={styles.partners_boxes}>
               <Partners
