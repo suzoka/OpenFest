@@ -50,10 +50,6 @@ router.get('/tests', ({ inertia })=>{
   return inertia.render('tests')
 })
 
-router.get('/mon-espace/tous', ({ inertia })=>{
-  return inertia.render('user/advices/index')
-})
-
 router.get('/info', ({ inertia })=>{
   return inertia.render('info')
 })
