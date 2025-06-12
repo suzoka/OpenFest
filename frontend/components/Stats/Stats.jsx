@@ -21,6 +21,9 @@ const Stats = ({
     const suffixText = {
         plus: "+",
         percent: "%",
+        millions: "M",
+        kPlus: "k+",
+        sur2: "/2",
     }
 
     return (
