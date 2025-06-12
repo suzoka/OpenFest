@@ -42,7 +42,7 @@ const AdvicesSection = ({ stepUrl, page }) => {
         <div className={styles.advices__right_Header}>
           {
             page === "user" ? (
-              <UserProgressTag checkedCount={1} savedCount={currentStep?.count} />
+              <UserProgressTag checkedCount={currentStep?.checked} savedCount={currentStep?.count} />
             ) : (
               <p>{currentStep?.count} conseil{currentStep.count > 1 ? "s" : ""}</p>
             )

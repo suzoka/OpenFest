@@ -1,7 +1,7 @@
 import styles from "./AdvicesAside.module.scss";
 import ProgressStepTab from "@/ProgressStepTab/ProgressStepTab";
 
-AdvicesAside = ({ steps, stepUrl, page, ref }) => {
+const AdvicesAside = ({ steps, stepUrl, page, ref }) => {
 
     return (
         <aside className={`${styles.AdvicesAside} ${page === "user" ? styles.user : ""}`}>
