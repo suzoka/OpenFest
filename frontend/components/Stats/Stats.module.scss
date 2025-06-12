@@ -18,9 +18,8 @@
     color: var(--colors--neutral-950);
     font-size: var(--size-font-title-h5);
     font-family: Poppins_Bold, sans-serif;
-    margin: 8px 0;
     z-index: 2;
-    padding : var(--sizing) var(--sizing-2xs);
+    height: 100%;
 
     @media (max-width: 768px) {
         font-size: var(--size-font-paragraph-p-regular);
@@ -33,7 +32,7 @@
     font-size: 7rem;
     font-family: Manrope_Extrabold, sans-serif;
     z-index: 2;
-    padding: 0 var(--sizing-2xs);
+    line-height: 5.5rem;
 
     @media screen and (max-width: 768px) {
         font-size: 4rem;
@@ -44,8 +43,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 0 4px;
+    gap: var(--sizing-lg);
+    padding: var(--sizing-2xs);
+    min-height: 180px;
+    width: 100%;
+    max-width: 600px;
 
     @media (max-width: 768px) {
         flex-direction: row;
@@ -54,21 +56,22 @@
 }
 
 .stats__rectangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px; 
-  transition: height 0.4s cubic-bezier(0.4,0,0.2,1);
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--sizing-3xs);
+    z-index: 1;
 
-  @media (max-width: 768px) {
-      height: 100%;
-      width: 100%;
-      top: 0;
-  }
+    @media (max-width: 768px) {
+        height: 100%;
+        width: 100%;
+        top: 0;
+    }
 }
 
 .stats:hover .stats__rectangle {
-  height: 100%;
+    height: 100%;
 }
