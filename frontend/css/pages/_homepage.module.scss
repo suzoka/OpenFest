@@ -128,18 +128,8 @@ img {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--sizing-xl);
-
-  >* {
-    flex: 1 1 0;
-    width: 33.33%;
-    min-width: 0;
-
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-  }
 
   >div:nth-child(2) {
     @media (max-width: 768px) {
