@@ -75,7 +75,7 @@
             padding: var(--sizing-2xs) var(--sizing-xs);
             border-radius: var(--sizing-2xs);
             background-color: var(--colors--primary-200);
-            font-size: var(--size-font-paragraph-p-regular);
+            font-size: var(--size-font-paragraph-p-regular) !important;
         }
     }
 

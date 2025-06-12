@@ -59,7 +59,7 @@ export default function Home({ user }) {
             <div className={styles.thread_buttons}>
               <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
               { user ? (
-                <Button as="link" href="/user" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
+                <Button as="link" href="/mon-espace/etapes/1" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
               ) : (
                 <Button as="link" href="/registration" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
               )}

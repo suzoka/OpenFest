@@ -12,15 +12,14 @@ export default function Home({ advices }) {
   return (
     <>
       <Head title="Conseils" />
-      <Hero title="Conseils" subtitle="Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet." grey>
-        <p>recherche</p>
+      <Hero title="Conseils" subtitle="Besoin d’un coup de pouce ? Retrouvez ici tous nos conseils pour passer à l’action." grey>
       </Hero>
       <main id='main'>
         <div className={styles.advices__right}>
           <div className={styles.advices__right_Header}>
             <p>{count} conseil{count > 1 ? "s" : ""}</p>
             <div className={styles.verticalSeparator}></div>
-            <SwitchAdvices current="all" />
+            <SwitchAdvices current="all" page="advices" />
           </div>
           <ul className={styles.advices__list}>
             {advices.map((advice, index) => (
