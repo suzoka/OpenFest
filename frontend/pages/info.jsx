@@ -180,7 +180,7 @@ export default function Home({ user }) {
           </div>
           <div className={styles.PodcastContainer}>
             <Podcast
-              name="Épisode 4 : Lorem Ipsum dolor sit amet"
+              name="Épisode 4 : Témoignages - Mon premier festival accessible"
               date="12 janvier 2025"
               duration="23:12"
               soundcloud="#"
@@ -190,7 +190,7 @@ export default function Home({ user }) {
               apple_podcasts="#"
             />
             <Podcast
-              name="Épisode 3 : Lorem Ipsum dolor sit amet"
+              name="Épisode 3 : Le son de l'inclusif"
               date="12 janvier 2025"
               duration="23:12"
               soundcloud="#"
@@ -200,7 +200,7 @@ export default function Home({ user }) {
               apple_podcasts="#"
             />
             <Podcast
-              name="Épisode 2 : Lorem Ipsum dolor sit amet"
+              name="Épisode 2 : Coulisses inclusives - Rock en Seine"
               date="12 janvier 2025"
               duration="23:12"
               soundcloud="#"
@@ -210,7 +210,7 @@ export default function Home({ user }) {
               apple_podcasts="#"
             />
             <Podcast
-              name="Épisode 1 : Lorem Ipsum dolor sit amet"
+              name="Épisode 1 : Organiser un festival accessible : par où commencer ?"
               date="12 janvier 2025"
               duration="23:12"
               soundcloud="#"
