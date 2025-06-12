@@ -54,4 +54,23 @@ export default class UserController {
       steps: steps
     })
   }
+
+  async advices({ inertia, auth }: HttpContext) {
+    await auth.check()
+
+    const user = auth.use('web').user as User
+    const advices = await Advice.query()
+      .preload('tags')
+      .preload('isSelected', (query) => {
+        query.where('user_id', user.id)
+      })
+      .whereHas('isSelected', (query) => {
+        query.where('user_id', user.id)
+      })
+      .select('advices.*')
+
+    return inertia.render('user/advices/index', {
+      advices: advices.map(advice => advice.serialize())
+    })
+  }
 }
