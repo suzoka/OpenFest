@@ -1,6 +1,5 @@
 import styles from "../../css/pages/_advices.module.scss";
 import AdvicesCard from "@/AdvicesCard/AdvicesCard"
-import ProgressStepTab from '@/ProgressStepTab/ProgressStepTab'
 import SwitchAdvices from '../../components/SwitchAdvices/SwitchAdvices';
 import { usePage } from "@inertiajs/react";
 import AdvicesAside from "../AdvicesAside/AdvicesAside";
