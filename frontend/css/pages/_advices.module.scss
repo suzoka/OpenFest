@@ -28,6 +28,12 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         width: 100%;
         gap: var(--sizing-lg);
+        list-style: none;
+
+        &.user {
+            grid-template-columns: 1fr;
+            gap: var(--sizing-xs);
+        }
     }
 }
 

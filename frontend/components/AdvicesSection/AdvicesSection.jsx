@@ -5,6 +5,7 @@ import { usePage } from "@inertiajs/react";
 import AdvicesAside from "../AdvicesAside/AdvicesAside";
 import UserProgressTag from "../UserProgressTag/UserProgressTag";
 import Heading from "@/Heading/Heading";
+import AddAdvicesBtn from "../AddAdvicesBtn/AddAdvicesBtn";
 
 
 const AdvicesSection = ({ stepUrl, page }) => {
@@ -29,10 +30,16 @@ const AdvicesSection = ({ stepUrl, page }) => {
           <div className={styles.verticalSeparator}></div>
           <SwitchAdvices current="step" page={page} />
         </div>
-        <ul className={styles.advices__list}>
+        <ul className={`${styles.advices__list} ${page === "user" ? styles.user : ""}`}>
           {advices.map((advice) => (
             <AdvicesCard key={`conseil${advice.id}`} data={advice} />
           ))}
+
+          {page === "user" && (
+            <li>
+              <AddAdvicesBtn step={currentStepID + 1} />
+            </li>
+          )}
         </ul>
       </div>
     </main>
