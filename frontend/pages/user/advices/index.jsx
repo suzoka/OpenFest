@@ -1,5 +1,5 @@
 import { Head, Link } from '@inertiajs/react'
-import AdvicesCard from '@/AdvicesCard/AdvicesCard'
+import AdvicesRow from '@/AdvicesRow/AdvicesRow'
 import styles from '../../../css/pages/_advices.module.scss';
 import SwitchAdvices from '@/SwitchAdvices/SwitchAdvices';
 import UserHero from "@/UserHero/UserHero";
@@ -24,7 +24,7 @@ export default function All({ advices }) {
                     </div>
                     <ul className={`${styles.advices__list} ${styles.user}`}>
                         {advices?.map((advice, index) => (
-                            <AdvicesCard key={`conseil${advice.id}`} data={advice} />
+                            <AdvicesRow key={`conseil${advice.id}`} data={advice} variant="all"/>
                         ))}
                         <li>
                             <AddAdvicesBtn />

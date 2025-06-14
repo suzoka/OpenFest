@@ -6,6 +6,7 @@ import AdvicesAside from "../AdvicesAside/AdvicesAside";
 import UserProgressTag from "../UserProgressTag/UserProgressTag";
 import Heading from "@/Heading/Heading";
 import AddAdvicesBtn from "../AddAdvicesBtn/AddAdvicesBtn";
+import AdvicesRow from "../AdvicesRow/AdvicesRow";
 
 
 const AdvicesSection = ({ stepUrl, page }) => {
@@ -32,7 +33,10 @@ const AdvicesSection = ({ stepUrl, page }) => {
         </div>
         <ul className={`${styles.advices__list} ${page === "user" ? styles.user : ""}`}>
           {advices.map((advice) => (
-            <AdvicesCard key={`conseil${advice.id}`} data={advice} />
+            page === "user" ?
+              <AdvicesRow key={`conseil${advice.id}`} data={advice} />
+              :
+              <AdvicesCard key={`conseil${advice.id}`} data={advice} />
           ))}
 
           {page === "user" && (
