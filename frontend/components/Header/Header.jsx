@@ -40,6 +40,11 @@ const Header = () => {
         }
     }, [userMenuOpen])
 
+    useEffect(() => {
+        // Ferme le menu utilisateur si l'utilisateur navigue vers une autre page
+        setUserMenuOpen(false)
+    }, [url])
+
     return (
         <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>
             <nav className={styles.skipNav}>
