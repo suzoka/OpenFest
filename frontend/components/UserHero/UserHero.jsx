@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import styles from "./UserHero.module.scss";
 import Heading from "@/Heading/Heading.jsx";
 import Button from '../Button/Button'
@@ -50,13 +50,21 @@ const UserHero = () => {
                             <p className="small">{user?.address || "Localisation non renseignée"}</p>
                         </div>
                     </div>
-                    <p className={`small ${styles.userHero__progressInfo}`}>
-                        <span className={styles.userHero__progressInfoChecked}>
-                            <FlagBannerFold size={20} />
-                            {user?.adviceCheckedCount} conseil{user?.adviceCheckedCount > 1 && "s"} appliqué{user?.adviceCheckedCount > 1 && "s"}
-                        </span>
-                        {"\u00A0"}sur {user?.adviceSavedCount} enregistré{user?.adviceSavedCount > 1 && "s"}.
-                    </p>
+                    {
+                        user?.adviceSavedCount > 0 ? (
+                            <p className={`small ${styles.userHero__progressInfo}`}>
+                                <span className={styles.userHero__progressInfoChecked}>
+                                    <FlagBannerFold size={20} />
+                                    {user?.adviceCheckedCount} conseil{user?.adviceCheckedCount > 1 && "s"} appliqué{user?.adviceCheckedCount > 1 && "s"}
+                                </span>
+                                {"\u00A0"}sur {user?.adviceSavedCount} enregistré{user?.adviceSavedCount > 1 && "s"}.
+                            </p>
+                        ) : (
+                            <Link href="/conseils" className={`small ${styles.userHero__progressInfo} opacity`}>
+                                Pas de conseils enregistrés pour le moment.{"\u00A0"}
+                            </Link>
+                        )
+                    }
                 </div>
             </div>
             <div className={styles.userHero__buttons}>

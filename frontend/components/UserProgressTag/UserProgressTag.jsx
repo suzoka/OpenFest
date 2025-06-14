@@ -15,7 +15,7 @@ const UserProgressTag = ({ checkedCount, savedCount, navBar }) => {
                     <p className={navBar ? "small" : ""}>{checkedCount || 0}/{savedCount || 0} conseil{savedCount > 1 && "s"}</p>
                 </>
             ) : (
-                <p className={`${navBar ? "small" : ""} ${styles.opacity}`}>0 conseil</p>
+                <p className={`${navBar ? "small" : ""} opacity`}>0 conseil</p>
             )}
         </div>
     );
