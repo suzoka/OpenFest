@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import styles from '../../css/pages/_conseil.module.scss'
 import Heading from '@/Heading/Heading.jsx'
 import { ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
@@ -23,8 +23,7 @@ export default function Home({ advice, user }) {
       setSummary([]);
       const headings = contentRef.current.querySelectorAll('h2');
       headings.forEach((heading) => {
-        const id = heading.textContent.toLowerCase().replace(/\s+/g, '-');
-        heading.id = id;
+        const id = heading.id;
         const summaryObject = {
           id: id,
           text: heading.textContent
@@ -48,10 +47,10 @@ export default function Home({ advice, user }) {
         <div className={styles.heroRight}>
           <Icon size={424} className={styles.step_icon_large} />
           <div className={styles.step_tags}>
-            <div className={styles.step_container}>
+            <Link className={styles.step_container} href={`/conseils/etapes/${advice.categoryData.index}`}>
               <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
               <span className={styles.step_logo}><Icon size={20} /></span>
-            </div>
+            </Link>
             <div className={styles.tag_container}>
               {/* Tag type d'handicap */}
               <div>
