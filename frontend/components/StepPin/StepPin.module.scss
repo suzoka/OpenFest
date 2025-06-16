@@ -1,0 +1,76 @@
+.stepPin {
+    list-style: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 32px;
+    width: 32px;
+    overflow: visible;
+    transform: translate(50%, 50%);
+    text-decoration: none;
+    gap: 30px;
+
+    &__PopIn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center !important;
+        gap: var(--sizing-xs);
+        padding: var(--sizing-2xs) var(--sizing-xs);
+        border-radius: var(--sizing-2xs);
+        background-color: var(--colors--primary-200);
+        color: var(--colors--primary-950);
+        width: max-content;
+        max-width: 240px;
+        position: relative;
+        transition: 0.2s ease-in-out;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 13px;
+            background: var(--colors--primary-200);
+            -webkit-mask-image: url("/images/decoration/polygon.svg");
+            mask-image: url("/images/decoration/polygon.svg");
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.2s ease-in-out;
+        }
+    }
+
+    &__Icon {
+        min-width: 32px;
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        background-color: var(--colors--primary);
+        color: var(--colors--primary-50);
+        outline: 8px solid var(--colors--primary-200);
+        transition: 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: none;
+
+        .stepPin__PopIn {
+            background-color: var(--colors--primary);
+            color: var(--colors--primary-50);
+
+            &::after {
+                background: var(--colors--primary);
+            }
+        }
+
+        .stepPin__Icon {
+            background-color: var(--colors--primary-950);
+        }
+    }
+}

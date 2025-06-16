@@ -7,6 +7,8 @@ import Partners from '@/Partners/Partners.jsx';
 import Separator from '@/Separator/Separator';
 
 import styles from '../css/pages/_homepage.module.scss';
+import StepPin from '../components/StepPin/StepPin';
+import Thread from '../components/Thread/Thread';
 
 export default function Home({ user }) {
   return (
@@ -43,7 +45,7 @@ export default function Home({ user }) {
             <div className={styles.stats}>
               <Stats title="Personnes en situation de handicap en France" color="violet" number={12} suffix="millions" />
               <Stats title="Personnes sera un jour en situation de handicap" color="yellow" number={1} suffix="sur2" />
-              <Stats title="Festivals en France chaque années" color="red" number={6} suffix="kPlus"/>
+              <Stats title="Festivals en France chaque années" color="red" number={6} suffix="kPlus" />
             </div>
           </div>
         </section>
@@ -53,12 +55,10 @@ export default function Home({ user }) {
               <Heading as="h2" className={styles.thread_title}>Agir pas à pas</Heading>
               <p>Rendre un festival accessible, ça commence dès le premier pas. Suivez le parcours d’un·e festivalier·ère pour savoir où, quand et comment agir.</p>
             </div>
-            <Link href="/conseils/etapes/1" className={styles.thread_image_link}>
-              <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
-            </Link>
+            <Thread />
             <div className={styles.thread_buttons}>
               <Button cta as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
-              { user ? (
+              {user ? (
                 <Button cta as="link" href="/mon-espace/etapes/1" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
               ) : (
                 <Button cta as="link" href="/registration" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>

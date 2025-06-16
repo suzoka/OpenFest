@@ -14,6 +14,7 @@ const AdvicesSection = ({ stepUrl, page }) => {
   const { advices, steps } = props;
   const currentStepID = url.split('/').pop() - 1;
   const currentStep = steps[currentStepID];
+  console.log("currentStep", steps);
 
   return (
     <main id='main' className={`${styles.advices} ${page === "user" ? styles.user__main_step : ""}`}>
