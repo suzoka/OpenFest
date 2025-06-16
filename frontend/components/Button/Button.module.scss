@@ -10,40 +10,43 @@
     text-decoration: none;
     height: 40px;
     cursor: pointer;
-    transition: 
-        background-color 0.2s cubic-bezier(0.4,0,0.2,1),
-        color 0.2s cubic-bezier(0.4,0,0.2,1),
-        box-shadow 0.2s cubic-bezier(0.4,0,0.2,1),
-        transform 0.15s cubic-bezier(0.4,0,0.2,1);
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     img {
         width: 20px;
         height: 20px;
     }
 
-    &:hover, &:focus-visible {
-        transform: scale(1.045);
-        box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+    &:hover,
+    &:focus-visible {
         text-decoration: none;
     }
+
+    &.cta:hover,
+    &.cta:focus-visible {
+        transform: scale(1.045);
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
+    }
+
+
 }
 
 // Button Variants
 
 .btn__text {
-    padding : var(--sizing-2xs) var(--sizing-xs);
+    padding: var(--sizing-2xs) var(--sizing-xs);
 }
 
 .btn__image {
-    padding : var(--sizing-2xs)
+    padding: var(--sizing-2xs)
 }
 
 .btn__textImage {
-    padding : var(--sizing-2xs) var(--sizing-2xs) var(--sizing-2xs) var(--sizing-xs);
+    padding: var(--sizing-2xs) var(--sizing-2xs) var(--sizing-2xs) var(--sizing-xs);
 }
 
 .btn__imageText {
-    padding : var(--sizing-2xs) var(--sizing-xs) var(--sizing-2xs) var(--sizing-2xs);
+    padding: var(--sizing-2xs) var(--sizing-xs) var(--sizing-2xs) var(--sizing-2xs);
 }
 
 // Button Color || Violet
@@ -51,18 +54,35 @@
 .btn__violet.btn__primary {
     background-color: var(--colors--primary);
     color: var(--colors--white);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--primary-950);
+    }
 }
 
 .btn__violet.btn__secondary {
     background-color: var(--colors--primary-200);
     color: var(--colors--primary-950);
     font-family: ABeeZee_Regular;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--primary-300);
+    }
 }
 
 .btn__violet.btn__outlined {
     background-color: var(--colors--white);
-    color: var(--colors--primary);
-    box-shadow:inset 0px 0px 0px 1px var(--colors--primary);
+    color: var(--colors--primary-800);
+    border: 1px solid var(--colors--primary-800);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--primary-200);
+        border-color: var(--colors--primary-300);
+        color: var(--colors--primary-950);
+    }
 }
 
 // Button Color || Red 
@@ -70,18 +90,36 @@
 .btn__red.btn__primary {
     background-color: var(--colors--red);
     color: var(--colors--red-950);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--red-950);
+        color: var(--colors--red-50);
+    }
 }
 
 .btn__red.btn__secondary {
     background-color: var(--colors--red-200);
     color: var(--colors--red-950);
     font-family: ABeeZee_Regular;
+    
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--red-300);
+    }
 }
 
 .btn__red.btn__outlined {
     background-color: var(--colors--white);
-    color: var(--colors--red);
-    box-shadow:inset 0px 0px 0px 1px var(--colors--red);
+    color: var(--colors--red-800);
+    border: 1px solid var(--colors--red-800);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--red-200);
+        border-color: var(--colors--red-300);
+        color: var(--colors--red-950);
+    }
 }
 
 // Button Color || Yellow
@@ -89,16 +127,34 @@
 .btn__yellow.btn__primary {
     background-color: var(--colors--yellow);
     color: var(--colors--yellow-950);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--yellow-950);
+        color: var(--colors--yellow-50);
+    }
 }
 
 .btn__yellow.btn__secondary {
-    background-color: var(--colors--yellow-200);
+    background-color: var(--colors--yellow-100);
     color: var(--colors--yellow-950);
     font-family: ABeeZee_Regular;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--yellow-200);
+    }
 }
 
 .btn__yellow.btn__outlined {
     background-color: var(--colors--white);
-    color: var(--colors--yellow-950);
-    box-shadow:inset 0px 0px 0px 1px var(--colors--yellow);
+    color: var(--colors--yellow-800);
+    border: 1px solid var(--colors--yellow-800);
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--colors--yellow-100);
+        border-color: var(--colors--yellow-300);
+        color: var(--colors--yellow-950);
+    }
 }

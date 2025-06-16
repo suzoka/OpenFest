@@ -111,7 +111,7 @@ export default function Home({ user }) {
                 Un festival accessible, ce n’est pas juste un festival adapté, c’est un festival qui rassemble, et qui ressemble à une société qu’on veut construire : une société plus solidaire, plus humaine, et plus juste.
               </p>
 
-              <Button as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /></Button>
+              <Button cta as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /></Button>
             </div>
 
             <img src="/images/advices/testImgBan.jpg" alt="" className={styles.ConseilsImage} />

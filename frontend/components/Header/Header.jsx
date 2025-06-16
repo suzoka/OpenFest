@@ -3,7 +3,6 @@ import styles from './Header.module.scss'
 import { Link, usePage } from '@inertiajs/react'
 import Button from '../Button/Button'
 import { FlagBannerFold, SignOut } from '@phosphor-icons/react'
-import Label from '../Label/Label'
 import UserProgressTag from '../UserProgressTag/UserProgressTag'
 
 const Header = () => {

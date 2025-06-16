@@ -19,6 +19,30 @@ export default function Home({ user, errors }) {
 
       <Heading as="h1"> OpenFest </Heading>
 
+      <div style={{ display: 'grid', gap: '20px', marginBottom: '50px', gridTemplateColumns: 'repeat(6, max-content)' }}>
+        <Button cta color="violet" type="primary" variant="text">Bouton</Button>
+        <Button cta color="red" type="primary" variant="text">Bouton</Button>
+        <Button cta color="yellow" type="primary" variant="text">Bouton</Button>
+        <Button color="violet" type="primary" variant="text">Bouton</Button>
+        <Button color="red" type="primary" variant="text">Bouton</Button>
+        <Button color="yellow" type="primary" variant="text">Bouton</Button>
+
+        <Button cta color="violet" type="secondary" variant="text">Bouton</Button>
+        <Button cta color="red" type="secondary" variant="text">Bouton</Button>
+        <Button cta color="yellow" type="secondary" variant="text">Bouton</Button>
+        <Button color="violet" type="secondary" variant="text">Bouton</Button>
+        <Button color="red" type="secondary" variant="text">Bouton</Button>
+        <Button color="yellow" type="secondary" variant="text">Bouton</Button>
+
+        <Button cta color="violet" type="outlined" variant="text">Bouton</Button>
+        <Button cta color="red" type="outlined" variant="text">Bouton</Button>
+        <Button cta color="yellow" type="outlined" variant="text">Bouton</Button>
+        <Button color="violet" type="outlined" variant="text">Bouton</Button>
+        <Button color="red" type="outlined" variant="text">Bouton</Button>
+        <Button color="yellow" type="outlined" variant="text">Bouton</Button>
+      </div>
+        
+
       <Stats title="Festivals en France chaque année" color="yellow" number={'100+'} />
 
       <div style={{ marginBottom: '50px' }}>
