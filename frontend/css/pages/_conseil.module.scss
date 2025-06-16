@@ -1,16 +1,20 @@
 .hero {
-    margin-top: var(--sizing-5xl);
+
     min-height: 80dvh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: var(--sizing-3xl);
-    width: 100%;
-    max-width: 1512px;
-    margin: 0 auto;
-    align-items: stretch;
-    padding: 160px var(--sizing-4xl);
     overflow: hidden;
+    
+    &Wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--sizing-3xl);
+        width: 100%;
+        max-width: 1512px;
+        margin: 0 auto;
+        align-items: stretch;
+        padding: 160px var(--sizing-4xl);
+    }
+
 
     .heroLeft {
         display: flex;
@@ -152,6 +156,7 @@
 }
 
 .adviceContent {
+    width: 100%;
     padding: 0 var(--sizing-3xl);
     padding-bottom: var(--sizing-sm);
 

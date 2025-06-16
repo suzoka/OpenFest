@@ -45,3 +45,11 @@ img {
   display: block;
   object-fit: cover;
 }
+
+p, li {
+  max-width: 88ch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  max-width: 35ch;
+}

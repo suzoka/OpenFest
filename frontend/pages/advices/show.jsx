@@ -37,70 +37,73 @@ export default function Home({ advice, user }) {
     <>
       <Head title={advice?.title} />
       <section className={styles.hero}>
-        <div className={styles.heroLeft}>
-          <ReturnBtn />
-          <Heading as="h1" variant="h1" className={styles.heroTitle}>
-            {advice?.title}
-          </Heading>
-          <p>{advice?.description}</p>
-        </div>
-        <div className={styles.heroRight}>
-          <Icon size={424} className={styles.step_icon_large} />
-          <div className={styles.step_tags}>
-            <Link className={styles.step_container} href={`/conseils/etapes/${advice.categoryData.index}`}>
-              <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
-              <span className={styles.step_logo}><Icon size={20} /></span>
-            </Link>
-            <div className={styles.tag_container}>
-              {/* Tag type d'handicap */}
-              <div>
-                {advice.forPmr && <Label color="violet">PMR</Label>}
-                {advice.forCimp && <Label color="red">CIMP</Label>}
-                {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
+        <div className={styles.heroWrapper}>
+          <div className={styles.heroLeft}>
+            <ReturnBtn />
+            <Heading as="h1" variant="h1" className={styles.heroTitle}>
+              {advice?.title}
+            </Heading>
+            <p>{advice?.description}</p>
+          </div>
+          <div className={styles.heroRight}>
+            <Icon size={424} className={styles.step_icon_large} />
+            <div className={styles.step_tags}>
+              <Link className={styles.step_container} href={`/conseils/etapes/${advice.categoryData.index}`}>
+                <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
+                <span className={styles.step_logo}><Icon size={20} /></span>
+              </Link>
+              <div className={styles.tag_container}>
+                {/* Tag type d'handicap */}
+                <div>
+                  {advice.forPmr && <Label color="violet">PMR</Label>}
+                  {advice.forCimp && <Label color="red">CIMP</Label>}
+                  {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
+                </div>
+                {/* Tag supplémentaire */}
+                <div>
+                  {advice?.tags.map((tag, index) => (
+                    <Label key={index} color="blue">{tag.title}</Label>
+                  ))}
+                </div>
               </div>
-              {/* Tag supplémentaire */}
-              <div>
-                {advice?.tags.map((tag, index) => (
-                  <Label key={index} color="blue">{tag.title}</Label>
-                ))}
-              </div>
+
             </div>
-          </div>
 
-          <div className={styles.action_container}>
+            <div className={styles.action_container}>
 
-            <Share size={32} />
-            {user && (
-              <div className={styles.action_buttons}>
+              <Share size={32} />
+              {user && (
+                <div className={styles.action_buttons}>
 
-                {
-                  saved ? (
-                    <>
-                      <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
-                        {
-                          checked ? (
-                            <CheckSquare size={24} weight="fill" />
-                          ) : (
-                            <Selection size={24} />
-                          )
-                        }
+                  {
+                    saved ? (
+                      <>
+                        <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                          {
+                            checked ? (
+                              <CheckSquare size={24} weight="fill" />
+                            ) : (
+                              <Selection size={24} />
+                            )
+                          }
+                        </Button>
+                        <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                          <BookmarkSimple weight='fill' size={24} />
+                          Supprimer
+                        </Button>
+                      </>
+                    ) : (
+                      <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                        <BookmarkSimple size={24} />
+                        Enregistrer
                       </Button>
-                      <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                        <BookmarkSimple weight='fill' size={24} />
-                        Supprimer
-                      </Button>
-                    </>
-                  ) : (
-                    <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                      <BookmarkSimple size={24} />
-                      Enregistrer
-                    </Button>
-                  )
-                }
-              </div>
-            )}
+                    )
+                  }
+                </div>
+              )}
+            </div>
+            {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
           </div>
-          {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
         </div>
       </section>
       <main id="main">
