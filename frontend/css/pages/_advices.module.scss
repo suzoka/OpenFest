@@ -10,10 +10,17 @@
         width: 100%;
 
         &_Header {
+            position: sticky;
+            top: 80px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             gap: var(--sizing-xs);
+            background-color: var(--colors--neutral-50);
+            padding: var(--sizing-sm) 0;
+            margin: -16px 0;
+            z-index: 10;
+
 
             .verticalSeparator {
                 width: 1px;
@@ -33,6 +40,10 @@
         &.user {
             grid-template-columns: 1fr;
             gap: var(--sizing-xs);
+        }
+
+        li {
+            max-width: none;
         }
     }
 }

@@ -1,15 +1,15 @@
 import { Head, Link } from '@inertiajs/react'
 import styles from '../../css/pages/_conseil.module.scss'
 import Heading from '@/Heading/Heading.jsx'
-import { ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
+import { Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
-
 import Label from '@/Label/Label.jsx'
 import Button from '@/Button/Button.jsx'
 import AdviceCard from '@/AdvicesCard/AdvicesCard.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { saveAdvice, checkAdvice } from "#/advices"
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn'
+import AdvicesStickyHeader from '../../components/AdvicesStickyHeader/AdvicesStickyHeader'
 
 export default function Home({ advice, user }) {
   const [checked, setChecked] = useState(advice?.isSelected?.length > 0 && advice?.isSelected[0]?.isChecked);
@@ -17,19 +17,6 @@ export default function Home({ advice, user }) {
   const contentRef = useRef(null);
   const [summary, setSummary] = useState([]);
   const Icon = icons[advice.categoryData.icon]
-
-  const [scroll, setScroll] = useState(0)
-
-  useEffect(() => {
-    function handleScroll() {
-      setScroll(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
 
   useEffect(() => {
     if (contentRef.current) {
@@ -49,6 +36,39 @@ export default function Home({ advice, user }) {
   return (
     <>
       <Head title={advice?.title} />
+
+      <AdvicesStickyHeader title={advice?.title} checked={checked && saved ? true : false}>
+        <div className={styles.action_container}>
+          <Share size={32} />
+          {user && (
+            <div className={styles.action_buttons}>
+              {saved ? (
+                <>
+                  <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                    {
+                      checked ? (
+                        <CheckSquare size={24} weight="fill" />
+                      ) : (
+                        <Selection size={24} />
+                      )
+                    }
+                  </Button>
+                  <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                    <BookmarkSimple weight='fill' size={24} />
+                    Supprimer
+                  </Button>
+                </>
+              ) : (
+                <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                  <BookmarkSimple size={24} />
+                  Enregistrer
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
+      </AdvicesStickyHeader>
+
       <section className={styles.hero}>
         <div className={styles.heroWrapper}>
           <div className={styles.heroLeft}>
@@ -119,46 +139,7 @@ export default function Home({ advice, user }) {
           </div>
         </div>
       </section>
-      <main id="main"><div className={`${styles.stickyHeader} ${scroll > 100 ? styles.onscroll : ''}`}>
-        <div className={styles.stickyHeader__maxWidth}>
-          <ReturnBtn />
-          <p className='p-large'>
-            {advice?.title}
-          </p>
-          <div className={styles.action_container}>
-            <Share size={32} />
-            {user && (
-              <div className={styles.action_buttons}>
-
-                {
-                  saved ? (
-                    <>
-                      <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
-                        {
-                          checked ? (
-                            <CheckSquare size={24} weight="fill" />
-                          ) : (
-                            <Selection size={24} />
-                          )
-                        }
-                      </Button>
-                      <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                        <BookmarkSimple weight='fill' size={24} />
-                        Supprimer
-                      </Button>
-                    </>
-                  ) : (
-                    <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                      <BookmarkSimple size={24} />
-                      Enregistrer
-                    </Button>
-                  )
-                }
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+      <main id="main">
         <section className={styles.advice + ' section section-grey section-decoration'}>
           <div className="max-width">
             <div className={styles.adviceFlex}>
