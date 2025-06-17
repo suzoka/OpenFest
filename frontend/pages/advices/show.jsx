@@ -18,6 +18,19 @@ export default function Home({ advice, user }) {
   const [summary, setSummary] = useState([]);
   const Icon = icons[advice.categoryData.icon]
 
+  const [scroll, setScroll] = useState(0)
+
+  useEffect(() => {
+    function handleScroll() {
+      setScroll(window.scrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   useEffect(() => {
     if (contentRef.current) {
       setSummary([]);
@@ -106,7 +119,46 @@ export default function Home({ advice, user }) {
           </div>
         </div>
       </section>
-      <main id="main">
+      <main id="main"><div className={`${styles.stickyHeader} ${scroll > 100 ? styles.onscroll : ''}`}>
+        <div className={styles.stickyHeader__maxWidth}>
+          <ReturnBtn />
+          <p className='p-large'>
+            {advice?.title}
+          </p>
+          <div className={styles.action_container}>
+            <Share size={32} />
+            {user && (
+              <div className={styles.action_buttons}>
+
+                {
+                  saved ? (
+                    <>
+                      <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                        {
+                          checked ? (
+                            <CheckSquare size={24} weight="fill" />
+                          ) : (
+                            <Selection size={24} />
+                          )
+                        }
+                      </Button>
+                      <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                        <BookmarkSimple weight='fill' size={24} />
+                        Supprimer
+                      </Button>
+                    </>
+                  ) : (
+                    <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                      <BookmarkSimple size={24} />
+                      Enregistrer
+                    </Button>
+                  )
+                }
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
         <section className={styles.advice + ' section section-grey section-decoration'}>
           <div className="max-width">
             <div className={styles.adviceFlex}>
