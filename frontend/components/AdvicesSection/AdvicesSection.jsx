@@ -20,7 +20,7 @@ const AdvicesSection = ({ stepUrl, page }) => {
       {page === "user" && <Heading as="h2" className={styles.user__h2}>Conseils enregistrés</Heading>}
       <AdvicesAside steps={steps} stepUrl={stepUrl} page={page} />
       <div className={styles.advices__right}>
-        <div className={styles.advices__right_Header}>
+        <div className={`${styles.advices__right_Header}  ${page === "user" ? styles.user : ""}`}>
           {
             page === "user" ? (
               <UserProgressTag checkedCount={currentStep?.checked} savedCount={currentStep?.count} />

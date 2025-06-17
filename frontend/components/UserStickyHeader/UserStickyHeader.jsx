@@ -1,9 +1,9 @@
+import styles from "./UserStickyHeader.module.scss";
 import { useEffect, useRef, useState } from "react";
-import styles from "./AdvicesStickyHeader.module.scss";
 import { setTabIndexForChildren } from "../../utils/utils";
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn'
 
-const AdvicesStickyHeader = ({title, checked, children}) => {
+const UserStickyHeader = ({children}) => {
 
     const stickyRef = useRef(null);
     const [scroll, setScroll] = useState(0);
@@ -36,17 +36,13 @@ const AdvicesStickyHeader = ({title, checked, children}) => {
     return (
         <div
             ref={stickyRef}
-            className={`${styles.stickyHeader} ${scroll >= scrollMax ? styles.onscroll : ''} ${checked ? styles.checked : ''}`}
+            className={`${styles.stickyHeader} ${scroll >= scrollMax ? styles.onscroll : ''}`}
         >
             <div className={styles.stickyHeader__maxWidth}>
-                <ReturnBtn />
-                <p className={`p-large ${styles.stickyHeader__title}`}>
-                    {title}
-                </p>
                 {children}
             </div>
         </div>
     );
 };
 
-export default AdvicesStickyHeader;
+export default UserStickyHeader;
