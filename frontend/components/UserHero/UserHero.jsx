@@ -22,28 +22,28 @@ const UserHero = () => {
     return (
         <>
             {/* <UserStickyHeader><ProgressBar progress={progress} /></UserStickyHeader> */}
-        <section className={styles.userHero}>
-            <div className={styles.userHero__info}>
-                <img src={user?.avatar?.url || '/images/user/rock_en_seine.jpg'} alt="" className={styles.userHero__avatar} />
-                <div className={styles.userHero__infoRight}>
-                    <div className={styles.userHero__infoRightHeader}>
-                        <Heading as="h1" className={styles.userHero__title}>
-                            {user?.name}
-                        </Heading>
-                        <div className={styles.userHero__labelWrapper}>
-                            {user?.festivalType &&
-                                <Label className={styles.userHero__label} color={user?.festivalType?.color || "violet"}>
-                                    {user?.festivalType?.name}
-                                </Label>
-                            }
-                            {user?.areaType === "outdoor" ?
-                                <Label className={styles.userHero__label} color="violet">
-                                    Extérieur
-                                </Label>
-                                : user?.areaType === "indoor" ?
-                                    <Label className={styles.userHero__label} color="yellow">
-                                        Intérieur
+            <section className={styles.userHero}>
+                <div className={styles.userHero__info}>
+                    <img src={user?.avatar?.url || '/images/user/rock_en_seine.jpg'} alt="" className={styles.userHero__avatar} />
+                    <div className={styles.userHero__infoRight}>
+                        <div className={styles.userHero__infoRightHeader}>
+                            <Heading as="h1" className={styles.userHero__title}>
+                                {user?.name}
+                            </Heading>
+                            <div className={styles.userHero__labelWrapper}>
+                                {user?.festivalType &&
+                                    <Label className={styles.userHero__label} color={user?.festivalType?.color || "violet"}>
+                                        {user?.festivalType?.name}
                                     </Label>
+                                }
+                                {user?.areaType === "outdoor" ?
+                                    <Label className={styles.userHero__label} color="violet">
+                                        Extérieur
+                                    </Label>
+                                    : user?.areaType === "indoor" ?
+                                        <Label className={styles.userHero__label} color="yellow">
+                                            Intérieur
+                                        </Label>
                                         : ""
                                 }
                             </div>
@@ -70,17 +70,17 @@ const UserHero = () => {
                         }
                     </div>
                 </div>
-            <div className={styles.userHero__buttons}>
-                <Button as="link" href='/mon-compte' type="secondary" variant="only" color="violet" title="paramètres">
-                    <Gear size={24} />
-                </Button>
-                <Button as="link" href='/deconnection' method='POST' type="secondary" variant="right" color="red" >
-                    Déconnexion
-                    <SignOut size={24} />
-                </Button>
-            </div>
-            <ProgressBar progress={progress} />
-        </section>
+                <div className={styles.userHero__buttons}>
+                    <Button as="link" href='/mon-compte' type="secondary" variant="only" color="violet" title="paramètres">
+                        <Gear size={24} />
+                    </Button>
+                    <Button as="link" href='/deconnection' method='POST' type="secondary" variant="right" color="red" >
+                        Déconnexion
+                        <SignOut size={24} />
+                    </Button>
+                </div>
+                <ProgressBar progress={progress} />
+            </section>
         </>
     );
 };
