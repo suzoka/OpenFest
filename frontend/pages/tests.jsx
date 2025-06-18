@@ -11,6 +11,7 @@ import Footer from '@/Footer/Footer.jsx'
 import Hero from '@/Hero/Hero'
 import AuthForm from '../components/AuthForm/AuthForm.jsx'
 import UserHero from '../components/UserHero/UserHero.jsx'
+import FestivalCard from '../components/FestivalCard/FestivalCard.jsx'
 
 export default function Home({ user, errors }) {
   return (
@@ -132,6 +133,7 @@ export default function Home({ user, errors }) {
           description="Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         />
       </div>
+      <FestivalCard />
       <UserHero />
     </>
   )

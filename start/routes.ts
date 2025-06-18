@@ -56,3 +56,7 @@ router.get('/tests', ({ inertia })=>{
 router.get('/info', ({ inertia })=>{
   return inertia.render('info')
 })
+
+router.get('/festival', ({ inertia })=>{
+  return inertia.render('festival')
+})
