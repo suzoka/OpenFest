@@ -21,7 +21,7 @@ const UserHero = () => {
     return (
         <section className={styles.userHero}>
             <div className={styles.userHero__info}>
-                <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.userHero__avatar} />
+                <img src={user?.avatar?.url || '/images/user/rock_en_seine.jpg'} alt="" className={styles.userHero__avatar} />
                 <div className={styles.userHero__infoRight}>
                     <div className={styles.userHero__infoRightHeader}>
                         <Heading as="h1" className={styles.userHero__title}>
@@ -60,7 +60,7 @@ const UserHero = () => {
                 </div>
             </div>
             <div className={styles.userHero__buttons}>
-                <Button as="link" href='#' type="secondary" variant="only" color="violet" title="paramètres">
+                <Button as="link" href='/mon-compte' type="secondary" variant="only" color="violet" title="paramètres">
                     <Gear size={24} />
                 </Button>
                 <Button as="link" href='/deconnection' method='POST' type="secondary" variant="right" color="red" >

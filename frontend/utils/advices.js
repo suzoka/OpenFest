@@ -18,10 +18,10 @@ export const saveAdvice = async (setSaved, saved, id) => {
     setSaved(!saved)
   }
 
-  const reloadedData = ['user']
+  const reloadedData = ['user', 'steps']
 
   if (!saved) {
-    reloadedData.push('steps', 'advices')
+    reloadedData.push('advices')
   }
 
   router.reload({ only: reloadedData })
@@ -43,5 +43,5 @@ export const checkAdvice = async (setChecked, checked, id) => {
     setChecked(!checked)
   }
 
-  router.reload({ only: ['user'] })
+  router.reload({ only: ['user', 'steps'] })
 }

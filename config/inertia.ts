@@ -27,6 +27,7 @@ const inertiaConfig = defineConfig({
 
         const { selectedAdvices, ...userFiltered } = serializedUser
 
+
         user = {
           ...userFiltered,
           adviceSavedCount,

@@ -101,13 +101,13 @@ const Header = () => {
                             <div className={styles.userMenuName}>
                                 <p className={styles.userName}>{user?.name}</p>
                                 <p className="small">Festival de {user?.festivalType?.name || "musique"}</p>
-                                <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
+                                <img src={user?.avatar?.url || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
                             </div>
                         ) :
                             (
                                 <Button method='POST' type="secondary" className={`${styles.headerBtn} ${styles.userBtn}`} onClick={() => setUserMenuOpen(true)}>
                                     {user?.name}
-                                    <img src={user?.avatar || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
+                                    <img src={user?.avatar?.url || '/images/user/rock_en_seine.jpg'} alt="" className={styles.profilPic} />
                                 </Button>
                             )
                         }
