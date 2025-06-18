@@ -25,6 +25,9 @@ router.group(() => {
 
   router.get('/mon-espace/tous', '#controllers/userController.advices').as('user.advices')
   router.get('/mon-espace/etapes/:step', '#controllers/userController.advicesByStep').as('user.advicesByStep')
+
+  router.get('/mon-compte', '#controllers/userController.edit').as('user.edit')
+  router.put('/mon-compte', '#controllers/userController.update').as('user.update')
 }).use(middleware.auth())
 
 router.group(() => {

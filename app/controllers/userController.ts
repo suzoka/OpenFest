@@ -2,10 +2,31 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Advice from '#models/advice'
 import { adviceCategoryOptions, AdviceCategory } from '#models/advice'
 import User from '#models/user'
+import { attachmentManager } from '@jrmc/adonis-attachment'
 
 const adviceCategoryValues = Object.values(AdviceCategory)
 
 export default class UserController {
+  async edit({ inertia }: HttpContext) {
+
+    return inertia.render('user/edit')
+  }
+
+  async update({ request, response, auth }: HttpContext) {
+    await auth.check()
+
+    const user = auth.use('web').user as User
+    const data = request.only(['name', 'email'])
+    const avatar = request.file('avatar')!
+
+    user.merge(data)
+    user.avatar = await attachmentManager.createFromFile(avatar)
+
+    await user.save()
+
+    return response.redirect().toRoute('user.edit')
+  }
+
   async advicesByStep({ inertia, params, auth }: HttpContext) {
     await auth.check()
 
