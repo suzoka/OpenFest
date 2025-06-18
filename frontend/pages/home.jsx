@@ -7,6 +7,8 @@ import Partners from '@/Partners/Partners.jsx';
 import Separator from '@/Separator/Separator';
 
 import styles from '../css/pages/_homepage.module.scss';
+import StepPin from '../components/StepPin/StepPin';
+import Thread from '../components/Thread/Thread';
 
 export default function Home({ user }) {
   return (
@@ -36,14 +38,14 @@ export default function Home({ user }) {
                     C’est pour toutes les raisons énoncées précédemment, que nous avons créé la solution OpenFest. Elle pourra être utile autant aux personnes en situation de handicap qu’à vous, pour rendre les festivals plus accessibles à toutes et tous.
                   </p>
                 </div>
-                <Button as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
+                <Button cta as="link" href="/info" color="violet" type="primary" variant="text"> Découvrir la démarche </Button>
               </div>
               <img src="/images/hellfest.jpg" alt="Image d'illustration" className={styles.intro_image} />
             </div>
             <div className={styles.stats}>
               <Stats title="Personnes en situation de handicap en France" color="violet" number={12} suffix="millions" />
               <Stats title="Personnes sera un jour en situation de handicap" color="yellow" number={1} suffix="sur2" />
-              <Stats title="Festivals en France chaque années" color="red" number={6} suffix="kPlus"/>
+              <Stats title="Festivals en France chaque années" color="red" number={6} suffix="kPlus" />
             </div>
           </div>
         </section>
@@ -53,15 +55,13 @@ export default function Home({ user }) {
               <Heading as="h2" className={styles.thread_title}>Agir pas à pas</Heading>
               <p>Rendre un festival accessible, ça commence dès le premier pas. Suivez le parcours d’un·e festivalier·ère pour savoir où, quand et comment agir.</p>
             </div>
-            <Link href="/conseils/etapes/1" className={styles.thread_image_link}>
-              <img src="/images/thread.png" alt="Faut développer ça la team" className={styles.thread_image} />
-            </Link>
+            <Thread />
             <div className={styles.thread_buttons}>
-              <Button as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
-              { user ? (
-                <Button as="link" href="/mon-espace/etapes/1" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
+              <Button cta as="link" href="/conseils/etapes/1" color="red" type="primary" variant="right"> Explorer nos conseils <RocketLaunch size={24} /> </Button>
+              {user ? (
+                <Button cta as="link" href="/mon-espace/etapes/1" color="violet" type="secondary" variant="text"> Accéder à mon espace festival </Button>
               ) : (
-                <Button as="link" href="/registration" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
+                <Button cta as="link" href="/registration" color="violet" type="secondary" variant="text"> Créer un compte festival </Button>
               )}
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Home({ user }) {
                   </div>
                   <p>Professionnels, concernés, organisateurs : nos podcasts donnent la parole à celles et ceux qui rendent la culture plus inclusive.</p>
                 </div>
-                <Button as="link" href="/info#podcast" color="violet" type="primary" variant="left"> <Headphones size={24} />  Écouter le podcast </Button>
+                <Button cta as="link" href="/info#podcast" color="violet" type="primary" variant="left"> <Headphones size={24} />  Écouter le podcast </Button>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function Home({ user }) {
                 description="Ministère en charge de la culture et des arts."
               />
             </div>
-            <Button as="link" href="/info#equipe" color="red" type="secondary" variant="text"> En savoir plus sur l’équipe </Button>
+            <Button cta as="link" href="/info#equipe" color="red" type="secondary" variant="text"> En savoir plus sur l’équipe </Button>
           </div>
         </section>
       </main>

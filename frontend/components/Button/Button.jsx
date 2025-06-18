@@ -33,6 +33,8 @@ const Button = ({
     href,
     color = "violet",
     type = "primary",
+    role = "action",
+    cta,
     className = "",
     children,
     ...rest
@@ -53,7 +55,7 @@ const Button = ({
         red : styles.btn__red,
         yellow : styles.btn__yellow,
     }
-    const classStyle = `${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${styles.btn} ${className}`;
+    const classStyle = `${styles.btn} ${cta ? styles.cta : ""} ${typeClass[type]} ${colorClass[color]} ${variantClass[variant]} ${className}`;
 
     if (as === "a" && href) {
         return (

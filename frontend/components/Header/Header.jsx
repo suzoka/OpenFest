@@ -3,7 +3,6 @@ import styles from './Header.module.scss'
 import { Link, usePage } from '@inertiajs/react'
 import Button from '../Button/Button'
 import { FlagBannerFold, SignOut } from '@phosphor-icons/react'
-import Label from '../Label/Label'
 import UserProgressTag from '../UserProgressTag/UserProgressTag'
 
 const Header = () => {
@@ -39,6 +38,11 @@ const Header = () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [userMenuOpen])
+
+    useEffect(() => {
+        // Ferme le menu utilisateur si l'utilisateur navigue vers une autre page
+        setUserMenuOpen(false)
+    }, [url])
 
     return (
         <header className={`${styles.header} ${scroll > 10 || url === '/' ? styles.onscroll : ''}`}>

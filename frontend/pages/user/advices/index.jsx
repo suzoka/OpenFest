@@ -1,10 +1,11 @@
 import { Head, Link } from '@inertiajs/react'
-import AdvicesCard from '@/AdvicesCard/AdvicesCard'
+import AdvicesRow from '@/AdvicesRow/AdvicesRow'
 import styles from '../../../css/pages/_advices.module.scss';
 import SwitchAdvices from '@/SwitchAdvices/SwitchAdvices';
 import UserHero from "@/UserHero/UserHero";
 import UserProgressTag from '../../../components/UserProgressTag/UserProgressTag';
 import Heading from '@/Heading/Heading';
+import AddAdvicesBtn from '../../../components/AddAdvicesBtn/AddAdvicesBtn';
 
 export default function All({ advices }) {
 
@@ -21,10 +22,13 @@ export default function All({ advices }) {
                         <div className={styles.verticalSeparator}></div>
                         <SwitchAdvices current="all" page="user" />
                     </div>
-                    <ul className={styles.advices__list}>
+                    <ul className={`${styles.advices__list} ${styles.user}`}>
                         {advices?.map((advice, index) => (
-                            <AdvicesCard key={`conseil${advice.id}`} data={advice} />
+                            <AdvicesRow key={`conseil${advice.id}`} data={advice} variant="all"/>
                         ))}
+                        <li>
+                            <AddAdvicesBtn />
+                        </li>
                     </ul>
                 </div>
             </main>

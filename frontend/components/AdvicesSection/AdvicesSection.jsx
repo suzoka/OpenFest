@@ -5,6 +5,8 @@ import { usePage } from "@inertiajs/react";
 import AdvicesAside from "../AdvicesAside/AdvicesAside";
 import UserProgressTag from "../UserProgressTag/UserProgressTag";
 import Heading from "@/Heading/Heading";
+import AddAdvicesBtn from "../AddAdvicesBtn/AddAdvicesBtn";
+import AdvicesRow from "../AdvicesRow/AdvicesRow";
 
 
 const AdvicesSection = ({ stepUrl, page }) => {
@@ -18,7 +20,7 @@ const AdvicesSection = ({ stepUrl, page }) => {
       {page === "user" && <Heading as="h2" className={styles.user__h2}>Conseils enregistrés</Heading>}
       <AdvicesAside steps={steps} stepUrl={stepUrl} page={page} />
       <div className={styles.advices__right}>
-        <div className={styles.advices__right_Header}>
+        <div className={`${styles.advices__right_Header}  ${page === "user" ? styles.user : ""}`}>
           {
             page === "user" ? (
               <UserProgressTag checkedCount={currentStep?.checked} savedCount={currentStep?.count} />
@@ -29,10 +31,19 @@ const AdvicesSection = ({ stepUrl, page }) => {
           <div className={styles.verticalSeparator}></div>
           <SwitchAdvices current="step" page={page} />
         </div>
-        <ul className={styles.advices__list}>
+        <ul className={`${styles.advices__list} ${page === "user" ? styles.user : ""}`}>
           {advices.map((advice) => (
-            <AdvicesCard key={`conseil${advice.id}`} data={advice} />
+            page === "user" ?
+              <AdvicesRow key={`conseil${advice.id}`} data={advice} />
+              :
+              <AdvicesCard key={`conseil${advice.id}`} data={advice} />
           ))}
+
+          {page === "user" && (
+            <li>
+              <AddAdvicesBtn step={currentStepID + 1} />
+            </li>
+          )}
         </ul>
       </div>
     </main>

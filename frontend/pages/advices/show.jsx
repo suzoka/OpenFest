@@ -1,15 +1,15 @@
-import { Head } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 import styles from '../../css/pages/_conseil.module.scss'
 import Heading from '@/Heading/Heading.jsx'
-import { ArrowUUpLeft, Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
+import { Ticket, Selection, BookmarkSimple, Share, RocketLaunch, CheckSquare, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House } from '@phosphor-icons/react'
 const icons = { Ticket, TrainSimple, FlagBannerFold, MapTrifold, ToiletPaper, ForkKnife, MapPinArea, Confetti, Bed, House }
-
 import Label from '@/Label/Label.jsx'
 import Button from '@/Button/Button.jsx'
 import AdviceCard from '@/AdvicesCard/AdvicesCard.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { saveAdvice, checkAdvice } from "#/advices"
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn'
+import AdvicesStickyHeader from '../../components/AdvicesStickyHeader/AdvicesStickyHeader'
 
 export default function Home({ advice, user }) {
   const [checked, setChecked] = useState(advice?.isSelected?.length > 0 && advice?.isSelected[0]?.isChecked);
@@ -23,8 +23,7 @@ export default function Home({ advice, user }) {
       setSummary([]);
       const headings = contentRef.current.querySelectorAll('h2');
       headings.forEach((heading) => {
-        const id = heading.textContent.toLowerCase().replace(/\s+/g, '-');
-        heading.id = id;
+        const id = heading.id;
         const summaryObject = {
           id: id,
           text: heading.textContent
@@ -37,71 +36,107 @@ export default function Home({ advice, user }) {
   return (
     <>
       <Head title={advice?.title} />
-      <section className={styles.hero}>
-        <div className={styles.heroLeft}>
-          <ReturnBtn />
-          <Heading as="h1" variant="h1" className={styles.heroTitle}>
-            {advice?.title}
-          </Heading>
-          <p>{advice?.description}</p>
+
+      <AdvicesStickyHeader title={advice?.title} checked={checked && saved ? true : false}>
+        <div className={styles.action_container}>
+          <Share size={32} />
+          {user && (
+            <div className={styles.action_buttons}>
+              {saved ? (
+                <>
+                  <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                    {
+                      checked ? (
+                        <CheckSquare size={24} weight="fill" />
+                      ) : (
+                        <Selection size={24} />
+                      )
+                    }
+                  </Button>
+                  <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                    <BookmarkSimple weight='fill' size={24} />
+                    Supprimer
+                  </Button>
+                </>
+              ) : (
+                <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                  <BookmarkSimple size={24} />
+                  Enregistrer
+                </Button>
+              )}
+            </div>
+          )}
         </div>
-        <div className={styles.heroRight}>
-          <Icon size={424} className={styles.step_icon_large} />
-          <div className={styles.step_tags}>
-            <div className={styles.step_container}>
-              <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
-              <span className={styles.step_logo}><Icon size={20} /></span>
-            </div>
-            <div className={styles.tag_container}>
-              {/* Tag type d'handicap */}
-              <div>
-                {advice.forPmr && <Label color="violet">PMR</Label>}
-                {advice.forCimp && <Label color="red">CIMP</Label>}
-                {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
-              </div>
-              {/* Tag supplémentaire */}
-              <div>
-                {advice?.tags.map((tag, index) => (
-                  <Label key={index} color="blue">{tag.title}</Label>
-                ))}
-              </div>
-            </div>
+      </AdvicesStickyHeader>
+
+      <section className={styles.hero}>
+        <div className={styles.heroWrapper}>
+          <div className={styles.heroLeft}>
+            <ReturnBtn />
+            <Heading as="h1" variant="h1" className={styles.heroTitle}>
+              {advice?.title}
+            </Heading>
+            <p>{advice?.description}</p>
           </div>
-
-          <div className={styles.action_container}>
-
-            <Share size={32} />
-            {user && (
-              <div className={styles.action_buttons}>
-
-                {
-                  saved ? (
-                    <>
-                      <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
-                        {
-                          checked ? (
-                            <CheckSquare size={24} weight="fill" />
-                          ) : (
-                            <Selection size={24} />
-                          )
-                        }
-                      </Button>
-                      <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                        <BookmarkSimple weight='fill' size={24} />
-                        Supprimer
-                      </Button>
-                    </>
-                  ) : (
-                    <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
-                      <BookmarkSimple size={24} />
-                      Enregistrer
-                    </Button>
-                  )
-                }
+          <div className={styles.heroRight}>
+            <Icon size={424} className={styles.step_icon_large} />
+            <div className={styles.step_tags}>
+              <Link className={styles.step_container} href={`/conseils/etapes/${advice.categoryData.index}`}>
+                <p className={`bold ${styles.step_name}`}><span>{advice.categoryData.index.toString().padStart(2, '0')}</span>{advice.categoryData.label}</p>
+                <span className={styles.step_logo}><Icon size={20} /></span>
+              </Link>
+              <div className={styles.tag_container}>
+                {/* Tag type d'handicap */}
+                <div>
+                  {advice.forPmr && <Label color="violet">PMR</Label>}
+                  {advice.forCimp && <Label color="red">CIMP</Label>}
+                  {advice.forDs && <Label color="yellow">Handicaps sensoriels</Label>}
+                </div>
+                {/* Tag supplémentaire */}
+                <div>
+                  {advice?.tags.map((tag, index) => (
+                    <Label key={index} color="blue">{tag.title}</Label>
+                  ))}
+                </div>
               </div>
-            )}
+
+            </div>
+
+            <div className={styles.action_container}>
+
+              <Share size={32} />
+              {user && (
+                <div className={styles.action_buttons}>
+
+                  {
+                    saved ? (
+                      <>
+                        <Button as="button" variant="only" type="secondary" onClick={() => checkAdvice(setChecked, !checked, advice.id)}>
+                          {
+                            checked ? (
+                              <CheckSquare size={24} weight="fill" />
+                            ) : (
+                              <Selection size={24} />
+                            )
+                          }
+                        </Button>
+                        <Button className={styles.save_Btn} type="secondary" color="red" variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                          <BookmarkSimple weight='fill' size={24} />
+                          Supprimer
+                        </Button>
+                      </>
+                    ) : (
+                      <Button className={styles.save_Btn} variant="left" onClick={() => saveAdvice(setSaved, !saved, advice.id)}>
+                        <BookmarkSimple size={24} />
+                        Enregistrer
+                      </Button>
+                    )
+                  }
+                </div>
+              )}
+            </div>
+            {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
           </div>
-          {/* <p><strong>Étape :</strong> {advice?.category}</p> */}
         </div>
       </section>
       <main id="main">
@@ -136,7 +171,7 @@ export default function Home({ advice, user }) {
               ))}
             </div>
 
-            <Button as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
+            <Button cta as="link" href="/conseils" color="red" type="primary" variant="right"> Explorer les autres conseils <RocketLaunch size={24} /> </Button>
           </div>
         </section>
       </main>

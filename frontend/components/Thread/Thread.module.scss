@@ -1,0 +1,70 @@
+.thread__object {
+    background: url("/images/decoration/thread.svg") no-repeat bottom center;
+    background-size: contain;
+    aspect-ratio: 1000 / 327;
+    width: 100%;
+    position: relative;
+
+    // Ligne haut
+    &> :nth-child(1) {
+        position: absolute;
+        bottom: 74.5%;
+        left: 5%;
+    }
+
+    &> :nth-child(2) {
+        position: absolute;
+        bottom: 74.5%;
+        left: 30%;
+    }
+
+    &> :nth-child(3) {
+        position: absolute;
+        bottom: 74.5%;
+        right: 40%;
+    }
+
+    &> :nth-child(4) {
+        position: absolute;
+        bottom: 74.5%;
+        right: 10%;
+    }
+
+    // Ligne centre
+    &> :nth-child(5) {
+        position: absolute;
+        bottom: 37.5%;
+        right: 25%;
+    }
+
+    &> :nth-child(6) {
+        position: absolute;
+        bottom: 37.5%;
+        right: 55%;
+    }
+
+    &> :nth-child(7) {
+        position: absolute;
+        bottom: 37.5%;
+        left: 10%;
+    }
+
+    // Ligne bas
+    &> :nth-child(8) {
+        position: absolute;
+        bottom: 1.5%;
+        left: 25%;
+    }
+
+    &> :nth-child(9) {
+        position: absolute;
+        bottom: 1.5%;
+        right: 40%;
+    }
+
+    &> :nth-child(10) {
+        position: absolute;
+        bottom: 1.5%;
+        right: 5%;
+    }
+}

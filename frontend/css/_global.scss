@@ -83,34 +83,59 @@
     }
 }
 
-.bold, .bold * {
+.bold,
+.bold * {
     font-family: Poppins_SemiBold;
 }
 
-.italic, .italic * {
+.italic,
+.italic * {
     font-style: italic;
 }
 
-.small, .small * {
+.small,
+.small * {
     font-size: var(--size-font-paragraph-p-small);
 }
 
-.micro, .micro * {
+.micro,
+.micro * {
     font-size: var(--size-font-paragraph-p-micro);
 }
 
-.p-large, .p-large * {
+.p-large,
+.p-large * {
     font-family: Poppins_Bold;
     font-size: var(--size-font-paragraph-p-bis);
 }
 
-.subtitle, .subtitle * {
+.subtitle,
+.subtitle * {
     font-size: var(--size-font-title-h6);
 }
 
-.masked-element {
-    position: absolute;
-    width: 0%;
-    height: 0%;
-    opacity: 0;
+.masked-element,
+.masked-element-focusable:not(:focus, :focus-within) {
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.masked-element:not(caption),
+.masked-element-focusable:not(caption):not(:focus, :focus-within){
+    position: absolute !important;
+}
+
+.masked-element *,
+.masked-element-focusable:not(:focus, :focus-within) * {
+    overflow: hidden !important;
+}
+
+.opacity {
+    opacity: 0.7;
 }

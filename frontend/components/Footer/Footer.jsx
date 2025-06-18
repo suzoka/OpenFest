@@ -3,7 +3,6 @@ import { Link } from '@inertiajs/react'
 import { InstagramLogo, YoutubeLogo, LinkedinLogo, TiktokLogo } from '@phosphor-icons/react'
 
 import Heading from '../Heading/Heading.jsx'
-import Button from '../Button/Button.jsx'
 
 import styles from './Footer.module.scss'
 import Separator from '../Separator/Separator.jsx'

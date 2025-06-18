@@ -1,0 +1,18 @@
+.addAdvicesBtn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sizing-xs);
+    color: var(--colors--neutral-900);
+    width: 100%;
+    background-color: var(--colors--neutral-100);
+    min-height: 56px;
+    border-radius: var(--sizing-sm);
+    padding: var(--sizing-2xs);
+
+    &:hover {
+        background-color: var(--colors--neutral-200);
+        text-decoration: none;
+    }
+}
