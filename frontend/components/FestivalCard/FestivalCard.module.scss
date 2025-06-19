@@ -1,0 +1,50 @@
+.festivalCard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--sizing-md);
+    width: 100%;
+    padding: var(--sizing-xs);
+    border-radius: var(--sizing-md);
+    background-color: var(--colors--neutral-100);
+    border: 1px solid var(--colors--primary-200);
+    list-style: none;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-xs);
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sizing-xs);
+    }
+
+    &__labelWrapper {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-3xs);
+        text-transform: capitalize;
+    }
+
+    &__img {
+        height: 64px;
+        width: 64px;
+        border-radius: var(--sizing-2xs);
+    }
+
+    &__title {
+        font-family: Poppins_Bold;
+        font-size: var(--size-font-title-h5);
+    }
+
+    &__location {
+        display: flex;
+        align-items: center;
+        gap: var(--sizing-3xs);
+    }
+}
