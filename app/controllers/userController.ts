@@ -20,7 +20,10 @@ export default class UserController {
     const avatar = request.file('avatar')!
 
     user.merge(data)
-    user.avatar = await attachmentManager.createFromFile(avatar)
+
+    if (avatar) {
+      user.avatar = await attachmentManager.createFromFile(avatar)
+    }
 
     await user.save()
 

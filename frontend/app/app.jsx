@@ -12,13 +12,15 @@ const appName = import.meta.env.VITE_APP_NAME || 'AdonisJS'
 createInertiaApp({
   progress: { color: '#8E42E0' },
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) => {
-  const pages = import.meta.glob('../pages/**/*.jsx', { eager: true })
-  const page = pages[`../pages/${name}.jsx`]
-  if (!page) throw new Error(`Page not found: ${name}`)
-  page.default.layout = page.default.layout || (page => <DefaultLayout children={page} />)
-  return page
-},
+  resolve: async (name) => {
+    const pages = import.meta.glob('../pages/**/*.jsx')
+    const importer = pages[`../pages/${name}.jsx`]
+
+    const page = await importer()
+
+    page.default.layout = page.default.layout || (page => <DefaultLayout children={page} />)
+    return page
+  },
   setup({ el, App, props }) {
     hydrateRoot(el, <App {...props} />)
   },
