@@ -13,8 +13,8 @@ const inertiaConfig = defineConfig({
   sharedData: {
     errors: (ctx) => ctx.inertia.always(() => ctx.session?.flashMessages.get('errors')),
     user: (ctx) => ctx.inertia.always(async () => {
-      await ctx.auth.check()
-      let user: any = ctx.auth.use('web')?.user
+      await ctx.auth?.check()
+      let user: any = ctx.auth?.use('web')?.user
 
       if (user) {
         await user.load('festivalType')
