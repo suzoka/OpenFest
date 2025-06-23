@@ -74,16 +74,16 @@ const Header = () => {
                     <li>
                         <Link href="/info" className={`${styles.navLink} ${url.startsWith('/info') ? styles.active : ''}`}>Démarche</Link>
                     </li>
-                    <li>
-                        <Link href="/festival" className={`${styles.navLink} ${url.startsWith('/festival') ? styles.active : ''}`}>Les festivals accessibles</Link>
-                    </li>
-                    {
-                        user?.role === 'admin' && (
-                            <li>
-                                <Link href="/tests" className={`${styles.navLink} ${url.startsWith('/tests') ? styles.active : ''}`}>[dev] Styles Guides</Link>
-                            </li>
-                        )
-                    }
+                      { user?.role === 'admin' && (
+                        <>
+                          <li>
+                              <Link href="/festival" className={`${styles.navLink} ${url.startsWith('/festival') ? styles.active : ''}`}>Les festivals accessibles</Link>
+                          </li>
+                          <li>
+                              <Link href="/tests" className={`${styles.navLink} ${url.startsWith('/tests') ? styles.active : ''}`}>[dev] Styles Guides</Link>
+                          </li>
+                        </>
+                      )}
                 </ul>
             </nav>
 

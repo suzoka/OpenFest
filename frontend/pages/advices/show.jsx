@@ -162,7 +162,7 @@ export default function Home({ advice, user }) {
           <div className="max-width">
             <div className={styles.similarRules_Text}>
               <Heading as="h2" variant="h2">Règles similaires</Heading>
-              <p> Lorem ipsum dolor Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra finibus nibh vitae placerat. In hac habitasse platea dictumst. Duis ut finibus purus. </p>
+              <p>Retrouvez d'autres conseils en lien avec celui que vous venez de lire</p>
             </div>
 
             <div className={styles.similarRules_Cards}>

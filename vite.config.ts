@@ -21,4 +21,9 @@ export default defineConfig({
       "#validators/": `${getDirname(import.meta.url)}/app/validators/`
     },
   },
+
+  server: {
+    host: true,
+    allowedHosts: ['openfest.shaikeerr.fr', 'localhost'],
+  },
 })

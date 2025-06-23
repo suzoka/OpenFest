@@ -14,7 +14,7 @@ const AuthForm = ({ errors, mode = 'login' }) => {
   const form = useForm({
     email: '',
     password: '',
-    ...(isLogin ? {} : { password_confirmation: '' }),
+    ...(isLogin ? {} : { password_confirmation: '', name: '' }),
   });
   const isPasswordValid = (password) => {
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{4,}$/.test(password)
@@ -67,6 +67,23 @@ const AuthForm = ({ errors, mode = 'login' }) => {
             />
             {errors?.email && <div className={styles.authForm__error}>{errors.email}</div>}
           </div>
+
+          {/* Nom */}
+          {!isLogin && ( <div className={styles.authForm__inputWrapper}>
+            <label htmlFor="name" className="bold">
+              Nom du festival
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={form.data.name}
+              onChange={handleChange('name')}
+              className={styles.authForm__input}
+              placeholder='Rock en Seine'
+            />
+            {errors?.name && <div className={styles.authForm__error}>{errors.name}</div>}
+          </div> )}
 
           {/* Password */}
           <div className={styles.authForm__inputWrapper}>
